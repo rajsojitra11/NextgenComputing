@@ -13,6 +13,7 @@ import SiteFooter from "./components/layout/SiteFooter";
 import FloatingWhatsApp from "./components/layout/FloatingWhatsApp";
 import About from "./pages/About";
 import Placeholder from "./pages/Placeholder";
+import Products from "./pages/Products";
 
 const queryClient = new QueryClient();
 
