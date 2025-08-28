@@ -6,7 +6,7 @@ type Props = {
 };
 
 export default function ProductCard({ name, brand, price, image }: Props) {
-  const wa = `https://wa.me/15551234567?text=${encodeURIComponent(
+  const wa = `https://wa.me/918469283448?text=${encodeURIComponent(
     `Hi Nextgen Computing, I'm interested in buying ${name} by ${brand} for $${price}.`
   )}`;
 
