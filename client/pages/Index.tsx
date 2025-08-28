@@ -46,18 +46,18 @@ export default function Index() {
 
         <div className="container relative py-28 md:py-36">
           <div className="max-w-4xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-blue-300/40 bg-white/50 dark:bg-white/10 backdrop-blur px-3 py-1 text-xs font-medium text-blue-900 dark:text-white">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur px-3 py-1 text-xs font-medium text-white">
               ⚡ Fast repairs • 🔒 Trusted service • 💻 Quality products
             </span>
-            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight animate-fade-in">
+            <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight animate-fade-in text-white">
               Nextgen Computing — Your Trusted Partner in Technology
             </h1>
-            <p className="mt-5 text-lg text-slate-700 max-w-2xl animate-slide-up" style={{animationDelay:'0.1s'}}>
+            <p className="mt-5 text-lg text-slate-200 max-w-2xl animate-slide-up" style={{animationDelay:'0.1s'}}>
               Premium laptops, monitors and pro repairs. Smooth, reliable and performance‑ready for work or play.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link to="/products" className="btn-primary animate-slide-up" style={{animationDelay:'0.15s'}}>Shop Now</Link>
-              <Link to="/contact" className="btn-outline animate-slide-up" style={{animationDelay:'0.2s'}}>Book Repair Service</Link>
+              <Link to="/contact" className="btn-outline animate-slide-up text-white border-white/30 hover:bg-white/10" style={{animationDelay:'0.2s'}}>Book Repair Service</Link>
             </div>
 
             {/* quick categories */}
