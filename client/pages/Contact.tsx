@@ -46,21 +46,27 @@ export default function Contact() {
                 <Phone className="h-5 w-5 text-blue-600 mt-0.5" />
                 <div>
                   <dt className="text-sm font-semibold">Phone</dt>
-                  <dd className="text-slate-700">+91 8469283448</dd>
+                  <dd className="text-slate-700">
+                    <a href="tel:+918469283448" className="font-medium text-slate-900 hover:text-blue-700">+91 8469283448</a>
+                  </dd>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-blue-600 mt-0.5" />
                 <div>
                   <dt className="text-sm font-semibold">Email</dt>
-                  <dd className="text-slate-700">hello@nextgencomputing.co</dd>
+                  <dd className="text-slate-700 break-words">
+                    <a href="mailto:hello@nextgencomputing.co" className="font-medium text-slate-900 hover:text-blue-700">hello@nextgencomputing.co</a>
+                  </dd>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-blue-600 mt-0.5" />
                 <div>
                   <dt className="text-sm font-semibold">Address</dt>
-                  <dd className="text-slate-700">123 Tech Ave, Innovation City</dd>
+                  <dd className="text-slate-700 break-words">
+                    <address className="not-italic font-medium text-slate-900">123 Tech Ave, Innovation City</address>
+                  </dd>
                 </div>
               </div>
             </dl>
