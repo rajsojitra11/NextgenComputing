@@ -41,30 +41,30 @@ export default function Contact() {
         {/* Left: Info + Map */}
         <div className="space-y-6">
           <div className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6">
-            <dl className="grid sm:grid-cols-3 gap-6">
+            <dl className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
-                <Phone className="h-5 w-5 text-blue-600 mt-0.5" />
+                <Phone className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
                 <div>
-                  <dt className="text-sm font-semibold">Phone</dt>
-                  <dd className="text-slate-700">
+                  <dt className="text-sm font-semibold leading-tight">Phone</dt>
+                  <dd className="ml-0 text-slate-700 leading-snug">
                     <a href="tel:+918469283448" className="font-medium text-slate-900 hover:text-blue-700">+91 8469283448</a>
                   </dd>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <Mail className="h-5 w-5 text-blue-600 mt-0.5" />
+                <Mail className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
                 <div>
-                  <dt className="text-sm font-semibold">Email</dt>
-                  <dd className="text-slate-700 break-words">
+                  <dt className="text-sm font-semibold leading-tight">Email</dt>
+                  <dd className="ml-0 text-slate-700 break-all leading-snug">
                     <a href="mailto:hello@nextgencomputing.co" className="font-medium text-slate-900 hover:text-blue-700">hello@nextgencomputing.co</a>
                   </dd>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-blue-600 mt-0.5" />
+                <MapPin className="h-5 w-5 text-blue-600 mt-0.5 shrink-0" />
                 <div>
-                  <dt className="text-sm font-semibold">Address</dt>
-                  <dd className="text-slate-700 break-words">
+                  <dt className="text-sm font-semibold leading-tight">Address</dt>
+                  <dd className="ml-0 text-slate-700 leading-snug">
                     <address className="not-italic font-medium text-slate-900">123 Tech Ave, Innovation City</address>
                   </dd>
                 </div>
