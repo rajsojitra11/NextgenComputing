@@ -29,7 +29,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/about" element={<About />} />
-              <Route path="/products" element={<Placeholder title="Products" description="Browse our computers, laptops, and accessories. Ask me to flesh out the Products page to add a full grid with pricing, filters, and buy buttons." />} />
+              <Route path="/products" element={<Products />} />
               <Route path="/services" element={<Placeholder title="Services" description="Repairing, maintenance, and upgrade services with online booking." />} />
               <Route path="/testimonials" element={<Placeholder title="Testimonials" description="Customer reviews with photos and star ratings in a carousel." />} />
               <Route path="/contact" element={<Placeholder title="Contact" description="Map, phone, WhatsApp, and animated contact form." />} />
