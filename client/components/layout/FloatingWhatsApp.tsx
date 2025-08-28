@@ -4,10 +4,10 @@ export default function FloatingWhatsApp() {
       href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20—%20I%20need%20help%20with..."
       target="_blank"
       rel="noreferrer"
-      className="fixed inline-flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5 z-[999] h-12 w-12 md:h-14 md:w-14"
+      className="fixed inline-flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5 z-[99999] h-12 w-12 md:h-14 md:w-14"
       style={{
-        right: "max(env(safe-area-inset-right, 0px), 1rem)",
-        bottom: "max(env(safe-area-inset-bottom, 0px), 1rem)",
+        right: "calc(env(safe-area-inset-right, 0px) + 16px)",
+        bottom: "calc(env(safe-area-inset-bottom, 0px) + 18px)",
       }}
       aria-label="Chat on WhatsApp"
     >
