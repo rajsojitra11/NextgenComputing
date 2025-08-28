@@ -14,6 +14,7 @@ import FloatingWhatsApp from "./components/layout/FloatingWhatsApp";
 import About from "./pages/About";
 import Placeholder from "./pages/Placeholder";
 import Products from "./pages/Products";
+import Testimonials from "./pages/Testimonials";
 
 const queryClient = new QueryClient();
 
