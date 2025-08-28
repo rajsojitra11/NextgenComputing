@@ -4,10 +4,14 @@ export default function FloatingWhatsApp() {
       href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20—%20I%20need%20help%20with..."
       target="_blank"
       rel="noreferrer"
-      className="fixed bottom-5 right-5 z-50 inline-flex items-center justify-center h-14 w-14 rounded-full bg-[#25D366] text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5"
+      className="fixed inline-flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5 z-[999] h-12 w-12 md:h-14 md:w-14"
+      style={{
+        right: "max(env(safe-area-inset-right, 0px), 1rem)",
+        bottom: "max(env(safe-area-inset-bottom, 0px), 1rem)",
+      }}
       aria-label="Chat on WhatsApp"
     >
-      <svg viewBox="0 0 32 32" fill="currentColor" className="h-7 w-7">
+      <svg viewBox="0 0 32 32" fill="currentColor" className="h-6 w-6 md:h-7 md:w-7">
         <path d="M19.11 17.33c-.27-.14-1.58-.78-1.82-.87-.24-.09-.42-.14-.6.14-.18.27-.69.87-.84 1.05-.15.18-.31.2-.58.07-.27-.14-1.14-.42-2.18-1.34-.8-.71-1.34-1.59-1.5-1.86-.15-.27-.02-.41.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.04-.34-.02-.47-.07-.14-.6-1.43-.82-1.96-.22-.53-.44-.45-.6-.46-.16-.01-.34-.01-.52-.01-.18 0-.47.07-.72.34-.24.27-.94.92-.94 2.25s.96 2.62 1.1 2.8c.14.18 1.89 2.88 4.58 4.04.64.28 1.13.45 1.52.58.64.2 1.22.17 1.68.1.51-.08 1.58-.65 1.81-1.28.22-.63.22-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
         <path d="M16 3C9.38 3 4 8.38 4 15c0 2.64.89 5.08 2.39 7.03L5 29l7.17-1.88C13.99 27.7 14.99 28 16 28c6.62 0 12-5.38 12-12S22.62 3 16 3zm0 22.86c-.95 0-1.87-.19-2.74-.56l-.2-.09-3.98 1.04 1.06-3.88-.1-.2A9.83 9.83 0 0 1 6.14 15C6.14 9.88 10.88 5.14 16 5.14S25.86 9.88 25.86 15 21.12 25.86 16 25.86z"/>
       </svg>
