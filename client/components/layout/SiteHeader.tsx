@@ -51,7 +51,7 @@ export default function SiteHeader() {
               </span>
             </NavLink>
           ))}
-          <Link to="/contact" className="btn-primary hidden lg:inline-flex">Book Repair</Link>
+          <a href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20service" target="_blank" rel="noreferrer" className="btn-primary hidden lg:inline-flex">Book Repair</a>
         </div>
 
         <div className="md:hidden">
@@ -63,7 +63,7 @@ export default function SiteHeader() {
                   {n.label}
                 </NavLink>
               ))}
-              <Link to="/contact" className="btn-primary w-full">Book Repair</Link>
+              <a href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20service" target="_blank" rel="noreferrer" className="btn-primary w-full">Book Repair</a>
             </div>
           </details>
         </div>
