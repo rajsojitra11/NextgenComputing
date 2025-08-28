@@ -4,11 +4,7 @@ export default function FloatingWhatsApp() {
       href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20—%20I%20need%20help%20with..."
       target="_blank"
       rel="noreferrer"
-      className="fixed inline-flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5 z-[99999] h-12 w-12 md:h-14 md:w-14"
-      style={{
-        right: "calc(env(safe-area-inset-right, 0px) + 16px)",
-        bottom: "calc(env(safe-area-inset-bottom, 0px) + 18px)",
-      }}
+      className="safe-fixed inline-flex items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5 z-[99999] h-14 w-14 md:h-14 md:w-14"
       aria-label="Chat on WhatsApp"
     >
       <svg viewBox="0 0 32 32" fill="currentColor" className="h-6 w-6 md:h-7 md:w-7">
