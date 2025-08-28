@@ -15,6 +15,7 @@ import About from "./pages/About";
 import Placeholder from "./pages/Placeholder";
 import Products from "./pages/Products";
 import Testimonials from "./pages/Testimonials";
+import Services from "./pages/Services";
 
 const queryClient = new QueryClient();
 
