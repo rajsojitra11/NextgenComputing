@@ -9,42 +9,57 @@ interface Product {
 }
 
 const laptops: Product[] = [
-  { id: "l1", name: "MacBook Pro 14", brand: "Apple", price: 1999, image: "https://picsum.photos/id/180/800/600" },
-  { id: "l2", name: "XPS 13", brand: "Dell", price: 1299, image: "https://picsum.photos/id/0/800/600" },
-  { id: "l3", name: "Spectre x360", brand: "HP", price: 1399, image: "https://picsum.photos/id/1/800/600" },
-  { id: "l4", name: "ThinkPad X1 Carbon", brand: "Lenovo", price: 1499, image: "https://picsum.photos/id/10/800/600" },
-  { id: "l5", name: "ROG Zephyrus G14", brand: "ASUS", price: 1599, image: "https://picsum.photos/id/20/800/600" },
-  { id: "l6", name: "Swift 3", brand: "Acer", price: 899, image: "https://picsum.photos/id/30/800/600" },
-  { id: "l7", name: "Surface Laptop 5", brand: "Microsoft", price: 1299, image: "https://picsum.photos/id/40/800/600" },
-  { id: "l8", name: "Blade 15", brand: "Razer", price: 1999, image: "https://picsum.photos/id/50/800/600" },
-  { id: "l9", name: "Prestige 14", brand: "MSI", price: 1199, image: "https://picsum.photos/id/60/800/600" },
-  { id: "l10", name: "Galaxy Book3 Pro", brand: "Samsung", price: 1499, image: "https://picsum.photos/id/70/800/600" },
+  { id: "l1", name: "MacBook Pro 14", brand: "Apple", price: 1999, image: "https://images.pexels.com/photos/986772/pexels-photo-986772.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l2", name: "XPS 13", brand: "Dell", price: 1299, image: "https://images.pexels.com/photos/2473183/pexels-photo-2473183.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l3", name: "Spectre x360", brand: "HP", price: 1399, image: "https://images.pexels.com/photos/5474285/pexels-photo-5474285.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l4", name: "ThinkPad X1 Carbon", brand: "Lenovo", price: 1499, image: "https://images.pexels.com/photos/986774/pexels-photo-986774.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l5", name: "ROG Zephyrus G14", brand: "ASUS", price: 1599, image: "https://images.pexels.com/photos/2473183/pexels-photo-2473183.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l6", name: "Swift 3", brand: "Acer", price: 899, image: "https://images.pexels.com/photos/5908729/pexels-photo-5908729.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l7", name: "Surface Laptop 5", brand: "Microsoft", price: 1299, image: "https://images.pexels.com/photos/7222952/pexels-photo-7222952.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l8", name: "Blade 15", brand: "Razer", price: 1999, image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l9", name: "Prestige 14", brand: "MSI", price: 1199, image: "https://images.pexels.com/photos/6894013/pexels-photo-6894013.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l10", name: "Galaxy Book3 Pro", brand: "Samsung", price: 1499, image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=800" },
 ];
 
-const desktops: Product[] = [
-  { id: "d1", name: "Mac Studio", brand: "Apple", price: 1999, image: "https://picsum.photos/id/80/800/600" },
-  { id: "d2", name: "OptiPlex 7000", brand: "Dell", price: 1099, image: "https://picsum.photos/id/90/800/600" },
-  { id: "d3", name: "EliteDesk 800 G6", brand: "HP", price: 999, image: "https://picsum.photos/id/100/800/600" },
-  { id: "d4", name: "ThinkCentre M90", brand: "Lenovo", price: 949, image: "https://picsum.photos/id/110/800/600" },
-  { id: "d5", name: "ROG Strix G15", brand: "ASUS", price: 1499, image: "https://picsum.photos/id/120/800/600" },
-  { id: "d6", name: "Aspire TC", brand: "Acer", price: 699, image: "https://picsum.photos/id/130/800/600" },
-  { id: "d7", name: "NUC 13", brand: "Intel", price: 799, image: "https://picsum.photos/id/140/800/600" },
-  { id: "d8", name: "MAG Infinite", brand: "MSI", price: 1199, image: "https://picsum.photos/id/150/800/600" },
-  { id: "d9", name: "Aurora R15", brand: "Alienware", price: 2299, image: "https://picsum.photos/id/160/800/600" },
-  { id: "d10", name: "One i300", brand: "Corsair", price: 2499, image: "https://picsum.photos/id/170/800/600" },
-];
+// Removed desktops category per request
 
 const monitors: Product[] = [
-  { id: "m1", name: "UltraFine 5K", brand: "LG", price: 1299, image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m2", name: "Odyssey G7", brand: "Samsung", price: 699, image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m3", name: "UltraSharp U2720Q", brand: "Dell", price: 549, image: "https://images.pexels.com/photos/216192/pexels-photo-216192.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m4", name: "ProArt PA278QV", brand: "ASUS", price: 399, image: "https://images.pexels.com/photos/814181/pexels-photo-814181.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m5", name: "Nitro XV272U", brand: "Acer", price: 329, image: "https://images.pexels.com/photos/238118/pexels-photo-238118.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m6", name: "PD2700U", brand: "BenQ", price: 499, image: "https://images.pexels.com/photos/1714207/pexels-photo-1714207.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m7", name: "Z27 4K", brand: "HP", price: 449, image: "https://images.pexels.com/photos/3130810/pexels-photo-3130810.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m8", name: "Optix MAG274QRF", brand: "MSI", price: 399, image: "https://images.pexels.com/photos/4066041/pexels-photo-4066041.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m9", name: "24G2 144Hz", brand: "AOC", price: 199, image: "https://images.pexels.com/photos/374631/pexels-photo-374631.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "m10", name: "Momentum 279M1", brand: "Philips", price: 479, image: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m1", name: "UltraFine 5K", brand: "LG", price: 1299, image: "https://images.pexels.com/photos/28955771/pexels-photo-28955771.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m2", name: "Odyssey G7", brand: "Samsung", price: 699, image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m3", name: "UltraSharp U2720Q", brand: "Dell", price: 549, image: "https://images.pexels.com/photos/4064830/pexels-photo-4064830.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m4", name: "ProArt PA278QV", brand: "ASUS", price: 399, image: "https://images.pexels.com/photos/11382771/pexels-photo-11382771.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m5", name: "Nitro XV272U", brand: "Acer", price: 329, image: "https://images.pexels.com/photos/6177567/pexels-photo-6177567.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m6", name: "PD2700U", brand: "BenQ", price: 499, image: "https://images.pexels.com/photos/1714208/pexels-photo-1714208.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m7", name: "Z27 4K", brand: "HP", price: 449, image: "https://images.pexels.com/photos/11382771/pexels-photo-11382771.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m8", name: "Optix MAG274QRF", brand: "MSI", price: 399, image: "https://images.pexels.com/photos/28955771/pexels-photo-28955771.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m9", name: "24G2 144Hz", brand: "AOC", price: 199, image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "m10", name: "Momentum 279M1", brand: "Philips", price: 479, image: "https://images.pexels.com/photos/4064830/pexels-photo-4064830.jpeg?auto=compress&cs=tinysrgb&w=800" },
+];
+
+const keyboards: Product[] = [
+  { id: "k1", name: "Huntsman Mini", brand: "Razer", price: 119, image: "https://images.pexels.com/photos/671629/pexels-photo-671629.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k2", name: "K70 RGB", brand: "Corsair", price: 159, image: "https://images.pexels.com/photos/5380584/pexels-photo-5380584.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k3", name: "G915 TKL", brand: "Logitech", price: 229, image: "https://images.pexels.com/photos/8534244/pexels-photo-8534244.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k4", name: "Apex Pro", brand: "SteelSeries", price: 199, image: "https://images.pexels.com/photos/671629/pexels-photo-671629.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k5", name: "Alloy Origins", brand: "HyperX", price: 99, image: "https://images.pexels.com/photos/671629/pexels-photo-671629.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k6", name: "Magic Keyboard", brand: "Apple", price: 129, image: "https://images.pexels.com/photos/399161/pexels-photo-399161.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k7", name: "MX Keys", brand: "Logitech", price: 119, image: "https://images.pexels.com/photos/8534244/pexels-photo-8534244.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k8", name: "Viper 65%", brand: "Razer", price: 149, image: "https://images.pexels.com/photos/671629/pexels-photo-671629.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k9", name: "K380", brand: "Logitech", price: 39, image: "https://images.pexels.com/photos/399161/pexels-photo-399161.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "k10", name: "K2", brand: "Keychron", price: 89, image: "https://images.pexels.com/photos/5380584/pexels-photo-5380584.jpeg?auto=compress&cs=tinysrgb&w=800" },
+];
+
+const mice: Product[] = [
+  { id: "mm1", name: "G502 X", brand: "Logitech", price: 99, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm2", name: "Basilisk V3", brand: "Razer", price: 69, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm3", name: "MX Master 3S", brand: "Logitech", price: 129, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm4", name: "M720 Triathlon", brand: "Logitech", price: 59, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm5", name: "Magic Mouse 2", brand: "Apple", price: 99, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm6", name: "DeathAdder V2", brand: "Razer", price: 49, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm7", name: "M650", brand: "Logitech", price: 39, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm8", name: "Lift Vertical", brand: "Logitech", price: 79, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm9", name: "Viper 8K", brand: "Razer", price: 79, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm10", name: "Pebble M350", brand: "Logitech", price: 29, image: "https://images.pexels.com/photos/28779690/pexels-photo-28779690.jpeg?auto=compress&cs=tinysrgb&w=800" },
 ];
 
 export default function Products() {
@@ -54,7 +69,7 @@ export default function Products() {
       <div className="container">
         <header className="mb-8 md:mb-12">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Shop Products</h1>
-          <p className="mt-3 text-slate-600 max-w-2xl">Browse our curated selection of premium laptops, powerful desktop computers, and crystal‑clear monitors from top brands.</p>
+          <p className="mt-3 text-slate-600 max-w-2xl">Browse our curated selection of premium laptops, crystal‑clear monitors, and essential peripherals.</p>
         </header>
 
         <h2 className="mt-6 mb-4 text-2xl font-bold">Laptops</h2>
@@ -64,16 +79,23 @@ export default function Products() {
           ))}
         </div>
 
-        <h2 className="mt-12 mb-4 text-2xl font-bold">Desktop Computers</h2>
+        <h2 className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {desktops.map((p) => (
+          {monitors.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
-        <h2 className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
+        <h2 className="mt-12 mb-4 text-2xl font-bold">Keyboards</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {monitors.map((p) => (
+          {keyboards.map((p) => (
+            <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
+          ))}
+        </div>
+
+        <h2 className="mt-12 mb-4 text-2xl font-bold">Mice</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {mice.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
