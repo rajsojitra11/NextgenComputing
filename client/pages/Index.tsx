@@ -11,7 +11,7 @@ export default function Index() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.18)_0%,transparent_45%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.12)_0%,transparent_55%)]" />
           {/* hero photo */}
           <img
-            src="https://images.pexels.com/photos/28955771/pexels-photo-28955771.jpeg?auto=compress&cs=tinysrgb&w=2000"
+            src="https://i.pinimg.com/1200x/ba/07/07/ba070712b889d1dc569f189e59294511.jpg"
             alt="Premium desk setup with monitor and laptop"
             className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
