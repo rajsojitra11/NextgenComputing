@@ -13,13 +13,15 @@ export default function Index() {
           <img
             src="https://images.pexels.com/photos/28955771/pexels-photo-28955771.jpeg?auto=compress&cs=tinysrgb&w=2000"
             alt="Premium desk setup with monitor and laptop"
-            className="absolute inset-0 h-full w-full object-cover opacity-25"
+            className="absolute inset-0 h-full w-full object-cover opacity-20"
           />
+          {/* dark wash */}
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-950/85 via-slate-900/75 to-slate-900/65" />
           {/* soft orbs */}
-          <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/30 blur-3xl" />
-          <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-cyan-400/30 blur-3xl" />
+          <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-blue-500/25 blur-3xl" />
+          <div className="absolute -bottom-28 -right-28 h-96 w-96 rounded-full bg-cyan-400/20 blur-3xl" />
           {/* grid overlay with radial mask */}
-          <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] bg-[linear-gradient(to_right,rgba(59,130,246,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(59,130,246,0.12)_1px,transparent_1px)] bg-[size:36px_36px]" />
+          <div className="absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)] bg-[linear-gradient(to_right,rgba(148,163,184,0.15)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.15)_1px,transparent_1px)] bg-[size:36px_36px]" />
           {/* animated tech lines */}
           <svg className="absolute inset-0 w-full h-full opacity-40" xmlns="http://www.w3.org/2000/svg">
             <defs>
