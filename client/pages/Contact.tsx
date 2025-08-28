@@ -56,7 +56,7 @@ export default function Contact() {
                 <div>
                   <dt className="text-sm font-semibold leading-tight">Email</dt>
                   <dd className="ml-0 text-slate-700 break-all leading-snug">
-                    <a href="mailto:hello@nextgencomputing.co" className="font-medium text-slate-900 hover:text-blue-700">hello@nextgencomputing.co</a>
+                    <a href="mailto:nextgencomputing01@gmail.com" className="font-medium text-slate-900 hover:text-blue-700">nextgencomputing01@gmail.com</a>
                   </dd>
                 </div>
               </div>
@@ -65,7 +65,7 @@ export default function Contact() {
                 <div>
                   <dt className="text-sm font-semibold leading-tight">Address</dt>
                   <dd className="ml-0 text-slate-700 leading-snug">
-                    <address className="not-italic font-medium text-slate-900">123 Tech Ave, Innovation City</address>
+                    <address className="not-italic font-medium text-slate-900">Bopal, Ahmedabad, Gujarat</address>
                   </dd>
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default function Contact() {
           <div className="rounded-2xl overflow-hidden border border-slate-200/70 bg-white shadow-sm">
             <iframe
               title="Nextgen Computing Location"
-              src="https://www.google.com/maps?q=123%20Tech%20Ave%20Innovation%20City&output=embed"
+              src="https://www.google.com/maps?q=Bopal%2C%20Ahmedabad%2C%20Gujarat&output=embed"
               className="h-[320px] w-full"
               loading="lazy"
             />
@@ -117,7 +117,7 @@ export default function Contact() {
             </div>
             <div className="flex gap-3">
               <button type="submit" className="btn-primary inline-flex items-center gap-2"><Send className="h-4 w-4"/> Send via WhatsApp</button>
-              <a href={`mailto:hello@nextgencomputing.co?subject=Contact%20Request%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(message + "\n\nPhone: " + phone)}`} className="btn-outline">Email Us</a>
+              <a href={`mailto:nextgencomputing01@gmail.com?subject=Contact%20Request%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(message + "\n\nPhone: " + phone)}`} className="btn-outline">Email Us</a>
             </div>
           </div>
         </form>
