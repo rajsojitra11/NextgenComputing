@@ -111,4 +111,9 @@
   .btn-outline {
     @apply inline-flex items-center justify-center rounded-lg border border-blue-300/40 bg-white/20 backdrop-blur px-6 py-3 font-semibold text-blue-900 hover:bg-white/30 hover:-translate-y-0.5 transition-all duration-300 dark:text-white dark:border-white/10 dark:bg-white/5;
   }
+  .safe-fixed {
+    position: fixed;
+    right: max(env(safe-area-inset-right, 0px), 16px);
+    bottom: max(env(safe-area-inset-bottom, 0px), 24px);
+  }
 }
