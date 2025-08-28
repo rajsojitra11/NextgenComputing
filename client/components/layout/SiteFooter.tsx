@@ -20,7 +20,7 @@ export default function SiteFooter() {
         <div>
           <h4 className="text-white font-semibold">Contact</h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li>Phone: +1 (555) 123-4567</li>
+            <li>Phone: +91 8469283448</li>
             <li>Email: hello@nextgencomputing.co</li>
             <li>Address: 123 Tech Ave, Innovation City</li>
           </ul>
