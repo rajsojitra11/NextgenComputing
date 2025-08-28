@@ -1,0 +1,89 @@
+import { Wrench, Laptop, Monitor, HardDrive, Database, ShieldCheck, Cpu, RefreshCcw } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const wa = "https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20or%20service";
+
+type Service = {
+  title: string;
+  desc: string;
+  icon: JSX.Element;
+};
+
+const services: Service[] = [
+  { title: "Laptop Repair", desc: "Screen, battery, keyboard, motherboard & water damage repairs.", icon: <Laptop className="h-6 w-6" /> },
+  { title: "Desktop Repair", desc: "Boot issues, PSU, GPU, RAM diagnostics and replacement.", icon: <Monitor className="h-6 w-6" /> },
+  { title: "Data Recovery", desc: "Recover files from HDD/SSD, accidental deletes, or corrupt disks.", icon: <Database className="h-6 w-6" /> },
+  { title: "OS Install & Tune‑up", desc: "Windows/macOS install, drivers, antivirus, and performance tune‑up.", icon: <ShieldCheck className="h-6 w-6" /> },
+  { title: "Hardware Upgrades", desc: "SSD, RAM, GPU and CPU upgrades for faster performance.", icon: <Cpu className="h-6 w-6" /> },
+  { title: "Maintenance & Cleaning", desc: "Thermal paste, dust cleaning, fan replacement and health checks.", icon: <RefreshCcw className="h-6 w-6" /> },
+];
+
+export default function Services() {
+  return (
+    <section className="relative py-16 md:py-24">
+      <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
+      <div className="container">
+        <header className="max-w-3xl">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Professional Computer Services</h1>
+          <p className="mt-4 text-slate-600">From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.</p>
+          <div className="mt-6 flex gap-4">
+            <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
+            <Link to="/products" className="btn-outline">Shop Devices</Link>
+          </div>
+        </header>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <div
+              key={s.title}
+              className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl animate-fade-in"
+              style={{ animationDelay: `${i * 0.05}s` }}
+            >
+              <div className="h-11 w-11 rounded-xl bg-gradient-to-br from-blue-500/15 to-blue-600/20 text-blue-700 flex items-center justify-center">
+                {s.icon}
+              </div>
+              <h3 className="mt-4 text-xl font-semibold tracking-tight">{s.title}</h3>
+              <p className="mt-2 text-slate-600">{s.desc}</p>
+              <div className="mt-5">
+                <a href={wa} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium">
+                  <Wrench className="h-4 w-4" /> Book now
+                </a>
+              </div>
+              <svg className="pointer-events-none absolute -right-16 -bottom-16 h-48 w-48 opacity-30" viewBox="0 0 200 200" fill="none">
+                <circle cx="100" cy="100" r="90" stroke="hsl(var(--ring))" strokeDasharray="6 6"></circle>
+              </svg>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 rounded-2xl border border-blue-200/40 bg-gradient-to-br from-blue-50 to-white p-6 md:p-10">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <div>
+              <h2 className="text-2xl font-bold">Why choose Nextgen Computing?</h2>
+              <ul className="mt-4 space-y-2 text-slate-700 list-disc pl-5">
+                <li>Certified technicians and genuine parts</li>
+                <li>Same‑day diagnostics and fast turnaround</li>
+                <li>Upfront pricing and warranty on repairs</li>
+              </ul>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {[
+                "Screen Replacement",
+                "SSD Upgrade",
+                "Battery Swap",
+                "Thermal Service",
+                "Keyboard Repair",
+                "Data Backup",
+              ].map((t) => (
+                <span key={t} className="rounded-full border border-blue-200/60 bg-white/70 px-3 py-1 text-sm text-blue-900">{t}</span>
+              ))}
+            </div>
+          </div>
+          <div className="mt-6">
+            <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
