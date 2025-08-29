@@ -67,10 +67,10 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
           </h3>
           <span className="text-xs text-slate-500">{brand}</span>
         </div>
-        <div className="mt-2 flex items-center justify-between">
+        <div className="mt-2 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
           <div className="text-lg font-bold tracking-tight text-green-600">{formatINR(price)}</div>
-          <div className="flex items-center gap-2">
-            <a href={link} target="_blank" rel="noreferrer" className="inline-flex w-full justify-center md:w-auto items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow shadow-blue-500/20 transition-all duration-300 hover:shadow-glow">
+          <div className="flex items-center gap-2 w-full md:w-auto">
+            <a href={link} target="_blank" rel="noreferrer" className="inline-flex w-full justify-center md:w-auto items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow shadow-blue-500/20 transition-all duration-300 hover:shadow-glow whitespace-nowrap min-w-[110px]">
               Buy Now
             </a>
           </div>
