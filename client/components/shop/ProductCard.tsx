@@ -46,7 +46,7 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
             <div
               role="dialog"
               aria-label={`Key features of ${brand} ${name}`}
-              className="absolute right-3 top-3 z-30 w-64 max-w-[calc(100%-24px)] rounded-xl bg-white p-3 shadow-xl ring-1 ring-slate-200"
+              className="absolute right-3 top-3 z-30 w-80 max-w-[calc(100%-24px)] rounded-xl bg-white p-4 shadow-xl ring-1 ring-slate-200"
             >
               <div className="flex items-start justify-between">
                 <h4 className="text-sm font-bold">Key Features</h4>
@@ -59,7 +59,7 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
                   ✕
                 </button>
               </div>
-              <ul className="mt-2 max-h-40 overflow-auto list-disc space-y-1 pl-5 text-xs text-slate-700">
+              <ul className="mt-3 max-h-64 overflow-auto list-disc space-y-1.5 pl-5 text-sm text-slate-700">
                 {features.map((f, i) => (
                   <li key={i}>{f}</li>
                 ))}
