@@ -13,83 +13,84 @@ interface Product {
 const laptops: Product[] = [
   {
     id: "l1",
-    name: "MacBook Air M4 16GB/256GB (Sky Blue)",
+    name: "MacBook Air M4 – 16GB/256GB (13.6″, Sky Blue)",
     brand: "Apple",
     price: 114900,
     image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=1200&q=80",
-    features: ["Apple M4 chip","16GB unified memory","256GB SSD","Liquid Retina display","Wi‑Fi 6E","macOS"]
+    features: ["Apple M4","16GB unified memory","256GB SSD","13.6″ Liquid Retina","Wi‑Fi 6E","macOS"],
+    buyLink: "https://www.flipkart.com/apple-macbook-air-m4-16-gb-256-gb-ssd-macos-sequoia-mc6t4hn-a/p/itm7c1831ce25509"
   },
   {
     id: "l2",
-    name: "MacBook Air M4 16GB/256GB (Starlight, 15.3\")",
+    name: "MacBook Air M4 – 16GB/256GB (13.6″, Midnight)",
     brand: "Apple",
-    price: 129900,
-    image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80",
-    features: ["Apple M4","15.3‑inch Liquid Retina","16GB memory","256GB SSD","1080p camera","macOS"]
+    price: 114900,
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80",
+    features: ["Apple M4","16GB memory","256GB SSD","13.6″ Liquid Retina","1080p camera","macOS"],
+    buyLink: "https://www.flipkart.com/apple-macbook-air-m4-16-gb-256-gb-ssd-macos-sequoia-mw123hn-a/p/itm08069ed2395aa"
   },
   {
     id: "l3",
-    name: "MacBook Air M4 16GB/512GB (Sky Blue)",
+    name: "MacBook Air M4 – 16GB/256GB (13.6″, Starlight)",
     brand: "Apple",
-    price: 139900,
-    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80",
-    features: ["Apple M4","16GB memory","512GB SSD","Silent fanless design","Touch ID","macOS"]
+    price: 114900,
+    image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80",
+    features: ["Apple M4","16GB memory","256GB SSD","Silent fanless design","Touch ID","macOS"],
+    buyLink: "https://www.flipkart.com/apple-macbook-air-m4-16-gb-256-gb-ssd-macos-sequoia-mw0y3hn-a/p/itmad81d112ad068"
   },
   {
     id: "l4",
-    name: "MacBook Air M4 24GB/512GB (Midnight, 15.3\")",
-    brand: "Apple",
-    price: 169900,
-    image: "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1200&q=80",
-    features: ["Apple M4","24GB memory","512GB SSD","15.3‑inch Retina","MagSafe 3","macOS"]
+    name: "ASUS ExpertBook P1 – i5‑13420H / 32GB / 512GB",
+    brand: "ASUS",
+    price: 67990,
+    image: "https://images.unsplash.com/photo-1587825140400-52459d4eb6b7?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i5‑13420H","32GB RAM","512GB NVMe SSD","15.6″ FHD","MIL‑STD 810H","Windows 11 Home"],
+    buyLink: "https://www.flipkart.com/asus-expertbook-p1-intel-core-i5-13th-gen-13420h-32-gb-512-gb-ssd-windows-11-home-p1403cva-s60939ws-thin-light-laptop/p/itm50988c1fc56e6"
   },
   {
     id: "l5",
-    name: "ASUS ExpertBook P1 i5 13th Gen 16GB/512GB",
+    name: "ASUS ExpertBook P1 – i3‑1315U / 8GB / 512GB (15.6″, Misty Grey)",
     brand: "ASUS",
-    price: 62990,
-    image: "https://images.unsplash.com/photo-1587825140400-52459d4eb6b7?auto=format&fit=crop&w=1200&q=80",
-    features: ["Intel Core i5‑1335U","16GB DDR4","512GB NVMe SSD","15.6‑inch FHD","MIL‑STD 810H","Windows 11 Pro"]
+    price: 42990,
+    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i3‑1315U","8GB RAM","512GB SSD","15.6″ FHD","Light 1.7kg","Windows 11 Home"],
+    buyLink: "https://www.flipkart.com/asus-expertbook-p1-intel-core-i3-13th-gen-1315u-8-gb-512-gb-ssd-windows-11-home-p1503cva-s70501ws-thin-light-laptop/p/itm5b59a30b4c016"
   },
   {
     id: "l6",
-    name: "HP 15s i5‑1335U 8GB/512GB (Diamond White, 15.6\")",
-    brand: "HP",
-    price: 56990,
-    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80",
-    features: ["Intel Core i5‑1335U","8GB DDR4","512GB SSD","15.6‑inch FHD","Iris Xe Graphics","Windows 11"]
+    name: "ASUS ExpertBook P1 – i3‑1315U / 16GB / 512GB (15.6″, Misty Grey)",
+    brand: "ASUS",
+    price: 46990,
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i3‑1315U","16GB RAM","512GB SSD","15.6″ FHD","TPM 2.0","Windows 11 Home"],
+    buyLink: "https://www.flipkart.com/asus-expertbook-p1-intel-core-i3-13th-gen-1315u-16-gb-512-gb-ssd-windows-11-home-p1503cva-s71074ws-thin-light-laptop/p/itmf84b442d31b6b"
   },
   {
     id: "l7",
-    name: "HP i5��1334U 8GB/512GB (Natural Silver, 15.6\")",
-    brand: "HP",
-    price: 54990,
-    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80",
-    features: ["Intel Core i5‑1334U","8GB RAM","512GB SSD","15.6‑inch FHD","Backlit keyboard","Windows 11"]
+    name: "Lenovo IdeaPad 3 – i3 11th Gen (8GB/256GB)",
+    brand: "Lenovo",
+    price: 35990,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i3 11th Gen","8GB RAM","256GB SSD","14″ FHD","1.5kg","Windows 11"],
+    buyLink: "https://www.flipkart.com/lenovo-ideapad-3-intel-core-i3-11th-gen-8-gb-256-gb-ssd-windows-11-home-14itl05-thin-light-laptop/p/itme5d4463121c64"
   },
   {
     id: "l8",
-    name: "HP Gaming 2‑in‑1 i5 13th Gen 16GB/512GB",
-    brand: "HP",
-    price: 89990,
-    image: "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?auto=format&fit=crop&w=1200&q=80",
-    features: ["Intel Core i5 13th Gen","16GB RAM","512GB SSD","Convertible 2‑in‑1","Discrete graphics","144Hz display"]
+    name: "Lenovo IdeaPad Slim 3 – i5 11th Gen (16GB/512GB)",
+    brand: "Lenovo",
+    price: 46990,
+    image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i5 11th Gen","16GB RAM","512GB SSD","15.6″ FHD","Wi‑Fi 6","Windows 11"],
+    buyLink: "https://www.flipkart.com/lenovo-intel-core-i5-11th-gen-16-gb-512-gb-ssd-windows-11-home-15itl6-thin-light-laptop/p/itm3a8a423a53c02"
   },
   {
     id: "l9",
-    name: "Dell 15 i5 13th Gen 16GB/512GB (Titan Grey, 15.6\")",
-    brand: "Dell",
-    price: 67990,
-    image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=1200&q=80",
-    features: ["Intel Core i5 13th Gen","16GB DDR4","512GB SSD","15.6‑inch FHD","Wi‑Fi 6","Windows 11"]
-  },
-  {
-    id: "l10",
-    name: "MacBook Air M4 16GB/512GB (Midnight, 13.6\")",
-    brand: "Apple",
-    price: 134900,
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
-    features: ["Apple M4","13.6‑inch Liquid Retina","16GB memory","512GB SSD","macOS"]
+    name: "Lenovo Yoga Slim 7 AI PC – Core Ultra 5 (16GB/512GB)",
+    brand: "Lenovo",
+    price: 99990,
+    image: "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core Ultra 5","16GB RAM","512GB SSD","14″ OLED/IPS options","Aluminum build","Windows 11 Home"],
+    buyLink: "https://www.flipkart.com/lenovo-yoga-slim-7-intel-core-ultra-155h-32-gb-1-tb-ssd-windows-11-home-14imh9-thin-light-laptop/p/itm77304edff3814"
   },
 ];
 
