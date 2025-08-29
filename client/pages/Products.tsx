@@ -6,19 +6,91 @@ interface Product {
   brand: string;
   price: number;
   image: string;
+  features?: string[];
+  buyLink?: string;
 }
 
 const laptops: Product[] = [
-  { id: "l1", name: "ThinkPad X1 Carbon", brand: "Lenovo", price: 149990, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l2", name: "IdeaPad Slim 5", brand: "Lenovo", price: 69990, image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l3", name: "Legion 5", brand: "Lenovo", price: 124990, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l4", name: "Yoga 7", brand: "Lenovo", price: 99990, image: "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l5", name: "Spectre x360", brand: "HP", price: 139990, image: "https://images.unsplash.com/photo-1502882700551-a2053fbf6978?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l6", name: "Pavilion 14", brand: "HP", price: 64990, image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l7", name: "Victus 16", brand: "HP", price: 99990, image: "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l8", name: "XPS 13", brand: "Dell", price: 129990, image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l9", name: "Inspiron 15", brand: "Dell", price: 58990, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80" },
-  { id: "l10", name: "Latitude 7420", brand: "Dell", price: 109990, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80" },
+  { id: "l1", name: "ThinkPad X1 Carbon", brand: "Lenovo", price: 149990, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80", features: [
+    "14-inch IPS display",
+    "Intel Core i7 processor",
+    "16GB LPDDR5 RAM",
+    "1TB NVMe SSD",
+    "Thunderbolt 4, Wi‑Fi 6E",
+    "Windows 11 Pro"
+  ] },
+  { id: "l2", name: "IdeaPad Slim 5", brand: "Lenovo", price: 69990, image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80", features: [
+    "15.6-inch FHD IPS",
+    "AMD Ryzen 5 / Intel Core i5",
+    "16GB RAM, 512GB SSD",
+    "Backlit keyboard",
+    "Wi‑Fi 6, Bluetooth 5.2",
+    "Windows 11 Home"
+  ] },
+  { id: "l3", name: "Legion 5", brand: "Lenovo", price: 124990, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80", features: [
+    "15.6-inch 165Hz display",
+    "Ryzen 7 / Core i7 + RTX graphics",
+    "16GB DDR5, 1TB SSD",
+    "4-zone RGB keyboard",
+    "Coldfront cooling",
+    "Windows 11"
+  ] },
+  { id: "l4", name: "Yoga 7", brand: "Lenovo", price: 99990, image: "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1200&q=80", features: [
+    "14-inch 2-in-1 touchscreen",
+    "Intel Evo platform",
+    "16GB RAM, 512GB SSD",
+    "Fingerprint reader",
+    "Dolby Atmos audio",
+    "Windows 11"
+  ] },
+  { id: "l5", name: "Spectre x360", brand: "HP", price: 139990, image: "https://images.unsplash.com/photo-1502882700551-a2053fbf6978?auto=format&fit=crop&w=1200&q=80", features: [
+    "13.5-inch OLED touchscreen",
+    "Intel Core i7 Evo",
+    "16GB RAM, 1TB SSD",
+    "Bang & Olufsen audio",
+    "Thunderbolt 4",
+    "Windows 11"
+  ] },
+  { id: "l6", name: "Pavilion 14", brand: "HP", price: 64990, image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80", features: [
+    "14-inch FHD IPS",
+    "Intel Core i5 12th Gen",
+    "16GB RAM, 512GB SSD",
+    "HP Fast Charge",
+    "Wi‑Fi 6, Bluetooth 5",
+    "Windows 11"
+  ] },
+  { id: "l7", name: "Victus 16", brand: "HP", price: 99990, image: "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?auto=format&fit=crop&w=1200&q=80", features: [
+    "16.1-inch 144Hz display",
+    "Ryzen 7 / Core i7 + RTX",
+    "16GB RAM, 512GB SSD",
+    "Enhanced cooling",
+    "Backlit keyboard",
+    "Windows 11"
+  ] },
+  { id: "l8", name: "XPS 13", brand: "Dell", price: 129990, image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=1200&q=80", features: [
+    "13.4-inch InfinityEdge",
+    "Intel Core i7 Evo",
+    "16GB RAM, 1TB SSD",
+    "Thunderbolt 4",
+    "Killer Wi‑Fi 6",
+    "Windows 11"
+  ] },
+  { id: "l9", name: "Inspiron 15", brand: "Dell", price: 58990, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80", features: [
+    "15.6-inch FHD display",
+    "Intel Core i5 12th Gen",
+    "16GB RAM, 512GB SSD",
+    "Numeric keypad",
+    "Wi‑Fi 6",
+    "Windows 11"
+  ] },
+  { id: "l10", name: "Latitude 7420", brand: "Dell", price: 109990, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80", features: [
+    "14-inch FHD+, anti-glare",
+    "Intel vPro options",
+    "16GB RAM, 512GB SSD",
+    "Thunderbolt 4, LTE options",
+    "ExpressCharge",
+    "Windows 11 Pro"
+  ] },
 ];
 
 // Removed desktops category per request
@@ -88,7 +160,7 @@ export default function Products() {
         <h2 className="mt-6 mb-4 text-2xl font-bold">Laptops</h2>
         <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
           {laptops.map((p) => (
-            <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
+            <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
           ))}
         </div>
 
