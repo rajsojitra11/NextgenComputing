@@ -62,28 +62,29 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
       </div>
       {open && features && (
         <>
-          <div className="absolute inset-0 z-20 bg-black/30 cursor-pointer" onClick={() => setOpen(false)} aria-hidden="true" />
+          <div className="fixed inset-0 z-[1000] bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} aria-hidden="true" />
           <div
             role="dialog"
+            aria-modal="true"
             aria-label={`Key features of ${brand} ${name}`}
-            className="absolute inset-3 z-30 relative rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200"
+            className="fixed inset-0 z-[1001] flex items-center justify-center p-4"
           >
-            <div className="flex items-start justify-between gap-4 pr-10">
-              <h4 className="text-base font-bold">Key Features</h4>
+            <div className="relative w-full max-w-sm md:max-w-md rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200">
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-white shadow-md hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300"
+                aria-label="Close"
+              >
+                ×
+              </button>
+              <h4 className="pr-12 text-base font-bold">Key Features</h4>
+              <ul className="mt-3 max-h-[60vh] overflow-auto list-disc space-y-2 pl-5 text-sm text-slate-700">
+                {features.map((f, i) => (
+                  <li key={i}>{f}</li>
+                ))}
+              </ul>
             </div>
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="absolute right-4 top-4 z-40 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-white shadow-md hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300"
-              aria-label="Close"
-            >
-              ×
-            </button>
-            <ul className="mt-3 max-h-[60vh] overflow-auto list-disc space-y-2 pl-5 text-sm text-slate-700">
-              {features.map((f, i) => (
-                <li key={i}>{f}</li>
-              ))}
-            </ul>
           </div>
         </>
       )}
