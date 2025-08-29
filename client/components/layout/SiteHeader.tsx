@@ -60,7 +60,7 @@ export default function SiteHeader() {
           <a href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20service" target="_blank" rel="noreferrer" className="btn-primary hidden lg:inline-flex">Book Repair</a>
         </div>
 
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-3">
           <details ref={menuRef}>
             <summary className="list-none cursor-pointer rounded-md border border-slate-200/60 px-3 py-2 text-sm font-medium">Menu</summary>
             <div className="mt-3 rounded-lg border border-slate-200/60 bg-white shadow-lg p-3 flex flex-col gap-2">
@@ -72,6 +72,7 @@ export default function SiteHeader() {
               <a href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20service" target="_blank" rel="noreferrer" className="btn-primary w-full" onClick={() => { if (menuRef.current) menuRef.current.open = false; }}>Book Repair</a>
             </div>
           </details>
+          <a href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20service" target="_blank" rel="noreferrer" className="btn-primary px-3 py-2 text-sm">Book</a>
         </div>
       </nav>
     </header>
