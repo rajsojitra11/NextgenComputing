@@ -11,86 +11,86 @@ interface Product {
 }
 
 const laptops: Product[] = [
-  { id: "l1", name: "ThinkPad X1 Carbon", brand: "Lenovo", price: 149990, image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80", features: [
-    "14-inch IPS display",
-    "Intel Core i7 processor",
-    "16GB LPDDR5 RAM",
-    "1TB NVMe SSD",
-    "Thunderbolt 4, Wi‑Fi 6E",
-    "Windows 11 Pro"
-  ] },
-  { id: "l2", name: "IdeaPad Slim 5", brand: "Lenovo", price: 69990, image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80", features: [
-    "15.6-inch FHD IPS",
-    "AMD Ryzen 5 / Intel Core i5",
-    "16GB RAM, 512GB SSD",
-    "Backlit keyboard",
-    "Wi‑Fi 6, Bluetooth 5.2",
-    "Windows 11 Home"
-  ] },
-  { id: "l3", name: "Legion 5", brand: "Lenovo", price: 124990, image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80", features: [
-    "15.6-inch 165Hz display",
-    "Ryzen 7 / Core i7 + RTX graphics",
-    "16GB DDR5, 1TB SSD",
-    "4-zone RGB keyboard",
-    "Coldfront cooling",
-    "Windows 11"
-  ] },
-  { id: "l4", name: "Yoga 7", brand: "Lenovo", price: 99990, image: "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1200&q=80", features: [
-    "14-inch 2-in-1 touchscreen",
-    "Intel Evo platform",
-    "16GB RAM, 512GB SSD",
-    "Fingerprint reader",
-    "Dolby Atmos audio",
-    "Windows 11"
-  ] },
-  { id: "l5", name: "Spectre x360", brand: "HP", price: 139990, image: "https://images.unsplash.com/photo-1502882700551-a2053fbf6978?auto=format&fit=crop&w=1200&q=80", features: [
-    "13.5-inch OLED touchscreen",
-    "Intel Core i7 Evo",
-    "16GB RAM, 1TB SSD",
-    "Bang & Olufsen audio",
-    "Thunderbolt 4",
-    "Windows 11"
-  ] },
-  { id: "l6", name: "Pavilion 14", brand: "HP", price: 64990, image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80", features: [
-    "14-inch FHD IPS",
-    "Intel Core i5 12th Gen",
-    "16GB RAM, 512GB SSD",
-    "HP Fast Charge",
-    "Wi‑Fi 6, Bluetooth 5",
-    "Windows 11"
-  ] },
-  { id: "l7", name: "Victus 16", brand: "HP", price: 99990, image: "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?auto=format&fit=crop&w=1200&q=80", features: [
-    "16.1-inch 144Hz display",
-    "Ryzen 7 / Core i7 + RTX",
-    "16GB RAM, 512GB SSD",
-    "Enhanced cooling",
-    "Backlit keyboard",
-    "Windows 11"
-  ] },
-  { id: "l8", name: "XPS 13", brand: "Dell", price: 129990, image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=1200&q=80", features: [
-    "13.4-inch InfinityEdge",
-    "Intel Core i7 Evo",
-    "16GB RAM, 1TB SSD",
-    "Thunderbolt 4",
-    "Killer Wi‑Fi 6",
-    "Windows 11"
-  ] },
-  { id: "l9", name: "Inspiron 15", brand: "Dell", price: 58990, image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80", features: [
-    "15.6-inch FHD display",
-    "Intel Core i5 12th Gen",
-    "16GB RAM, 512GB SSD",
-    "Numeric keypad",
-    "Wi‑Fi 6",
-    "Windows 11"
-  ] },
-  { id: "l10", name: "Latitude 7420", brand: "Dell", price: 109990, image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80", features: [
-    "14-inch FHD+, anti-glare",
-    "Intel vPro options",
-    "16GB RAM, 512GB SSD",
-    "Thunderbolt 4, LTE options",
-    "ExpressCharge",
-    "Windows 11 Pro"
-  ] },
+  {
+    id: "l1",
+    name: "MacBook Air M4 16GB/256GB (Sky Blue)",
+    brand: "Apple",
+    price: 114900,
+    image: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=1200&q=80",
+    features: ["Apple M4 chip","16GB unified memory","256GB SSD","Liquid Retina display","Wi‑Fi 6E","macOS"]
+  },
+  {
+    id: "l2",
+    name: "MacBook Air M4 16GB/256GB (Starlight, 15.3\")",
+    brand: "Apple",
+    price: 129900,
+    image: "https://images.unsplash.com/photo-1487014679447-9f8336841d58?auto=format&fit=crop&w=1200&q=80",
+    features: ["Apple M4","15.3‑inch Liquid Retina","16GB memory","256GB SSD","1080p camera","macOS"]
+  },
+  {
+    id: "l3",
+    name: "MacBook Air M4 16GB/512GB (Sky Blue)",
+    brand: "Apple",
+    price: 139900,
+    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80",
+    features: ["Apple M4","16GB memory","512GB SSD","Silent fanless design","Touch ID","macOS"]
+  },
+  {
+    id: "l4",
+    name: "MacBook Air M4 24GB/512GB (Midnight, 15.3\")",
+    brand: "Apple",
+    price: 169900,
+    image: "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1200&q=80",
+    features: ["Apple M4","24GB memory","512GB SSD","15.3‑inch Retina","MagSafe 3","macOS"]
+  },
+  {
+    id: "l5",
+    name: "ASUS ExpertBook P1 i5 13th Gen 16GB/512GB",
+    brand: "ASUS",
+    price: 62990,
+    image: "https://images.unsplash.com/photo-1587825140400-52459d4eb6b7?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i5‑1335U","16GB DDR4","512GB NVMe SSD","15.6‑inch FHD","MIL‑STD 810H","Windows 11 Pro"]
+  },
+  {
+    id: "l6",
+    name: "HP 15s i5‑1335U 8GB/512GB (Diamond White, 15.6\")",
+    brand: "HP",
+    price: 56990,
+    image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i5‑1335U","8GB DDR4","512GB SSD","15.6‑inch FHD","Iris Xe Graphics","Windows 11"]
+  },
+  {
+    id: "l7",
+    name: "HP i5��1334U 8GB/512GB (Natural Silver, 15.6\")",
+    brand: "HP",
+    price: 54990,
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i5‑1334U","8GB RAM","512GB SSD","15.6‑inch FHD","Backlit keyboard","Windows 11"]
+  },
+  {
+    id: "l8",
+    name: "HP Gaming 2‑in‑1 i5 13th Gen 16GB/512GB",
+    brand: "HP",
+    price: 89990,
+    image: "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i5 13th Gen","16GB RAM","512GB SSD","Convertible 2‑in‑1","Discrete graphics","144Hz display"]
+  },
+  {
+    id: "l9",
+    name: "Dell 15 i5 13th Gen 16GB/512GB (Titan Grey, 15.6\")",
+    brand: "Dell",
+    price: 67990,
+    image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?auto=format&fit=crop&w=1200&q=80",
+    features: ["Intel Core i5 13th Gen","16GB DDR4","512GB SSD","15.6‑inch FHD","Wi‑Fi 6","Windows 11"]
+  },
+  {
+    id: "l10",
+    name: "MacBook Air M4 16GB/512GB (Midnight, 13.6\")",
+    brand: "Apple",
+    price: 134900,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=80",
+    features: ["Apple M4","13.6‑inch Liquid Retina","16GB memory","512GB SSD","macOS"]
+  },
 ];
 
 // Removed desktops category per request
