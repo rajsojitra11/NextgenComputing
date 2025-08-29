@@ -149,7 +149,7 @@ const cpus: Product[] = [
 
 export default function Products() {
   return (
-    <section className="relative py-12 md:py-16">
+    <section className="relative py-12 md:py-16 pb-28 md:pb-16">
       <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
       <div className="container">
         <header className="mb-8 md:mb-12">
