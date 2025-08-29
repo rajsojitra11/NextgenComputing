@@ -1,24 +1,64 @@
+import { useState } from "react";
+
 type Props = {
   name: string;
   brand: string;
   price: number;
   image: string;
+  features?: string[];
   buyLink?: string;
 };
 
 const formatINR = (n: number) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
 
-export default function ProductCard({ name, brand, price, image, buyLink }: Props) {
+export default function ProductCard({ name, brand, price, image, features, buyLink }: Props) {
   const wa = `https://wa.me/918469283448?text=${encodeURIComponent(
     `Hi Nextgen Computing, I'm interested in buying ${name} by ${brand} for ${formatINR(price)}.`
   )}`;
   const link = buyLink || wa;
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img src={image} alt={`${brand} ${name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        {features && features.length > 0 && (
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="absolute right-3 top-3 z-10 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-slate-900 shadow hover:bg-white"
+            aria-haspopup="dialog"
+            aria-expanded={open}
+            aria-label={`View key features of ${brand} ${name}`}
+          >
+            Features
+          </button>
+        )}
+        {open && features && (
+          <div
+            role="dialog"
+            aria-label={`Key features of ${brand} ${name}`}
+            className="absolute inset-0 z-20 bg-white/95 p-4 backdrop-blur-sm"
+          >
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-bold">Key Features</h4>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="rounded-md p-1 text-slate-600 hover:bg-slate-100"
+                aria-label="Close features"
+              >
+                ✕
+              </button>
+            </div>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-700">
+              {features.map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
       <div className="p-4">
         <div className="flex items-center justify-between">
