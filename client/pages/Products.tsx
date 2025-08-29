@@ -19,6 +19,7 @@ const laptops: Product[] = [
   { id: "l8", name: "Blade 15", brand: "Razer", price: 179990, image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=800" },
   { id: "l9", name: "Modern 14", brand: "MSI", price: 74990, image: "https://images.pexels.com/photos/6894013/pexels-photo-6894013.jpeg?auto=compress&cs=tinysrgb&w=800" },
   { id: "l10", name: "Galaxy Book3 Pro", brand: "Samsung", price: 149990, image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l11", name: "INBook X2 Plus", brand: "Infinix", price: 45990, image: "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=800" },
 ];
 
 // Removed desktops category per request
