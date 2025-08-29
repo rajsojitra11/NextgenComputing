@@ -52,7 +52,7 @@ const laptops: Product[] = [
     name: "ASUS ExpertBook P1 – i3‑1315U / 8GB / 512GB (15.6″, Misty Grey)",
     brand: "ASUS",
     price: 42990,
-    image: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
     features: ["Intel Core i3‑1315U","8GB RAM","512GB SSD","15.6″ FHD","Light 1.7kg","Windows 11 Home"],
     buyLink: "https://www.flipkart.com/asus-expertbook-p1-intel-core-i3-13th-gen-1315u-8-gb-512-gb-ssd-windows-11-home-p1503cva-s70501ws-thin-light-laptop/p/itm5b59a30b4c016"
   },
