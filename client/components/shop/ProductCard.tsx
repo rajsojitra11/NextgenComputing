@@ -22,7 +22,15 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
-    if (open) window.addEventListener("keydown", onKey);
+    if (open) {
+      window.addEventListener("keydown", onKey);
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        window.removeEventListener("keydown", onKey);
+        document.body.style.overflow = prev;
+      };
+    }
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
@@ -62,12 +70,12 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
       </div>
       {open && features && (
         <>
-          <div className="fixed inset-0 z-[1000] bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} aria-hidden="true" />
+          <div className="fixed inset-0 z-[100000] bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} aria-hidden="true" />
           <div
             role="dialog"
             aria-modal="true"
             aria-label={`Key features of ${brand} ${name}`}
-            className="fixed inset-0 z-[1001] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100001] flex items-center justify-center p-4"
           >
             <div className="relative w-full max-w-sm md:max-w-md rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200">
               <button
