@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Props = {
   name: string;
@@ -18,6 +18,14 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
   const link = buyLink || wa;
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    if (open) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative aspect-[4/3] overflow-hidden">
@@ -26,7 +34,7 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
         {features && features.length > 0 && (
           <button
             type="button"
-            onClick={() => setOpen(true)}
+            onClick={() => setOpen((v) => !v)}
             className="absolute right-3 top-3 z-10 rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-slate-900 shadow hover:bg-white"
             aria-haspopup="dialog"
             aria-expanded={open}
@@ -54,7 +62,7 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
       </div>
       {open && features && (
         <>
-          <div className="absolute inset-0 z-20 bg-black/30" onClick={() => setOpen(false)} aria-hidden="true" />
+          <div className="absolute inset-0 z-20 bg-black/30 cursor-pointer" onClick={() => setOpen(false)} aria-hidden="true" />
           <div
             role="dialog"
             aria-label={`Key features of ${brand} ${name}`}
