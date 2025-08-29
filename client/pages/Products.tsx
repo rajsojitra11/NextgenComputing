@@ -86,35 +86,35 @@ export default function Products() {
         </header>
 
         <h2 className="mt-6 mb-4 text-2xl font-bold">Laptops</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
           {laptops.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
           {monitors.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 className="mt-12 mb-4 text-2xl font-bold">Keyboards</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
           {keyboards.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 className="mt-12 mb-4 text-2xl font-bold">Mice</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
           {mice.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 className="mt-12 mb-4 text-2xl font-bold">CPUs</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
           {cpus.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
