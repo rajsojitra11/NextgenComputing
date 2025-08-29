@@ -61,7 +61,13 @@ export default function SiteHeader() {
 
         <div className="md:hidden flex items-center gap-3">
           <details ref={menuRef}>
-            <summary className="list-none cursor-pointer rounded-md border border-slate-200/60 px-3 py-2 text-sm font-medium">Menu</summary>
+            <summary aria-label="Open menu" className="list-none cursor-pointer rounded-md border border-slate-200/60 p-2 bg-white/80 backdrop-blur flex items-center justify-center">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-700" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </summary>
             <div className="mt-3 rounded-lg border border-slate-200/60 bg-white shadow-lg p-3 flex flex-col gap-2">
               {nav.map((n) => (
                 <NavLink key={n.to} to={n.to} className="px-2 py-2 rounded hover:bg-slate-50" onClick={() => { if (menuRef.current) menuRef.current.open = false; }}>
