@@ -71,7 +71,6 @@ export default function SiteHeader() {
               <a href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20service" target="_blank" rel="noreferrer" className="btn-primary w-full" onClick={() => { if (menuRef.current) menuRef.current.open = false; }}>Book Repair</a>
             </div>
           </details>
-          <a href="https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20service" target="_blank" rel="noreferrer" className="btn-primary px-3 py-2 text-sm">Book</a>
         </div>
       </nav>
     </header>
