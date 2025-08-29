@@ -75,9 +75,9 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
             role="dialog"
             aria-modal="true"
             aria-label={`Key features of ${brand} ${name}`}
-            className="fixed inset-0 z-[100001] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100001] flex items-center justify-center p-0"
           >
-            <div className="relative w-full max-w-sm md:max-w-md rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200">
+            <div className="relative w-full h-full md:w-[28rem] md:h-auto rounded-none md:rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200 overflow-auto">
               <button
                 type="button"
                 onClick={() => setOpen(false)}
