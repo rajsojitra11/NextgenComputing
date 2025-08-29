@@ -35,38 +35,6 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
             Features
           </button>
         )}
-        {open && features && (
-          <>
-            <button
-              type="button"
-              aria-label="Close features"
-              className="absolute inset-0 z-20 cursor-default bg-black/0"
-              onClick={() => setOpen(false)}
-            />
-            <div
-              role="dialog"
-              aria-label={`Key features of ${brand} ${name}`}
-              className="absolute right-3 top-3 z-30 w-80 max-w-[calc(100%-24px)] rounded-xl bg-white p-4 shadow-xl ring-1 ring-slate-200"
-            >
-              <div className="flex items-start justify-between">
-                <h4 className="text-sm font-bold">Key Features</h4>
-                <button
-                  type="button"
-                  onClick={() => setOpen(false)}
-                  className="rounded-md p-1 text-slate-600 hover:bg-slate-100"
-                  aria-label="Close"
-                >
-                  ✕
-                </button>
-              </div>
-              <ul className="mt-3 max-h-64 overflow-auto list-disc space-y-1.5 pl-5 text-sm text-slate-700">
-                {features.map((f, i) => (
-                  <li key={i}>{f}</li>
-                ))}
-              </ul>
-            </div>
-          </>
-        )}
       </div>
       <div className="p-4">
         <div className="flex items-center justify-between">
@@ -84,6 +52,33 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
           </div>
         </div>
       </div>
+      {open && features && (
+        <>
+          <div className="absolute inset-0 z-20 bg-black/30" onClick={() => setOpen(false)} aria-hidden="true" />
+          <div
+            role="dialog"
+            aria-label={`Key features of ${brand} ${name}`}
+            className="absolute inset-3 z-30 rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200"
+          >
+            <div className="flex items-start justify-between gap-4">
+              <h4 className="text-base font-bold">Key Features</h4>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="rounded-md p-1.5 text-slate-600 hover:bg-slate-100"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            </div>
+            <ul className="mt-3 max-h-[60vh] overflow-auto list-disc space-y-2 pl-5 text-sm text-slate-700">
+              {features.map((f, i) => (
+                <li key={i}>{f}</li>
+              ))}
+            </ul>
+          </div>
+        </>
+      )}
     </div>
   );
 }
