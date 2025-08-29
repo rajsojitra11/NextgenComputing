@@ -88,7 +88,7 @@ const laptops: Product[] = [
     name: "Lenovo Yoga Slim 7 AI PC – Core Ultra 5 (16GB/512GB)",
     brand: "Lenovo",
     price: 99990,
-    image: "https://images.unsplash.com/photo-1505682634904-d7c8d95cdc50?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1593642634367-d91a135587b5?auto=format&fit=crop&w=1200&q=80",
     features: ["Intel Core Ultra 5","16GB RAM","512GB SSD","14″ OLED/IPS options","Aluminum build","Windows 11 Home"],
     buyLink: "https://www.flipkart.com/lenovo-yoga-slim-7-intel-core-ultra-155h-32-gb-1-tb-ssd-windows-11-home-14imh9-thin-light-laptop/p/itm77304edff3814"
   },
