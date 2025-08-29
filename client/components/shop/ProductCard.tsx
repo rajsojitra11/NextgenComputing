@@ -66,19 +66,19 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
           <div
             role="dialog"
             aria-label={`Key features of ${brand} ${name}`}
-            className="absolute inset-3 z-30 rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200"
+            className="absolute inset-3 z-30 relative rounded-2xl bg-white p-5 shadow-2xl ring-1 ring-slate-200"
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4 pr-10">
               <h4 className="text-base font-bold">Key Features</h4>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                className="rounded-md p-1.5 text-slate-600 hover:bg-slate-100"
-                aria-label="Close"
-              >
-                ✕
-              </button>
             </div>
+            <button
+              type="button"
+              onClick={() => setOpen(false)}
+              className="absolute right-4 top-4 z-40 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-white shadow-md hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-300"
+              aria-label="Close"
+            >
+              ×
+            </button>
             <ul className="mt-3 max-h-[60vh] overflow-auto list-disc space-y-2 pl-5 text-sm text-slate-700">
               {features.map((f, i) => (
                 <li key={i}>{f}</li>
