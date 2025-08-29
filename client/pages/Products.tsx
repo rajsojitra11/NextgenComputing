@@ -9,17 +9,16 @@ interface Product {
 }
 
 const laptops: Product[] = [
-  { id: "l1", name: "MacBook Pro 14", brand: "Apple", price: 189900, image: "https://images.pexels.com/photos/986772/pexels-photo-986772.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l2", name: "XPS 13", brand: "Dell", price: 129990, image: "https://images.pexels.com/photos/2473183/pexels-photo-2473183.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l3", name: "Spectre x360", brand: "HP", price: 139990, image: "https://images.pexels.com/photos/5474285/pexels-photo-5474285.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l4", name: "ThinkPad X1 Carbon", brand: "Lenovo", price: 149990, image: "https://images.pexels.com/photos/986774/pexels-photo-986774.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l5", name: "ROG Zephyrus G14", brand: "ASUS", price: 159990, image: "https://images.pexels.com/photos/2473183/pexels-photo-2473183.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l6", name: "Swift 3", brand: "Acer", price: 69990, image: "https://images.pexels.com/photos/5908729/pexels-photo-5908729.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l7", name: "Surface Laptop 5", brand: "Microsoft", price: 129990, image: "https://images.pexels.com/photos/7222952/pexels-photo-7222952.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l8", name: "Blade 15", brand: "Razer", price: 179990, image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l9", name: "Modern 14", brand: "MSI", price: 74990, image: "https://images.pexels.com/photos/6894013/pexels-photo-6894013.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l10", name: "Galaxy Book3 Pro", brand: "Samsung", price: 149990, image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "l11", name: "INBook X2 Plus", brand: "Infinix", price: 45990, image: "https://images.pexels.com/photos/2047905/pexels-photo-2047905.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l1", name: "ThinkPad X1 Carbon", brand: "Lenovo", price: 149990, image: "https://images.pexels.com/photos/986774/pexels-photo-986774.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l2", name: "IdeaPad Slim 5", brand: "Lenovo", price: 69990, image: "https://images.pexels.com/photos/986772/pexels-photo-986772.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l3", name: "Legion 5", brand: "Lenovo", price: 124990, image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l4", name: "Yoga 7", brand: "Lenovo", price: 99990, image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l5", name: "Spectre x360", brand: "HP", price: 139990, image: "https://images.pexels.com/photos/5908729/pexels-photo-5908729.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l6", name: "Pavilion 14", brand: "HP", price: 64990, image: "https://images.pexels.com/photos/6894013/pexels-photo-6894013.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l7", name: "Victus 16", brand: "HP", price: 99990, image: "https://images.pexels.com/photos/3769021/pexels-photo-3769021.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l8", name: "XPS 13", brand: "Dell", price: 129990, image: "https://images.pexels.com/photos/986772/pexels-photo-986772.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l9", name: "Inspiron 15", brand: "Dell", price: 58990, image: "https://images.pexels.com/photos/812264/pexels-photo-812264.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "l10", name: "Latitude 7420", brand: "Dell", price: 109990, image: "https://images.pexels.com/photos/986774/pexels-photo-986774.jpeg?auto=compress&cs=tinysrgb&w=800" },
 ];
 
 // Removed desktops category per request
