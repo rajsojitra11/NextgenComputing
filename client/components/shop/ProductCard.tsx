@@ -26,7 +26,7 @@ export default function ProductCard({ name, brand, price, image }: Props) {
           <span className="text-xs text-slate-500">{brand}</span>
         </div>
         <div className="mt-2 flex items-center justify-between">
-          <div className="text-lg font-bold tracking-tight">${price.toLocaleString()}</div>
+          <div className="text-lg font-bold tracking-tight">{formatINR(price)}</div>
           <a href={wa} target="_blank" rel="noreferrer" className="inline-flex items-center rounded-lg bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow shadow-blue-500/20 transition-all duration-300 hover:shadow-glow">
             Buy Now
           </a>
