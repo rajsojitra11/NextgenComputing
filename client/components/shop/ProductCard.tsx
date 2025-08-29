@@ -5,9 +5,11 @@ type Props = {
   image: string;
 };
 
+const formatINR = (n: number) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
+
 export default function ProductCard({ name, brand, price, image }: Props) {
   const wa = `https://wa.me/918469283448?text=${encodeURIComponent(
-    `Hi Nextgen Computing, I'm interested in buying ${name} by ${brand} for $${price}.`
+    `Hi Nextgen Computing, I'm interested in buying ${name} by ${brand} for ${formatINR(price)}.`
   )}`;
 
   return (
