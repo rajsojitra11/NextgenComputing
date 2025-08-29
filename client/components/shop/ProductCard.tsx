@@ -36,28 +36,36 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
           </button>
         )}
         {open && features && (
-          <div
-            role="dialog"
-            aria-label={`Key features of ${brand} ${name}`}
-            className="absolute inset-0 z-20 bg-white/95 p-4 backdrop-blur-sm"
-          >
-            <div className="flex items-start justify-between">
-              <h4 className="text-sm font-bold">Key Features</h4>
-              <button
-                type="button"
-                onClick={() => setOpen(false)}
-                className="rounded-md p-1 text-slate-600 hover:bg-slate-100"
-                aria-label="Close features"
-              >
-                ✕
-              </button>
+          <>
+            <button
+              type="button"
+              aria-label="Close features"
+              className="absolute inset-0 z-20 cursor-default bg-black/0"
+              onClick={() => setOpen(false)}
+            />
+            <div
+              role="dialog"
+              aria-label={`Key features of ${brand} ${name}`}
+              className="absolute right-3 top-3 z-30 w-64 max-w-[calc(100%-24px)] rounded-xl bg-white p-3 shadow-xl ring-1 ring-slate-200"
+            >
+              <div className="flex items-start justify-between">
+                <h4 className="text-sm font-bold">Key Features</h4>
+                <button
+                  type="button"
+                  onClick={() => setOpen(false)}
+                  className="rounded-md p-1 text-slate-600 hover:bg-slate-100"
+                  aria-label="Close"
+                >
+                  ✕
+                </button>
+              </div>
+              <ul className="mt-2 max-h-40 overflow-auto list-disc space-y-1 pl-5 text-xs text-slate-700">
+                {features.map((f, i) => (
+                  <li key={i}>{f}</li>
+                ))}
+              </ul>
             </div>
-            <ul className="mt-2 list-disc space-y-1 pl-5 text-xs text-slate-700">
-              {features.map((f, i) => (
-                <li key={i}>{f}</li>
-              ))}
-            </ul>
-          </div>
+          </>
         )}
       </div>
       <div className="p-4">
