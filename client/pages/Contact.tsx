@@ -41,9 +41,9 @@ export default function Contact() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.2)_0%,transparent_40%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_50%)]" />
         </div>
         <div className="container py-16 md:py-24">
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight animate-fade-in">Contact Nextgen Computing</h1>
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight animate-fade-in">{page?.title || "Contact Nextgen Computing"}</h1>
           <p className="mt-4 max-w-2xl text-slate-700 animate-slide-up" style={{animationDelay:'0.1s'}}>
-            Questions, repairs or custom builds — we’re here to help. Reach us by phone, email, WhatsApp, or the form below.
+            {page?.body || "Questions, repairs or custom builds — we’re here to help. Reach us by phone, email, WhatsApp, or the form below."}
           </p>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function Contact() {
                 <div>
                   <dt className="text-sm font-semibold leading-tight">Phone</dt>
                   <dd className="ml-0 text-slate-700 leading-snug">
-                    <a href="tel:+918469283448" className="font-medium text-slate-900 hover:text-blue-700">+91 8469283448</a>
+                    <a href={`tel:${meta.phone || "+918469283448"}`} className="font-medium text-slate-900 hover:text-blue-700">{meta.phone || "+91 8469283448"}</a>
                   </dd>
                 </div>
               </div>
@@ -68,7 +68,7 @@ export default function Contact() {
                 <div>
                   <dt className="text-sm font-semibold leading-tight">Email</dt>
                   <dd className="ml-0 text-slate-700 break-all leading-snug">
-                    <a href="mailto:nextgencomputing01@gmail.com" className="font-medium text-slate-900 hover:text-blue-700">nextgencomputing01@gmail.com</a>
+                    <a href={`mailto:${meta.email || "nextgencomputing01@gmail.com"}`} className="font-medium text-slate-900 hover:text-blue-700">{meta.email || "nextgencomputing01@gmail.com"}</a>
                   </dd>
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function Contact() {
                 <div>
                   <dt className="text-sm font-semibold leading-tight">Address</dt>
                   <dd className="ml-0 text-slate-700 leading-snug">
-                    <address className="not-italic font-medium text-slate-900">Bopal, Ahmedabad, Gujarat</address>
+                    <address className="not-italic font-medium text-slate-900">{meta.address || "Bopal, Ahmedabad, Gujarat"}</address>
                   </dd>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function Contact() {
           <div className="rounded-2xl overflow-hidden border border-slate-200/70 bg-white shadow-sm">
             <iframe
               title="Nextgen Computing Location"
-              src="https://www.google.com/maps?q=Bopal%2C%20Ahmedabad%2C%20Gujarat&output=embed"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(meta.mapQuery || "Bopal, Ahmedabad, Gujarat")}&output=embed`}
               className="h-[320px] w-full"
               loading="lazy"
             />
