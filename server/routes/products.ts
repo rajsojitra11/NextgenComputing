@@ -4,7 +4,7 @@ import { randomUUID } from "crypto";
 
 export type Product = {
   id: string;
-  category: "laptops" | "monitors" | "keyboards" | "mice" | "cpus";
+  category: string;
   name: string;
   brand: string;
   price: number;
