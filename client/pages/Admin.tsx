@@ -11,14 +11,6 @@ type Product = {
   buyLink?: string;
 };
 
-type Service = {
-  id?: string;
-  title: string;
-  desc: string;
-  priceFrom?: number;
-  image?: string;
-  active?: boolean;
-};
 
 const PIN = import.meta.env.VITE_ADMIN_PIN || "2468";
 
@@ -99,20 +91,16 @@ function PagesTab() {
 export default function Admin() {
   const [authed, setAuthed] = useState<boolean>(() => localStorage.getItem("admin_authed") === "1");
   const [pin, setPin] = useState("");
-  const [tab, setTab] = useState<"products" | "services" | "categories" | "pages">("products");
+  const [tab, setTab] = useState<"products" | "categories" | "pages">("products");
 
   // Products state
   const [items, setItems] = useState<Product[]>([]);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const emptyProduct: Product = useMemo(() => ({ category: "laptops", name: "", brand: "", price: 0, image: "", features: [], buyLink: "" }), []);
+  const emptyProduct: Product = useMemo(() => ({ category: "", name: "", brand: "", price: 0, image: "", features: [], buyLink: "" }), []);
   const [form, setForm] = useState<Product>(emptyProduct);
 
   // Services state
-  const [services, setServices] = useState<Service[]>([]);
-  const [editingServiceId, setEditingServiceId] = useState<string | null>(null);
-  const emptyService: Service = useMemo(() => ({ title: "", desc: "", priceFrom: undefined, image: "", active: true }), []);
-  const [serviceForm, setServiceForm] = useState<Service>(emptyService);
-
+        
   type Category = { id?: string; name: string };
   const [categories, setCategories] = useState<Category[]>([]);
   const [editingCategoryId, setEditingCategoryId] = useState<string | null>(null);
@@ -123,8 +111,7 @@ export default function Admin() {
     const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
     if (!ENABLE_API) return;
     fetch("/api/products").then(r => r.ok ? r.json() : Promise.reject()).then(setItems).catch(() => {});
-    fetch("/api/services").then(r => r.ok ? r.json() : Promise.reject()).then(setServices).catch(() => {});
-    fetch("/api/categories").then(r => r.ok ? r.json() : Promise.reject()).then(setCategories).catch(() => {});
+        fetch("/api/categories").then(r => r.ok ? r.json() : Promise.reject()).then(setCategories).catch(() => {});
   }, [authed]);
 
   const submitProduct = async (e: React.FormEvent) => {
@@ -155,34 +142,9 @@ export default function Admin() {
     setItems((prev) => prev.filter((p) => p.id !== id));
   };
 
-  const submitService = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const method = editingServiceId ? "PUT" : "POST";
-    const url = editingServiceId ? `/api/services/${editingServiceId}` : "/api/services";
-    const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify(serviceForm) });
-    if (!res.ok) return;
-    const saved = await res.json();
-    if (editingServiceId) {
-      setServices((prev) => prev.map((s) => (s.id === editingServiceId ? saved : s)));
-    } else {
-      setServices((prev) => [saved, ...prev]);
-    }
-    setServiceForm(emptyService);
-    setEditingServiceId(null);
-  };
-
-  const editService = (s: Service) => {
-    setEditingServiceId(s.id || null);
-    setServiceForm({ ...s, priceFrom: s.priceFrom ? Number(s.priceFrom) : undefined });
-    setTab("services");
-  };
-
-  const deleteService = async (id?: string) => {
-    if (!id) return;
-    await fetch(`/api/services/${id}`, { method: "DELETE" });
-    setServices((prev) => prev.filter((s) => s.id !== id));
-  };
-
+  
+  
+  
   if (!authed) {
     return (
       <section className="py-16">
@@ -205,8 +167,7 @@ export default function Admin() {
           <h1 className="text-3xl font-bold">Admin Panel</h1>
           <div className="flex flex-wrap gap-2">
             <button className={`px-3 py-2 rounded-lg border ${tab === "products" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("products")}>Products</button>
-            <button className={`px-3 py-2 rounded-lg border ${tab === "services" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("services")}>Services</button>
-            <button className={`px-3 py-2 rounded-lg border ${tab === "categories" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("categories")}>Categories</button>
+                        <button className={`px-3 py-2 rounded-lg border ${tab === "categories" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("categories")}>Categories</button>
             <button className={`px-3 py-2 rounded-lg border ${tab === "pages" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("pages" as any)}>Pages</button>
             <button className="px-3 py-2 rounded-lg border" onClick={() => { localStorage.removeItem("admin_authed"); setAuthed(false); }}>Log out</button>
           </div>
@@ -272,53 +233,7 @@ export default function Admin() {
           </div>
         )}
 
-        {tab === "services" && (
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <form onSubmit={submitService} className="md:col-span-1 rounded-2xl border border-slate-200 p-4 bg-white">
-              <h2 className="text-lg font-semibold">{editingServiceId ? "Edit Service" : "Add Service"}</h2>
-              <div className="mt-3 grid gap-3">
-                <input className="rounded-lg border px-3 py-2" placeholder="Title" value={serviceForm.title} onChange={(e) => setServiceForm({ ...serviceForm, title: e.target.value })} />
-                <textarea className="rounded-lg border px-3 py-2" placeholder="Description" value={serviceForm.desc} onChange={(e) => setServiceForm({ ...serviceForm, desc: e.target.value })} />
-                <input className="rounded-lg border px-3 py-2" placeholder="Starting Price (optional)" type="number" value={serviceForm.priceFrom || 0} onChange={(e) => setServiceForm({ ...serviceForm, priceFrom: Number(e.target.value) })} />
-                <input className="rounded-lg border px-3 py-2" placeholder="Image URL (optional)" value={serviceForm.image || ""} onChange={(e) => setServiceForm({ ...serviceForm, image: e.target.value })} />
-                <label className="inline-flex items-center gap-2 text-sm"><input type="checkbox" checked={serviceForm.active ?? true} onChange={(e) => setServiceForm({ ...serviceForm, active: e.target.checked })} /> Active</label>
-                <div className="flex gap-2">
-                  <button className="btn-primary" type="submit">{editingServiceId ? "Update" : "Add"}</button>
-                  {editingServiceId && <button type="button" className="btn-outline" onClick={() => { setEditingServiceId(null); setServiceForm(emptyService); }}>Cancel</button>}
-                </div>
-              </div>
-            </form>
-
-            <div className="md:col-span-2 rounded-2xl border border-slate-200 bg-white p-4 overflow-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left">
-                    <th className="p-2">Title</th>
-                    <th className="p-2">Active</th>
-                    <th className="p-2">Price From</th>
-                    <th className="p-2">Image</th>
-                    <th className="p-2"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {services.map((s) => (
-                    <tr key={s.id} className="border-t">
-                      <td className="p-2">{s.title}</td>
-                      <td className="p-2">{s.active ? "Yes" : "No"}</td>
-                      <td className="p-2">{s.priceFrom ? `₹${s.priceFrom}` : "-"}</td>
-                      <td className="p-2 truncate max-w-[12rem] text-blue-700">{s.image ? <a href={s.image} target="_blank" rel="noreferrer">Image</a> : "-"}</td>
-                      <td className="p-2 flex gap-2">
-                        <button className="btn-outline" onClick={() => editService(s)}>Edit</button>
-                        <button className="btn-outline" onClick={() => deleteService(s.id)}>Delete</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
-
+        
         {tab === "categories" && (
           <div className="mt-8 grid md:grid-cols-3 gap-6">
             <form onSubmit={async (e) => {
