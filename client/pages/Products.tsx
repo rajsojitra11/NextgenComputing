@@ -43,7 +43,7 @@ const laptops: Product[] = [
     name: "ASUS ExpertBook P1 – i5‑13420H / 32GB / 512GB",
     brand: "ASUS",
     price: 67990,
-    image: "https://images.unsplash.com/photo-1587825140400-52459d4eb6b7?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.pexels.com/photos/8960464/pexels-photo-8960464.jpeg?auto=compress&cs=tinysrgb&w=1200",
     features: ["Intel Core i5‑13420H","32GB RAM","512GB NVMe SSD","15.6″ FHD","MIL‑STD 810H","Windows 11 Home"],
     buyLink: "https://www.flipkart.com/asus-expertbook-p1-intel-core-i5-13th-gen-13420h-32-gb-512-gb-ssd-windows-11-home-p1403cva-s60939ws-thin-light-laptop/p/itm50988c1fc56e6"
   },
