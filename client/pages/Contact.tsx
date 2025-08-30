@@ -10,6 +10,16 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
+  const [page, setPage] = useState<Page | null>(null);
+  const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+
+  const meta = page?.meta || {};
+  const WHATSAPP = (meta.whatsapp || "918469283448").replace(/\D/g, "");
+
+  useEffect(() => {
+    if (!ENABLE_API) return;
+    fetch("/api/pages/contact").then((r) => (r.ok ? r.json() : Promise.reject())).then(setPage).catch(() => {});
+  }, [ENABLE_API]);
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
