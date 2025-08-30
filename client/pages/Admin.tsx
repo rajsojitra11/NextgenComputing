@@ -41,8 +41,10 @@ export default function Admin() {
 
   useEffect(() => {
     if (!authed) return;
-    fetch("/api/products").then(r => r.json()).then(setItems).catch(() => {});
-    fetch("/api/services").then(r => r.json()).then(setServices).catch(() => {});
+    const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+    if (!ENABLE_API) return;
+    fetch("/api/products").then(r => r.ok ? r.json() : Promise.reject()).then(setItems).catch(() => {});
+    fetch("/api/services").then(r => r.ok ? r.json() : Promise.reject()).then(setServices).catch(() => {});
   }, [authed]);
 
   const submitProduct = async (e: React.FormEvent) => {
