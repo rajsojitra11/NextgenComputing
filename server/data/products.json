@@ -1,1 +1,94 @@
-[]
+[
+  {
+    "id": "28259430-8ac8-486a-806d-7bd09e0e26f0",
+    "category": "Laptops",
+    "name": "Apple MacBook Air (M4, 2025)",
+    "brand": "Apple",
+    "price": 114900,
+    "image": "ttps://store.storeimages.cdn-apple.com/macbook-air-m4.jpg",
+    "features": [
+      "Apple M4 chip",
+      "16GB Unified Memory",
+      "256GB SSD",
+      "13.6″ Liquid Retina",
+      "Wi-Fi 6E",
+      "macOS",
+      "Backlit Magic Keyboard",
+      "Touch ID",
+      "Up to 18-hour battery",
+      "Ultra-thin design"
+    ],
+    "buyLink": "",
+    "createdAt": "2025-08-30T13:31:33.521Z",
+    "updatedAt": "2025-08-30T13:31:33.521Z"
+  },
+  {
+    "id": "16878e09-83bf-49eb-ae10-6492b2866d28",
+    "category": "Laptops",
+    "name": "Dell XPS 13 Plus (2024)",
+    "brand": "Dell",
+    "price": 139900,
+    "image": "https://i.dell.com/xps-13-plus.jpg",
+    "features": [
+      "Intel Core Ultra 7",
+      "16GB LPDDR5X",
+      "512GB SSD",
+      "13.4″ OLED InfinityEdge",
+      "Windows 11",
+      "Backlit Keyboard",
+      "Touch Display",
+      "Wi-Fi 6E",
+      "Dolby Vision",
+      "Fingerprint Reader"
+    ],
+    "buyLink": "",
+    "createdAt": "2025-08-30T13:32:23.246Z",
+    "updatedAt": "2025-08-30T13:32:23.246Z"
+  },
+  {
+    "id": "e1304343-298b-42ea-ae06-73759491f490",
+    "category": "Laptops",
+    "name": "Dell Inspiron 15 (2024)",
+    "brand": "Dell",
+    "price": 64990,
+    "image": "https://i.dell.com/inspiron-15.jpg",
+    "features": [
+      "Intel Core i7 13th Gen",
+      "16GB DDR4 RAM",
+      "1TB SSD",
+      "15.6″ FHD Display",
+      "Windows 11",
+      "NVIDIA RTX 2050",
+      "Backlit Keyboard",
+      "Wi-Fi 6",
+      "ExpressCharge",
+      "Dual Speakers"
+    ],
+    "buyLink": "",
+    "createdAt": "2025-08-30T13:33:12.006Z",
+    "updatedAt": "2025-08-30T13:33:12.006Z"
+  },
+  {
+    "id": "1a949d0a-4f96-4282-8459-f7b44a96ae27",
+    "category": "Laptops",
+    "name": "HP Spectre x360 14 (2024)",
+    "brand": "HP",
+    "price": 129900,
+    "image": "https://ssl.hp.com/spectre-x360.jpg",
+    "features": [
+      "Intel Evo i7 13th Gen",
+      "16GB LPDDR5",
+      "1TB SSD",
+      "14″ 3K2K OLED Touch",
+      "Windows 11",
+      "2-in-1 Convertible",
+      "HP Rechargeable Pen",
+      "Wi-Fi 6E",
+      "Bang & Olufsen Audio",
+      "Long battery life"
+    ],
+    "buyLink": "",
+    "createdAt": "2025-08-30T13:33:58.738Z",
+    "updatedAt": "2025-08-30T13:33:58.738Z"
+  }
+]
