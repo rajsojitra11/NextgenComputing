@@ -135,7 +135,7 @@ const mice: Product[] = [
 ];
 
 const cpus: Product[] = [
-  { id: "c1", name: "Intel Core i3 12100F", brand: "Intel", price: 8990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i3-12100f-box.jpg" },
+  { id: "c1", name: "Intel Core i3 12100F", brand: "Intel", price: 8990, image: "https://www.google.com/imgres?q=computer%20mouse&imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FI%2F71%2B4ffKj54L.jpg&imgrefurl=https%3A%2F%2Fwww.amazon.in%2FLogitech-M90-Mouse-Dark-Grey%2Fdp%2FB003D8ZT0C&docid=oI796XpGqmCMQM&tbnid=Va6ffSrtEPfxyM&vet=12ahUKEwj48_nk27GPAxXhlK8BHQRBF04QM3oECBgQAA..i&w=2560&h=2560&hcb=2&ved=2ahUKEwj48_nk27GPAxXhlK8BHQRBF04QM3oECBgQAA" },
   { id: "c2", name: "Intel Core i5 13400", brand: "Intel", price: 20990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i5-13400-box.jpg" },
   { id: "c3", name: "Intel Core i7 13700K", brand: "Intel", price: 37990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i7-13700k-box.jpg" },
   { id: "c4", name: "AMD Ryzen 5 5600", brand: "AMD", price: 12990, image: "https://www.amd.com/system/files/2021-01/ryzen5-5600-box.jpg" },
