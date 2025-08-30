@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 
 type Product = {
   id?: string;
-  category: "laptops" | "monitors" | "keyboards" | "mice" | "cpus";
+  category: string;
   name: string;
   brand: string;
   price: number;
