@@ -39,6 +39,11 @@ export default function Admin() {
   const emptyService: Service = useMemo(() => ({ title: "", desc: "", priceFrom: undefined, image: "", active: true }), []);
   const [serviceForm, setServiceForm] = useState<Service>(emptyService);
 
+  type Category = { id?: string; name: string };
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [editingCategoryId, setEditingCategoryId] = useState<string | null>(null);
+  const [categoryName, setCategoryName] = useState("");
+
   useEffect(() => {
     if (!authed) return;
     const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
