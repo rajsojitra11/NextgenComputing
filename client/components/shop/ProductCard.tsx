@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Props = {
   name: string;
@@ -17,6 +18,9 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
   )}`;
   const link = buyLink || wa;
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -24,11 +28,14 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
     };
     if (open) {
       window.addEventListener("keydown", onKey);
-      const prev = document.body.style.overflow;
+      const prevOverflow = document.body.style.overflow;
+      const prevTouch = document.body.style.touchAction;
       document.body.style.overflow = "hidden";
+      document.body.style.touchAction = "none";
       return () => {
         window.removeEventListener("keydown", onKey);
-        document.body.style.overflow = prev;
+        document.body.style.overflow = prevOverflow;
+        document.body.style.touchAction = prevTouch;
       };
     }
     return () => window.removeEventListener("keydown", onKey);
@@ -72,7 +79,7 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
           </div>
         </div>
       </div>
-      {open && (
+      {mounted && open && createPortal(
         <>
           <div className="fixed inset-0 z-[100000] bg-black/40 backdrop-blur-sm" onClick={() => setOpen(false)} aria-hidden="true" />
           <div
@@ -98,7 +105,8 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
               </ul>
             </div>
           </div>
-        </>
+        </>,
+        document.body
       )}
     </div>
   );
