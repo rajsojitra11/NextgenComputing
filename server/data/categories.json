@@ -4,5 +4,11 @@
     "name": "Mouse",
     "createdAt": "2025-08-30T13:03:04.940Z",
     "updatedAt": "2025-08-30T13:03:04.940Z"
+  },
+  {
+    "id": "fd3e1c9c-4155-47f3-8580-ebab5b3c174a",
+    "name": "Laptop",
+    "createdAt": "2025-08-30T13:03:10.263Z",
+    "updatedAt": "2025-08-30T13:03:10.263Z"
   }
 ]
