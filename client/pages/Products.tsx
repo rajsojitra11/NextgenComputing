@@ -8,6 +8,7 @@ interface Product {
   image: string;
   features?: string[];
   buyLink?: string;
+  category?: "laptops" | "monitors" | "keyboards" | "mice" | "cpus";
 }
 
 const laptops: Product[] = [
@@ -149,6 +150,14 @@ const cpus: Product[] = [
 
 
 export default function Products() {
+  const [dynamic, setDynamic] = useState<Product[] | null>(null);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((r) => r.json())
+      .then((data: Product[]) => setDynamic(Array.isArray(data) ? data : null))
+      .catch(() => setDynamic(null));
+  }, []);
   return (
     <section className="relative py-12 md:py-16 pb-28 md:pb-16">
       <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
@@ -165,35 +174,35 @@ export default function Products() {
 
         <h2 id="laptops" className="mt-6 mb-4 text-2xl font-bold">Laptops</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {laptops.map((p) => (
+          {(dynamic ? dynamic.filter((p) => p.category === "laptops") : laptops).map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
           ))}
         </div>
 
         <h2 id="monitors" className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {monitors.map((p) => (
+          {(dynamic ? dynamic.filter((p) => p.category === "monitors") : monitors).map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 id="keyboards" className="mt-12 mb-4 text-2xl font-bold">Keyboards</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {keyboards.map((p) => (
+          {(dynamic ? dynamic.filter((p) => p.category === "keyboards") : keyboards).map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 id="mice" className="mt-12 mb-4 text-2xl font-bold">Mice</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {mice.map((p) => (
+          {(dynamic ? dynamic.filter((p) => p.category === "mice") : mice).map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 className="mt-12 mb-4 text-2xl font-bold">CPUs</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {cpus.map((p) => (
+          {(dynamic ? dynamic.filter((p) => p.category === "cpus") : cpus).map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
