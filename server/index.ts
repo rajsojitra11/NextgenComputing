@@ -4,6 +4,7 @@ import cors from "cors";
 import { handleDemo } from "./routes/demo";
 import { productsRouter } from "./routes/products";
 import { servicesRouter } from "./routes/services";
+import { categoriesRouter } from "./routes/categories";
 
 export function createServer() {
   const app = express();
@@ -23,6 +24,7 @@ export function createServer() {
 
   app.use("/api/products", productsRouter());
   app.use("/api/services", servicesRouter());
+  app.use("/api/categories", categoriesRouter());
 
   return app;
 }
