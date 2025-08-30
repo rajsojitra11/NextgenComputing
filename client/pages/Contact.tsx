@@ -1,7 +1,9 @@
 import { Mail, MapPin, Phone, Send, WhatsappIcon } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const WHATSAPP = "918469283448"; // +91 8469283448
+type ContactMeta = { phone?: string; email?: string; address?: string; whatsapp?: string; mapQuery?: string };
+
+type Page = { slug: string; title: string; body?: string; meta?: ContactMeta };
 
 export default function Contact() {
   const [name, setName] = useState("");
