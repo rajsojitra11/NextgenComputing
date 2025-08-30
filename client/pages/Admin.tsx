@@ -133,6 +133,7 @@ export default function Admin() {
             <button className={`px-3 py-2 rounded-lg border ${tab === "products" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("products")}>Products</button>
             <button className={`px-3 py-2 rounded-lg border ${tab === "services" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("services")}>Services</button>
             <button className={`px-3 py-2 rounded-lg border ${tab === "categories" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("categories")}>Categories</button>
+            <button className={`px-3 py-2 rounded-lg border ${tab === "pages" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("pages" as any)}>Pages</button>
             <button className="px-3 py-2 rounded-lg border" onClick={() => { localStorage.removeItem("admin_authed"); setAuthed(false); }}>Log out</button>
           </div>
         </header>
