@@ -346,6 +346,12 @@ export default function Admin() {
             </div>
           </div>
         )}
+
+        {tab === "pages" && (
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            <PagesTab />
+          </div>
+        )}
       </div>
     </section>
   );
