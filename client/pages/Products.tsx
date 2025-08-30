@@ -1,4 +1,5 @@
 import ProductCard from "../components/shop/ProductCard";
+import { useEffect, useState } from "react";
 
 interface Product {
   id: string;
