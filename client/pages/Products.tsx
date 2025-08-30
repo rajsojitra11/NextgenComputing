@@ -152,13 +152,15 @@ const cpus: Product[] = [
 
 export default function Products() {
   const [dynamic, setDynamic] = useState<Product[] | null>(null);
+  const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
 
   useEffect(() => {
+    if (!ENABLE_API) return;
     fetch("/api/products")
-      .then((r) => r.json())
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((data: Product[]) => setDynamic(Array.isArray(data) ? data : null))
       .catch(() => setDynamic(null));
-  }, []);
+  }, [ENABLE_API]);
   return (
     <section className="relative py-12 md:py-16 pb-28 md:pb-16">
       <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
