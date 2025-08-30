@@ -49,9 +49,7 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
 
   return (
     <div className="group relative h-full overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col">
-      <div className="relative aspect-[4/3] overflow-hidden">
-        <img src={image} alt={`${brand} ${name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
