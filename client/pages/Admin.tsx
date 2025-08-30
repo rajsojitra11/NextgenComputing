@@ -127,12 +127,13 @@ export default function Admin() {
   return (
     <section className="py-10">
       <div className="container">
-        <header className="flex items-center justify-between">
+        <header className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h1 className="text-3xl font-bold">Admin Panel</h1>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <button className={`px-3 py-2 rounded-lg border ${tab === "products" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("products")}>Products</button>
             <button className={`px-3 py-2 rounded-lg border ${tab === "services" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("services")}>Services</button>
-            <button className="px-3 py-2 rounded-lg border" onClick={() => { localStorage.removeItem("admin_authed"); setAuthed(false); }}>Lock</button>
+            <button className={`px-3 py-2 rounded-lg border ${tab === "categories" ? "bg-blue-600 text-white" : "bg-white"}`} onClick={() => setTab("categories")}>Categories</button>
+            <button className="px-3 py-2 rounded-lg border" onClick={() => { localStorage.removeItem("admin_authed"); setAuthed(false); }}>Log out</button>
           </div>
         </header>
 
