@@ -180,6 +180,9 @@ export default function Products() {
           {(dynamic || []).filter((p) => p.category === "laptops").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
           ))}
+          {dynamic && (dynamic.filter((p) => p.category === "laptops").length === 0) && (
+            <div className="col-span-full text-slate-500">No laptops yet. Add products in Admin.</div>
+          )}
         </div>
 
         <h2 id="monitors" className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
