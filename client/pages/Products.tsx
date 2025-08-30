@@ -135,17 +135,18 @@ const mice: Product[] = [
 ];
 
 const cpus: Product[] = [
-  { id: "c1", name: "Intel Core i3 12100F", brand: "Intel", price: 8990, image: "https://images.pexels.com/photos/3665442/pexels-photo-3665442.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c2", name: "Intel Core i5 13400", brand: "Intel", price: 20990, image: "https://images.pexels.com/photos/1432680/pexels-photo-1432680.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c3", name: "Intel Core i7 13700K", brand: "Intel", price: 37990, image: "https://images.pexels.com/photos/2588756/pexels-photo-2588756.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c4", name: "AMD Ryzen 5 5600", brand: "AMD", price: 12990, image: "https://images.pexels.com/photos/5206323/pexels-photo-5206323.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c5", name: "AMD Ryzen 7 5800X", brand: "AMD", price: 22990, image: "https://images.pexels.com/photos/6755087/pexels-photo-6755087.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c6", name: "AMD Ryzen 9 5900X", brand: "AMD", price: 37990, image: "https://images.pexels.com/photos/3665444/pexels-photo-3665444.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c7", name: "Intel Core i9 14900K", brand: "Intel", price: 49990, image: "https://images.pexels.com/photos/7596370/pexels-photo-7596370.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c8", name: "AMD Ryzen 5 7600", brand: "AMD", price: 20990, image: "https://images.pexels.com/photos/11047218/pexels-photo-11047218.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c9", name: "Intel Core i5 12400F", brand: "Intel", price: 14990, image: "https://images.pexels.com/photos/1432680/pexels-photo-1432680.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "c10", name: "AMD Ryzen 7 7700X", brand: "AMD", price: 32990, image: "https://images.pexels.com/photos/3665442/pexels-photo-3665442.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "c1", name: "Intel Core i3 12100F", brand: "Intel", price: 8990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i3-12100f-box.jpg" },
+  { id: "c2", name: "Intel Core i5 13400", brand: "Intel", price: 20990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i5-13400-box.jpg" },
+  { id: "c3", name: "Intel Core i7 13700K", brand: "Intel", price: 37990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i7-13700k-box.jpg" },
+  { id: "c4", name: "AMD Ryzen 5 5600", brand: "AMD", price: 12990, image: "https://www.amd.com/system/files/2021-01/ryzen5-5600-box.jpg" },
+  { id: "c5", name: "AMD Ryzen 7 5800X", brand: "AMD", price: 22990, image: "https://www.amd.com/system/files/2021-01/ryzen7-5800x-box.jpg" },
+  { id: "c6", name: "AMD Ryzen 9 5900X", brand: "AMD", price: 37990, image: "https://www.amd.com/system/files/2021-01/ryzen9-5900x-box.jpg" },
+  { id: "c7", name: "Intel Core i9 14900K", brand: "Intel", price: 49990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i9-14900k-box.jpg" },
+  { id: "c8", name: "AMD Ryzen 5 7600", brand: "AMD", price: 20990, image: "https://www.amd.com/system/files/2021-01/ryzen5-7600-box.jpg" },
+  { id: "c9", name: "Intel Core i5 12400F", brand: "Intel", price: 14990, image: "https://www.intel.com/content/dam/www/central-libraries/us/en/images/i5-12400f-box.jpg" },
+  { id: "c10", name: "AMD Ryzen 7 7700X", brand: "AMD", price: 32990, image: "https://www.amd.com/system/files/2021-01/ryzen7-7700x-box.jpg" },
 ];
+
 
 export default function Products() {
   return (
