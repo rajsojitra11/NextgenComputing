@@ -171,7 +171,7 @@ export default function Products() {
             <a href="#laptops" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Laptops</a>
             <a href="#monitors" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Monitors</a>
             <a href="#keyboards" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Keyboards</a>
-            <a href="#mice" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Mice</a>
+            <a href="#mouse" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Mouse</a>
           </nav>
         </header>
 
@@ -196,7 +196,7 @@ export default function Products() {
           ))}
         </div>
 
-        <h2 id="mice" className="mt-12 mb-4 text-2xl font-bold">Mice</h2>
+        <h2 id="mouse" className="mt-12 mb-4 text-2xl font-bold">Mouse</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           {(dynamic ? dynamic.filter((p) => p.category === "mice") : mice).map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
