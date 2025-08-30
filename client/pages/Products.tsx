@@ -177,35 +177,35 @@ export default function Products() {
 
         <h2 id="laptops" className="mt-6 mb-4 text-2xl font-bold">Laptops</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {(dynamic ? dynamic.filter((p) => p.category === "laptops") : laptops).map((p) => (
+          {(dynamic || []).filter((p) => p.category === "laptops").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
           ))}
         </div>
 
         <h2 id="monitors" className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {(dynamic ? dynamic.filter((p) => p.category === "monitors") : monitors).map((p) => (
+          {(dynamic || []).filter((p) => p.category === "monitors").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 id="keyboards" className="mt-12 mb-4 text-2xl font-bold">Keyboards</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {(dynamic ? dynamic.filter((p) => p.category === "keyboards") : keyboards).map((p) => (
+          {(dynamic || []).filter((p) => p.category === "keyboards").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 id="mouse" className="mt-12 mb-4 text-2xl font-bold">Mouse</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {(dynamic ? dynamic.filter((p) => p.category === "mice") : mice).map((p) => (
+          {(dynamic || []).filter((p) => p.category === "mice").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
         <h2 className="mt-12 mb-4 text-2xl font-bold">CPUs</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
-          {(dynamic ? dynamic.filter((p) => p.category === "cpus") : cpus).map((p) => (
+          {(dynamic || []).filter((p) => p.category === "cpus").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
