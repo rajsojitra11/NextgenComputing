@@ -285,57 +285,6 @@ export default function Admin() {
           </div>
         )}
 
-        {tab === "categories" && (
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <form onSubmit={async (e) => {
-              e.preventDefault();
-              const method = editingCategoryId ? "PUT" : "POST";
-              const url = editingCategoryId ? `/api/categories/${editingCategoryId}` : "/api/categories";
-              const res = await fetch(url, { method, headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: categoryName }) });
-              if (!res.ok) return;
-              const saved = await res.json();
-              if (editingCategoryId) {
-                setCategories((prev) => prev.map((c) => (c.id === editingCategoryId ? saved : c)));
-              } else {
-                setCategories((prev) => [saved, ...prev]);
-              }
-              setCategoryName("");
-              setEditingCategoryId(null);
-            }} className="md:col-span-1 rounded-2xl border border-slate-200 p-4 bg-white">
-              <h2 className="text-lg font-semibold">{editingCategoryId ? "Edit Category" : "Add Category"}</h2>
-              <div className="mt-3 grid gap-3">
-                <input className="rounded-lg border px-3 py-2" placeholder="Category name" value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
-                <div className="flex gap-2">
-                  <button className="btn-primary" type="submit">{editingCategoryId ? "Update" : "Add"}</button>
-                  {editingCategoryId && <button type="button" className="btn-outline" onClick={() => { setEditingCategoryId(null); setCategoryName(""); }}>Cancel</button>}
-                </div>
-              </div>
-            </form>
-
-            <div className="md:col-span-2 rounded-2xl border border-slate-200 bg-white p-4 overflow-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left">
-                    <th className="p-2">Name</th>
-                    <th className="p-2"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {categories.map((c) => (
-                    <tr key={c.id} className="border-t">
-                      <td className="p-2">{c.name}</td>
-                      <td className="p-2 flex gap-2">
-                        <button className="btn-outline" onClick={() => { setEditingCategoryId(c.id || null); setCategoryName(c.name); setTab("categories"); }}>Edit</button>
-                        <button className="btn-outline" onClick={async () => { if (!c.id) return; await fetch(`/api/categories/${c.id}`, { method: "DELETE" }); setCategories((prev) => prev.filter((x) => x.id !== c.id)); }}>Delete</button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        )}
-
         {tab === "pages" && (
           <div className="mt-8 grid md:grid-cols-3 gap-6">
             <PagesTab />
