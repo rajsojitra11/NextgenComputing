@@ -1,14 +1,28 @@
+import { useEffect, useState } from "react";
+
+type Page = { slug: string; title: string; body?: string };
+
 export default function About() {
+  const [page, setPage] = useState<Page | null>(null);
+  const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+
+  useEffect(() => {
+    if (!ENABLE_API) return;
+    fetch("/api/pages/about").then((r) => (r.ok ? r.json() : Promise.reject())).then(setPage).catch(() => {});
+  }, [ENABLE_API]);
+
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
       <div className="container py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
         <div className="order-2 md:order-1">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
-            About <span className="text-blue-600">Nextgen Computing</span>
+            {page?.title || (
+              <>About <span className="text-blue-600">Nextgen Computing</span></>
+            )}
           </h1>
           <p className="mt-5 text-slate-600 leading-relaxed">
-            We are a team of technology enthusiasts dedicated to providing cutting-edge computers and laptops, backed by expert repair and maintenance services. Our mission is to keep you productive and secure with fast turnaround and honest pricing.
+            {page?.body || "We are a team of technology enthusiasts dedicated to providing cutting-edge computers and laptops, backed by expert repair and maintenance services. Our mission is to keep you productive and secure with fast turnaround and honest pricing."}
           </p>
           <div className="mt-8 grid grid-cols-3 gap-4">
             <div className="rounded-xl border border-slate-200/70 p-4 text-center bg-white/60 backdrop-blur animate-fade-in" style={{animationDelay:'0.05s'}}>
