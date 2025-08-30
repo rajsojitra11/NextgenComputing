@@ -1,1 +1,25 @@
-[]
+[
+  {
+    "id": "fe15ec4d-4cc3-4bf8-9773-b97d9e84bb2e",
+    "category": "laptops",
+    "name": "Lenovo IdeaPad Slim 3 – i5 11th Gen (16GB/512GB)",
+    "brand": "lenovo",
+    "price": 49999,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.y6MPyepeDGuGjECUb_ztcQHaHa?pid=Api&P=0&h=220",
+    "features": [
+      "Brand: Lenovo",
+      "Price: ₹46",
+      "990",
+      "Intel Core i5",
+      "11th Gen",
+      "16GB RAM",
+      "512GB SSD",
+      "15.6″ FHD",
+      "Wi‑Fi 6",
+      "Windows 11"
+    ],
+    "buyLink": "",
+    "createdAt": "2025-08-30T12:42:44.709Z",
+    "updatedAt": "2025-08-30T12:42:44.709Z"
+  }
+]
