@@ -4,5 +4,23 @@
     "name": "Laptops",
     "createdAt": "2025-08-30T13:15:56.849Z",
     "updatedAt": "2025-08-30T13:15:56.849Z"
+  },
+  {
+    "id": "9d83e76a-8714-4037-b0bb-a5fd0aeb8f93",
+    "name": "Monitors",
+    "createdAt": "2025-08-30T13:22:01.982Z",
+    "updatedAt": "2025-08-30T13:22:21.702Z"
+  },
+  {
+    "id": "35311062-e94c-4f0d-926e-42a64e18c846",
+    "name": "CPU",
+    "createdAt": "2025-08-30T13:22:06.674Z",
+    "updatedAt": "2025-08-30T13:22:06.674Z"
+  },
+  {
+    "id": "c985c8b8-ebc2-4536-a797-ccbe898579d7",
+    "name": "Keyboards",
+    "createdAt": "2025-08-30T13:22:16.176Z",
+    "updatedAt": "2025-08-30T13:22:16.176Z"
   }
 ]
