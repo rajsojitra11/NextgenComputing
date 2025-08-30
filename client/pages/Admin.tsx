@@ -117,7 +117,7 @@ export default function Admin() {
           <p className="mt-2 text-slate-600">Enter admin PIN to continue.</p>
           <form className="mt-6 flex gap-2" onSubmit={(e) => { e.preventDefault(); if (pin === String(PIN)) { localStorage.setItem("admin_authed", "1"); setAuthed(true); } }}>
             <input value={pin} onChange={(e) => setPin(e.target.value)} type="password" placeholder="PIN" className="flex-1 rounded-lg border border-slate-300 px-3 py-2" />
-            <button className="btn-primary" type="submit">Unlock</button>
+            <button className="btn-primary" type="submit">Login</button>
           </form>
         </div>
       </section>
