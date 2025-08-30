@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import SiteHeader from "./components/layout/SiteHeader";
 import SiteFooter from "./components/layout/SiteFooter";
 import FloatingWhatsApp from "./components/layout/FloatingWhatsApp";
+import ScrollToTop from "./components/routing/ScrollToTop";
 import About from "./pages/About";
 import Placeholder from "./pages/Placeholder";
 import Products from "./pages/Products";
@@ -26,6 +27,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <div className="min-h-dvh flex flex-col">
           <SiteHeader />
           <main className="flex-1">
