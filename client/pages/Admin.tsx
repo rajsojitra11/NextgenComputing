@@ -25,7 +25,7 @@ const PIN = import.meta.env.VITE_ADMIN_PIN || "2468";
 export default function Admin() {
   const [authed, setAuthed] = useState<boolean>(() => localStorage.getItem("admin_authed") === "1");
   const [pin, setPin] = useState("");
-  const [tab, setTab] = useState<"products" | "services" | "categories">("products");
+  const [tab, setTab] = useState<"products" | "services" | "categories" | "pages">("products");
 
   // Products state
   const [items, setItems] = useState<Product[]>([]);
