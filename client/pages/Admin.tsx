@@ -50,6 +50,7 @@ export default function Admin() {
     if (!ENABLE_API) return;
     fetch("/api/products").then(r => r.ok ? r.json() : Promise.reject()).then(setItems).catch(() => {});
     fetch("/api/services").then(r => r.ok ? r.json() : Promise.reject()).then(setServices).catch(() => {});
+    fetch("/api/categories").then(r => r.ok ? r.json() : Promise.reject()).then(setCategories).catch(() => {});
   }, [authed]);
 
   const submitProduct = async (e: React.FormEvent) => {
