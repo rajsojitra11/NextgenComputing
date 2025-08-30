@@ -142,13 +142,16 @@ export default function Admin() {
             <form onSubmit={submitProduct} className="md:col-span-1 rounded-2xl border border-slate-200 p-4 bg-white">
               <h2 className="text-lg font-semibold">{editingId ? "Edit Product" : "Add Product"}</h2>
               <div className="mt-3 grid gap-3">
-                <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value as Product["category"] })} className="rounded-lg border px-3 py-2">
-                  <option value="laptops">Laptops</option>
-                  <option value="monitors">Monitors</option>
-                  <option value="keyboards">Keyboards</option>
-                  <option value="mice">Mice</option>
-                  <option value="cpus">CPUs</option>
-                </select>
+                {categories.length > 0 ? (
+                  <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="rounded-lg border px-3 py-2">
+                    <option value="" disabled>Select category</option>
+                    {categories.map((c) => (
+                      <option key={c.id} value={c.name}>{c.name}</option>
+                    ))}
+                  </select>
+                ) : (
+                  <input className="rounded-lg border px-3 py-2" placeholder="Category (add more in Categories tab)" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} />
+                )}
                 <input className="rounded-lg border px-3 py-2" placeholder="Name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
                 <input className="rounded-lg border px-3 py-2" placeholder="Brand" value={form.brand} onChange={(e) => setForm({ ...form, brand: e.target.value })} />
                 <input className="rounded-lg border px-3 py-2" placeholder="Price" type="number" value={form.price} onChange={(e) => setForm({ ...form, price: Number(e.target.value) })} />
