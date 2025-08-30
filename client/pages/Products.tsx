@@ -190,6 +190,9 @@ export default function Products() {
           {(dynamic || []).filter((p) => p.category === "monitors").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
+          {dynamic && (dynamic.filter((p) => p.category === "monitors").length === 0) && (
+            <div className="col-span-full text-slate-500">No monitors yet. Add products in Admin.</div>
+          )}
         </div>
 
         <h2 id="keyboards" className="mt-12 mb-4 text-2xl font-bold">Keyboards</h2>
@@ -197,6 +200,9 @@ export default function Products() {
           {(dynamic || []).filter((p) => p.category === "keyboards").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
+          {dynamic && (dynamic.filter((p) => p.category === "keyboards").length === 0) && (
+            <div className="col-span-full text-slate-500">No keyboards yet. Add products in Admin.</div>
+          )}
         </div>
 
         <h2 id="mouse" className="mt-12 mb-4 text-2xl font-bold">Mouse</h2>
@@ -204,6 +210,9 @@ export default function Products() {
           {(dynamic || []).filter((p) => p.category === "mice").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
+          {dynamic && (dynamic.filter((p) => p.category === "mice").length === 0) && (
+            <div className="col-span-full text-slate-500">No mouse yet. Add products in Admin.</div>
+          )}
         </div>
 
         <h2 className="mt-12 mb-4 text-2xl font-bold">CPUs</h2>
@@ -211,6 +220,9 @@ export default function Products() {
           {(dynamic || []).filter((p) => p.category === "cpus").map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
+          {dynamic && (dynamic.filter((p) => p.category === "cpus").length === 0) && (
+            <div className="col-span-full text-slate-500">No CPUs yet. Add products in Admin.</div>
+          )}
         </div>
       </div>
     </section>
