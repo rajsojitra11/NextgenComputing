@@ -155,31 +155,36 @@ export default function Products() {
       <div className="container">
         <header className="mb-8 md:mb-12">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Shop Products</h1>
-          <p className="mt-3 text-slate-600 max-w-2xl">India‑ready catalog with laptops, monitors, CPUs and peripherals at INR prices.</p>
+          <nav className="mt-4 flex flex-wrap gap-3">
+            <a href="#laptops" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Laptops</a>
+            <a href="#monitors" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Monitors</a>
+            <a href="#keyboards" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Keyboards</a>
+            <a href="#mice" className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50">Mice</a>
+          </nav>
         </header>
 
-        <h2 className="mt-6 mb-4 text-2xl font-bold">Laptops</h2>
+        <h2 id="laptops" className="mt-6 mb-4 text-2xl font-bold">Laptops</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           {laptops.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
           ))}
         </div>
 
-        <h2 className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
+        <h2 id="monitors" className="mt-12 mb-4 text-2xl font-bold">Monitors</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           {monitors.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
-        <h2 className="mt-12 mb-4 text-2xl font-bold">Keyboards</h2>
+        <h2 id="keyboards" className="mt-12 mb-4 text-2xl font-bold">Keyboards</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           {keyboards.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
           ))}
         </div>
 
-        <h2 className="mt-12 mb-4 text-2xl font-bold">Mice</h2>
+        <h2 id="mice" className="mt-12 mb-4 text-2xl font-bold">Mice</h2>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
           {mice.map((p) => (
             <ProductCard key={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} />
