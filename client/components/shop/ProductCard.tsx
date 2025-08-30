@@ -21,7 +21,10 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
   const [mounted, setMounted] = useState(false);
 
   const computeSrc = (val?: string) => {
-    const next = (val || "").trim();
+    let next = (val || "").trim();
+    if (next.startsWith("ttps://")) next = "https://" + next.slice(7);
+    if (next.startsWith("http//")) next = "http://" + next.slice(6);
+    if (next.startsWith("https//")) next = "https://" + next.slice(7);
     const ok = next.startsWith("http://") || next.startsWith("https://") || next.startsWith("/");
     return ok && next ? next : "/placeholder.svg";
   };
