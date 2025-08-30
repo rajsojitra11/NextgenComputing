@@ -123,16 +123,15 @@ const keyboards: Product[] = [
 ];
 
 const mice: Product[] = [
-  { id: "mm1", name: "Logitech G502 X", brand: "Logitech", price: 5499, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm2", name: "Razer Basilisk V3", brand: "Razer", price: 4999, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm3", name: "Logitech MX Master 3S", brand: "Logitech", price: 7999, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm4", name: "Logitech M720 Triathlon", brand: "Logitech", price: 3499, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm5", name: "Apple Magic Mouse 2", brand: "Apple", price: 8990, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm6", name: "Razer DeathAdder V2", brand: "Razer", price: 3999, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm7", name: "Logitech M650", brand: "Logitech", price: 1999, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm8", name: "Logitech Lift Vertical", brand: "Logitech", price: 5499, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm9", name: "Razer Viper 8K", brand: "Razer", price: 6999, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
-  { id: "mm10", name: "Logitech Pebble M350", brand: "Logitech", price: 1999, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm1", name: "Logitech M90 Wired USB Mouse", brand: "Logitech", price: 5499, image: "https://images.pexels.com/photos/6044925/pexels-photo-6044925.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm2", name: "HP X1000 Wired USB Mouse", brand: "HP", price: 4999, image: "https://images.pexels.com/photos/2857477/pexels-photo-2857477.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm3", name: "Dell MS116 Wired USB Mouse", brand: "Dell", price: 7999, image: "https://images.pexels.com/photos/4672741/pexels-photo-4672741.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm4", name: "Logitech M235 Wireless Mouse", brand: "Logitech", price: 3499, image: "https://images.pexels.com/photos/7430757/pexels-photo-7430757.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm5", name: "Microsoft Wireless Mouse 1850", brand: "Microsoft", price: 8990, image: "https://images.pexels.com/photos/2861984/pexels-photo-2861984.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm6", name: "Redragon M908 RGB Wireless Mouse", brand: "Redragon", price: 3999, image: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm7", name: "Razer DeathAdder Elite Gaming Mouse", brand: "Razer", price: 1999, image: "https://images.pexels.com/photos/7047612/pexels-photo-7047612.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm8", name: "Logitech G502 HERO Gaming Mouse", brand: "Logitech", price: 5499, image: "https://images.pexels.com/photos/8176505/pexels-photo-8176505.jpeg?auto=compress&cs=tinysrgb&w=800" },
+  { id: "mm9", name: "SteelSeries Rival 110 Gaming Mouse", brand: "SteelSeries", price: 6999, image: "https://images.pexels.com/photos/28779689/pexels-photo-28779689.jpeg?auto=compress&cs=tinysrgb&w=800" },
 ];
 
 const cpus: Product[] = [
