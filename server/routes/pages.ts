@@ -11,24 +11,37 @@ export type Page = {
 
 const file = "pages.json";
 
-const list: RequestHandler = (_req, res) => {
+const list: RequestHandler = async (_req, res) => {
+  if (process.env.USE_MYSQL === "true") {
+    const { getPool } = await import("../utils/mysql");
+    const pool = getPool();
+    const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages");
+    const items = (rows as any[]).map((r) => ({ ...r, meta: r.meta ? JSON.parse(r.meta) : {} }));
+    return res.json(items);
+  }
   const items = readJson<Page[]>(file, []);
   res.json(items);
 };
 
-const getBySlug: RequestHandler = (req, res) => {
+const getBySlug: RequestHandler = async (req, res) => {
   const { slug } = req.params;
+  if (process.env.USE_MYSQL === "true") {
+    const { getPool } = await import("../utils/mysql");
+    const pool = getPool();
+    const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages WHERE slug=?", [slug]);
+    if ((rows as any[]).length === 0) return res.status(404).json({ error: "Not found" });
+    const r = (rows as any[])[0];
+    return res.json({ ...r, meta: r.meta ? JSON.parse(r.meta) : {} });
+  }
   const items = readJson<Page[]>(file, []);
   const page = items.find((p) => p.slug === slug);
   if (!page) return res.status(404).json({ error: "Not found" });
   res.json(page);
 };
 
-const upsert: RequestHandler = (req, res) => {
+const upsert: RequestHandler = async (req, res) => {
   const body = req.body as Partial<Page>;
   if (!body || !body.slug) return res.status(400).json({ error: "Missing slug" });
-  const items = readJson<Page[]>(file, []);
-  const idx = items.findIndex((p) => p.slug === body.slug);
   const now = new Date().toISOString();
   const next: Page = {
     slug: String(body.slug),
@@ -37,6 +50,17 @@ const upsert: RequestHandler = (req, res) => {
     meta: body.meta ?? {},
     updatedAt: now,
   };
+  if (process.env.USE_MYSQL === "true") {
+    const { getPool } = await import("../utils/mysql");
+    const pool = getPool();
+    await pool.execute(
+      "INSERT INTO pages (slug, title, body, meta, createdAt, updatedAt) VALUES (?, ?, ?, ?, NOW(), ?) ON DUPLICATE KEY UPDATE title=VALUES(title), body=VALUES(body), meta=VALUES(meta), updatedAt=VALUES(updatedAt)",
+      [next.slug, next.title, next.body, JSON.stringify(next.meta || {}), now]
+    );
+    return res.status(200).json(next);
+  }
+  const items = readJson<Page[]>(file, []);
+  const idx = items.findIndex((p) => p.slug === body.slug);
   if (idx === -1) {
     items.push(next);
   } else {
@@ -46,8 +70,14 @@ const upsert: RequestHandler = (req, res) => {
   res.status(200).json(next);
 };
 
-const remove: RequestHandler = (req, res) => {
+const remove: RequestHandler = async (req, res) => {
   const { slug } = req.params;
+  if (process.env.USE_MYSQL === "true") {
+    const { getPool } = await import("../utils/mysql");
+    const pool = getPool();
+    await pool.execute("DELETE FROM pages WHERE slug=?", [slug]);
+    return res.status(204).end();
+  }
   const items = readJson<Page[]>(file, []);
   const next = items.filter((p) => p.slug !== slug);
   writeJson(file, next);
