@@ -1,6 +1,32 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ProductCard from "../components/shop/ProductCard";
+
+interface Product {
+  id?: string;
+  name: string;
+  brand: string;
+  price: number;
+  image: string;
+  features?: string[];
+  buyLink?: string;
+  category?: string;
+}
 
 export default function Index() {
+  const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+  const [items, setItems] = useState<Product[]>([]);
+
+  useEffect(() => {
+    if (!ENABLE_API) return;
+    fetch("/api/products")
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((p: Product[]) => setItems(Array.isArray(p) ? p : []))
+      .catch(() => setItems([]));
+  }, [ENABLE_API]);
+
+  const featured = items.slice(0, 4);
+
   return (
     <div className="relative">
       {/* Hero */}
@@ -86,6 +112,39 @@ export default function Index() {
               <p className="mt-2 text-slate-600">{c.desc}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Featured Products */}
+      {featured.length > 0 && (
+        <section className="py-8 md:py-12">
+          <div className="container">
+            <div className="flex items-center justify-between">
+              <h2 className="text-2xl md:text-3xl font-bold">Featured Products</h2>
+              <Link to="/products" className="text-sm font-semibold text-blue-600 hover:text-blue-700">View all</Link>
+            </div>
+            <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+              {featured.map((p) => (
+                <ProductCard key={p.id || p.name} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Services CTA */}
+      <section className="py-12 md:py-16">
+        <div className="container">
+          <div className="rounded-2xl border border-slate-200/70 p-6 md:p-8 bg-white/70 backdrop-blur flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+              <h3 className="text-xl md:text-2xl font-bold">Repair & Upgrade Services</h3>
+              <p className="mt-1 text-slate-600">Screen repairs, SSD/RAM upgrades, OS installs, data recovery and more.</p>
+            </div>
+            <div className="flex gap-3">
+              <Link to="/services" className="btn-primary">Explore Services</Link>
+              <Link to="/contact" className="btn-outline">Get a Quote</Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>
