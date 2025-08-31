@@ -15,17 +15,24 @@ interface Product {
 
 export default function Index() {
   const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+  const FEATURED_ON_HOME = import.meta.env.VITE_FEATURED_ON_HOME === "true";
   const [items, setItems] = useState<Product[]>([]);
 
   useEffect(() => {
-    if (!ENABLE_API) return;
-    fetch("/api/products")
-      .then((r) => (r.ok ? r.json() : Promise.reject()))
-      .then((p: Product[]) => setItems(Array.isArray(p) ? p : []))
-      .catch(() => setItems([]));
-  }, [ENABLE_API]);
+    if (!ENABLE_API || !FEATURED_ON_HOME) return;
+    (async () => {
+      try {
+        const r = await fetch("/api/products");
+        if (!r.ok) return;
+        const p: Product[] = await r.json();
+        setItems(Array.isArray(p) ? p : []);
+      } catch (_) {
+        setItems([]);
+      }
+    })();
+  }, [ENABLE_API, FEATURED_ON_HOME]);
 
-  const featured = items.slice(0, 4);
+  const featured = FEATURED_ON_HOME ? items.slice(0, 4) : [];
 
   return (
     <div className="relative">
