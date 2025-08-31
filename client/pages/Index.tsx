@@ -32,7 +32,20 @@ export default function Index() {
     })();
   }, [ENABLE_API, FEATURED_ON_HOME]);
 
-  const featured = FEATURED_ON_HOME ? items.slice(0, 4) : [];
+  const normalize = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();
+  const featured = FEATURED_ON_HOME ? (() => {
+    const seen = new Set<string>();
+    const out: Product[] = [];
+    for (const p of items) {
+      const key = normalize(p.category || "");
+      if (!key) continue;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      out.push(p);
+      if (out.length >= 4) break;
+    }
+    return out;
+  })() : [];
 
   return (
     <div className="relative">
@@ -80,7 +93,7 @@ export default function Index() {
         <div className="container relative py-28 md:py-36">
           <div className="max-w-4xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur px-3 py-1 text-xs font-medium text-white">
-              ⚡ Fast repairs • 🔒 Trusted service • 💻 Quality products
+              ⚡ Fast repairs • 🔒 Trusted service ��� 💻 Quality products
             </span>
             <h1 className="mt-6 text-4xl md:text-6xl font-extrabold tracking-tight animate-fade-in text-white">
               Nextgen Computing — Your Trusted Partner in Technology
