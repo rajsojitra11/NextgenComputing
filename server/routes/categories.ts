@@ -14,7 +14,7 @@ const file = "categories.json";
 const list: RequestHandler = async (_req, res) => {
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     const [rows] = await pool.query<any[]>("SELECT id, name, createdAt, updatedAt FROM categories ORDER BY name ASC");
     return res.json(rows);
   }
@@ -29,7 +29,7 @@ const create: RequestHandler = async (req, res) => {
   const item: Category = { id: (body.id as string) || randomUUID(), name: String(body.name), createdAt: now, updatedAt: now };
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     await pool.execute("INSERT INTO categories (id, name, createdAt, updatedAt) VALUES (?, ?, ?, ?)", [item.id, item.name, now, now]);
     return res.status(201).json(item);
   }
@@ -45,7 +45,7 @@ const update: RequestHandler = async (req, res) => {
   const now = new Date().toISOString();
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     const [rows] = await pool.query<any[]>("SELECT * FROM categories WHERE id = ?", [id]);
     if ((rows as any[]).length === 0) return res.status(404).json({ error: "Not found" });
     const existing = rows[0];
@@ -65,7 +65,7 @@ const remove: RequestHandler = async (req, res) => {
   const { id } = req.params;
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     await pool.execute("DELETE FROM categories WHERE id = ?", [id]);
     return res.status(204).end();
   }
