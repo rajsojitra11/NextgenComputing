@@ -45,7 +45,7 @@ export default function Services() {
               <h3 className="mt-4 text-xl font-semibold tracking-tight">{s.title}</h3>
               <p className="mt-2 text-slate-600">{s.desc}</p>
               <div className="mt-5">
-                <a href={wa} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium">
+                <a href={`https://wa.me/918469283448?text=${encodeURIComponent(`Hello Nextgen Computing — I want to book ${s.title}`)}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-blue-700 hover:text-blue-900 font-medium">
                   <Wrench className="h-4 w-4" /> Book now
                 </a>
               </div>
