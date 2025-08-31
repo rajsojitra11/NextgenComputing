@@ -91,7 +91,11 @@ function PagesTab() {
 export default function Admin() {
   const [authed, setAuthed] = useState<boolean>(() => localStorage.getItem("admin_authed") === "1");
   const [pin, setPin] = useState("");
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
   const [tab, setTab] = useState<"products" | "categories" | "pages">("products");
+
+  const ADMIN_EMAIL = "nextgencomputing01@gmail.com";
 
   // Products state
   const [items, setItems] = useState<Product[]>([]);
@@ -100,7 +104,7 @@ export default function Admin() {
   const [form, setForm] = useState<Product>(emptyProduct);
 
   // Services state
-        
+
   type Category = { id?: string; name: string };
   const [categories, setCategories] = useState<Category[]>([]);
   const [editingCategoryId, setEditingCategoryId] = useState<string | null>(null);
@@ -142,18 +146,54 @@ export default function Admin() {
     setItems((prev) => prev.filter((p) => p.id !== id));
   };
 
-  
-  
-  
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    const okEmail = email.trim().toLowerCase() === ADMIN_EMAIL;
+    if (!okEmail) {
+      setError("Invalid email");
+      return;
+    }
+    if (pin !== String(PIN)) {
+      setError("Wrong password");
+      return;
+    }
+    localStorage.setItem("admin_authed", "1");
+    setAuthed(true);
+  };
+
   if (!authed) {
     return (
       <section className="py-16">
         <div className="container max-w-md">
           <h1 className="text-3xl font-bold">Admin Login</h1>
-          <p className="mt-2 text-slate-600">Enter admin PIN to continue.</p>
-          <form className="mt-6 flex gap-2" onSubmit={(e) => { e.preventDefault(); if (pin === String(PIN)) { localStorage.setItem("admin_authed", "1"); setAuthed(true); } }}>
-            <input value={pin} onChange={(e) => setPin(e.target.value)} type="password" placeholder="PIN" className="flex-1 rounded-lg border border-slate-300 px-3 py-2" />
+          <p className="mt-2 text-slate-600">Use your admin email and password to continue.</p>
+          <form className="mt-6 grid gap-3" onSubmit={handleLogin}>
+            <div>
+              <label className="block text-sm font-medium text-slate-700">Email</label>
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                type="email"
+                required
+                placeholder="name@example.com"
+                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-700">Password</label>
+              <input
+                value={pin}
+                onChange={(e) => setPin(e.target.value)}
+                type="password"
+                required
+                placeholder="Enter password"
+                className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2"
+              />
+            </div>
+            {error && <div className="text-sm text-red-600">{error}</div>}
             <button className="btn-primary" type="submit">Login</button>
+            <p className="text-xs text-slate-500">Allowed email: {ADMIN_EMAIL}</p>
           </form>
         </div>
       </section>
