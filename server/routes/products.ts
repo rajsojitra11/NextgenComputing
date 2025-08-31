@@ -20,7 +20,7 @@ const file = "products.json";
 const list: RequestHandler = async (_req, res) => {
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     const [rows] = await pool.query<any[]>("SELECT id, category, name, brand, price, image, buyLink, features, createdAt, updatedAt FROM products ORDER BY createdAt DESC");
     const items = (rows as any[]).map((r) => ({ ...r, features: r.features ? JSON.parse(r.features) : [] }));
     return res.json(items);
@@ -49,7 +49,7 @@ const create: RequestHandler = async (req, res) => {
   } as Product;
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     await pool.execute(
       "INSERT INTO products (id, category, name, brand, price, image, features, buyLink, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
       [item.id, item.category, item.name, item.brand, item.price, item.image, JSON.stringify(item.features || []), item.buyLink || null, now, now]
@@ -68,7 +68,7 @@ const update: RequestHandler = async (req, res) => {
   const now = new Date().toISOString();
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     // Fetch existing
     const [rows] = await pool.query<any[]>("SELECT * FROM products WHERE id = ?", [id]);
     if ((rows as any[]).length === 0) return res.status(404).json({ error: "Not found" });
@@ -104,7 +104,7 @@ const remove: RequestHandler = async (req, res) => {
   const { id } = req.params;
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     await pool.execute("DELETE FROM products WHERE id = ?", [id]);
     return res.status(204).end();
   }
