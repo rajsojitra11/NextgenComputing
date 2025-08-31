@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel, { EmblaOptionsType } from "embla-carousel-react";
 
 type Testimonial = {
@@ -9,7 +9,7 @@ type Testimonial = {
   quote: string;
 };
 
-const testimonials: Testimonial[] = [
+const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
     name: "Aarav Patel",
     role: "Gaming Laptop Buyer",
@@ -84,9 +84,47 @@ function Stars({ n }: { n: number }) {
   );
 }
 
+function StarInput({ value, onChange }: { value: number; onChange: (n: number) => void }) {
+  return (
+    <div className="flex items-center gap-1" role="radiogroup" aria-label="Select rating">
+      {Array.from({ length: 5 }).map((_, i) => {
+        const n = i + 1;
+        const active = n <= value;
+        return (
+          <button
+            key={n}
+            type="button"
+            onClick={() => onChange(n)}
+            aria-checked={active}
+            role="radio"
+            className="p-1"
+            aria-label={`${n} star`}
+          >
+            <svg viewBox="0 0 24 24" className={`h-5 w-5 ${active ? "text-yellow-400" : "text-slate-300"}`} fill="currentColor" aria-hidden="true">
+              <path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.787 1.401 8.168L12 18.896l-7.335 3.87 1.401-8.168L.132 9.211l8.2-1.193z" />
+            </svg>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function Testimonials() {
   const options: EmblaOptionsType = { loop: true, align: "start", skipSnaps: false };
   const [viewportRef, embla] = useEmblaCarousel(options);
+
+  const [items, setItems] = useState<Testimonial[]>(() => {
+    const stored = localStorage.getItem("user_testimonials");
+    const parsed: Testimonial[] = stored ? (() => { try { return JSON.parse(stored); } catch { return []; } })() : [];
+    return [...DEFAULT_TESTIMONIALS, ...parsed];
+  });
+
+  const [name, setName] = useState("");
+  const [role, setRole] = useState("");
+  const [rating, setRating] = useState(5);
+  const [quote, setQuote] = useState("");
+  const [saving, setSaving] = useState(false);
 
   const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
   const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
@@ -96,6 +134,30 @@ export default function Testimonials() {
     const id = setInterval(() => embla.scrollNext(), 4500);
     return () => clearInterval(id);
   }, [embla]);
+
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !quote.trim()) return;
+    setSaving(true);
+    const t: Testimonial = {
+      name: name.trim(),
+      role: role.trim() || "Customer",
+      rating: Math.min(5, Math.max(1, rating)),
+      photo: "/placeholder.svg",
+      quote: quote.trim(),
+    };
+    setItems((prev) => {
+      const userList = [t, ...prev.filter((x) => !DEFAULT_TESTIMONIALS.some((d) => d.name === x.name && d.quote === x.quote))];
+      const onlyUser = userList.filter((x) => !DEFAULT_TESTIMONIALS.some((d) => d.name === x.name && d.quote === x.quote));
+      localStorage.setItem("user_testimonials", JSON.stringify(onlyUser));
+      return [t, ...prev];
+    });
+    setName("");
+    setRole("");
+    setRating(5);
+    setQuote("");
+    setSaving(false);
+  };
 
   return (
     <section className="relative py-16 md:py-24">
@@ -110,8 +172,8 @@ export default function Testimonials() {
           <div className="relative">
             <div className="overflow-hidden" ref={viewportRef}>
               <div className="flex -ml-4">
-                {testimonials.map((t) => (
-                  <div key={t.name} className="pl-4 shrink-0 basis-full sm:basis-1/2 lg:basis-1/3">
+                {items.map((t, idx) => (
+                  <div key={`${t.name}-${idx}`} className="pl-4 shrink-0 basis-full sm:basis-1/2 lg:basis-1/3">
                     <article className="h-full rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 shadow-sm hover:shadow-xl transition-shadow">
                       <div className="flex items-center gap-4">
                         <img src={t.photo} alt={`${t.name} photo`} className="h-14 w-14 rounded-full object-cover" />
@@ -133,6 +195,26 @@ export default function Testimonials() {
               <button onClick={scrollNext} className="px-3 py-2 rounded-lg border border-slate-200 bg-white hover:bg-slate-50">Next</button>
             </div>
           </div>
+        </div>
+
+        {/* Review form */}
+        <div className="mt-12 max-w-2xl mx-auto">
+          <form onSubmit={onSubmit} className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6">
+            <h2 className="text-xl font-bold">Share your review</h2>
+            <p className="text-sm text-slate-600">Your feedback helps others choose with confidence.</p>
+            <div className="mt-4 grid gap-3">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <input className="rounded-lg border px-3 py-2" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required />
+                <input className="rounded-lg border px-3 py-2" placeholder="Service (e.g. Laptop Purchase, Repair)" value={role} onChange={(e) => setRole(e.target.value)} />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700">Rating</label>
+                <StarInput value={rating} onChange={setRating} />
+              </div>
+              <textarea className="rounded-lg border px-3 py-2" rows={4} placeholder="Write your review..." value={quote} onChange={(e) => setQuote(e.target.value)} required />
+              <button type="submit" className="btn-primary" disabled={saving}>{saving ? "Submitting..." : "Submit Review"}</button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
