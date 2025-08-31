@@ -86,14 +86,6 @@ export default function Index() {
               <Link to="/contact" className="btn-outline animate-slide-up text-white border-white/30 hover:bg-white/10" style={{animationDelay:'0.2s'}}>Book Repair Service</Link>
             </div>
 
-            {/* quick categories */}
-            <div className="mt-8 flex flex-wrap gap-2">
-              {["Laptops","Monitors","Keyboards","Mice"].map((t)=> (
-                <Link key={t} to="/products" className="rounded-full border border-blue-200/60 bg-white/70 px-3 py-1 text-sm text-blue-900 hover:bg-white">
-                  {t}
-                </Link>
-              ))}
-            </div>
           </div>
         </div>
       </section>
