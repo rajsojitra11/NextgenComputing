@@ -14,7 +14,7 @@ const file = "pages.json";
 const list: RequestHandler = async (_req, res) => {
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages");
     const items = (rows as any[]).map((r) => ({ ...r, meta: r.meta ? JSON.parse(r.meta) : {} }));
     return res.json(items);
@@ -27,7 +27,7 @@ const getBySlug: RequestHandler = async (req, res) => {
   const { slug } = req.params;
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages WHERE slug=?", [slug]);
     if ((rows as any[]).length === 0) return res.status(404).json({ error: "Not found" });
     const r = (rows as any[])[0];
@@ -52,7 +52,7 @@ const upsert: RequestHandler = async (req, res) => {
   };
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     await pool.execute(
       "INSERT INTO pages (slug, title, body, meta, createdAt, updatedAt) VALUES (?, ?, ?, ?, NOW(), ?) ON DUPLICATE KEY UPDATE title=VALUES(title), body=VALUES(body), meta=VALUES(meta), updatedAt=VALUES(updatedAt)",
       [next.slug, next.title, next.body, JSON.stringify(next.meta || {}), now]
@@ -74,7 +74,7 @@ const remove: RequestHandler = async (req, res) => {
   const { slug } = req.params;
   if (process.env.USE_MYSQL === "true") {
     const { getPool } = await import("../utils/mysql");
-    const pool = getPool();
+    const pool = await getPool();
     await pool.execute("DELETE FROM pages WHERE slug=?", [slug]);
     return res.status(204).end();
   }
