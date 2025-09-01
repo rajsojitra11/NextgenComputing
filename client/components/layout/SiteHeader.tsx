@@ -134,7 +134,7 @@ export default function SiteHeader() {
                 <line x1="3" y1="18" x2="21" y2="18" />
               </svg>
             </summary>
-            <div className="mt-3 rounded-lg border border-slate-200/60 bg-white shadow-lg p-3 flex flex-col gap-2">
+            <div className="fixed top-16 right-3 w-[92vw] z-50 rounded-lg border border-slate-200/60 bg-white shadow-lg p-3 flex flex-col gap-2">
               {nav.map((n) => (
                 <NavLink key={n.to} to={n.to} className="px-2 py-2 rounded hover:bg-slate-50" onClick={() => { if (menuRef.current) menuRef.current.open = false; }}>
                   {n.label}
