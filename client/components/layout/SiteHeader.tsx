@@ -123,7 +123,7 @@ export default function SiteHeader() {
             </div>
           </details>
 
-          <details ref={menuRef} className="order-1">
+          <details ref={menuRef} className="order-1" onToggle={() => { const o = !!menuRef.current?.open; setMenuOpen(o); if (o && wishlistRef.current) wishlistRef.current.open = false; }}>
             <summary aria-label="Open menu" className="list-none cursor-pointer rounded-md border border-slate-200/60 p-2 bg-white/80 backdrop-blur flex items-center justify-center">
               <svg viewBox="0 0 24 24" className="h-5 w-5 text-slate-700" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="3" y1="6" x2="21" y2="6" />
