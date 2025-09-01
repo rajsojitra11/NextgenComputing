@@ -109,8 +109,8 @@ export default function Index() {
               Premium laptops, monitors and pro repairs. Smooth, reliable and performance‑ready for work or play.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Link to="/products" className="btn-primary animate-slide-up" style={{animationDelay:'0.15s'}}>Shop Now</Link>
-              <Link to="/contact" className="btn-outline animate-slide-up text-white border-white/30 hover:bg-white/10" style={{animationDelay:'0.2s'}}>Book Repair Service</Link>
+              <Link to="/products" className="btn-primary animate-slide-up" style={{animationDelay:'0.15s'}}>Shop Now – Explore Latest Laptops</Link>
+              <Link to="/contact" className="btn-outline animate-slide-up text-white border-white/30 hover:bg-white/10" style={{animationDelay:'0.2s'}}>Book Your Repair in 60 Seconds</Link>
             </div>
 
           </div>
