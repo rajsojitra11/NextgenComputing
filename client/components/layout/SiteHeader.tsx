@@ -61,7 +61,7 @@ export default function SiteHeader() {
               </span>
             </NavLink>
           ))}
-          <details className="relative">
+          <details className="relative order-2">
             <summary aria-label="Wishlist" className="list-none cursor-pointer rounded-full border border-slate-200/60 p-2 bg-white/80 backdrop-blur inline-flex items-center justify-center relative">
               <svg viewBox="0 0 24 24" className="h-5 w-5 text-pink-600" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               {count > 0 && <span className="absolute -top-1 -right-1 min-w-[1.25rem] h-5 rounded-full bg-pink-600 text-white text-[10px] leading-5 text-center px-1">{count}</span>}
@@ -93,7 +93,7 @@ export default function SiteHeader() {
         </div>
 
         <div className="md:hidden flex items-center gap-3">
-          <details className="relative">
+          <details className="relative order-2">
             <summary aria-label="Wishlist" className="list-none cursor-pointer rounded-full border border-slate-200/60 p-2 bg-white/80 backdrop-blur inline-flex items-center justify-center relative">
               <svg viewBox="0 0 24 24" className="h-5 w-5 text-pink-600" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
               {count > 0 && <span className="absolute -top-1 -right-1 min-w-[1.25rem] h-5 rounded-full bg-pink-600 text-white text-[10px] leading-5 text-center px-1">{count}</span>}
