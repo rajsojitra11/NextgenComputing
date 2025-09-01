@@ -64,7 +64,7 @@ export default function Services() {
         </header>
 
         {videoUrl && (
-          <div className="mt-10 rounded-2xl overflow-hidden border border-slate-200/70 bg-white/70 backdrop-blur p-2">
+          <div className="mt-10 overflow-hidden p-0 -mx-4 sm:mx-0 rounded-none border-0 bg-transparent sm:rounded-2xl sm:border sm:border-slate-200/70 sm:bg-white/70 sm:backdrop-blur sm:p-2">
             {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
               <div className="aspect-video w-full">
                 <iframe
@@ -76,7 +76,7 @@ export default function Services() {
                 />
               </div>
             ) : (
-              <video className="w-full rounded-lg" controls autoPlay muted playsInline src={videoUrl} />
+              <video className="w-full rounded-none sm:rounded-lg" controls autoPlay muted playsInline src={videoUrl} />
             )}
           </div>
         )}
