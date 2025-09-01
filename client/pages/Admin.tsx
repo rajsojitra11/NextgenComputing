@@ -90,6 +90,7 @@ function PagesTab() {
         setTitle(p.title || d.title || "");
         setBody(p.body || d.body || "");
         setBgUrl(p.meta?.backgroundUrl || d.backgroundUrl || "");
+        setVideoUrl(p.meta?.videoUrl || d.videoUrl || "");
         setPhone(p.meta?.phone || d.phone || "");
         setEmailVal(p.meta?.email || d.email || "");
         setAddress(p.meta?.address || d.address || "");
