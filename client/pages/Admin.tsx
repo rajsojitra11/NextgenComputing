@@ -15,9 +15,10 @@ type Product = {
 const PIN = import.meta.env.VITE_ADMIN_PIN || "2468";
 
 function PagesTab() {
-  const [slug, setSlug] = useState<"about" | "contact">("about");
+  const [slug, setSlug] = useState<"home" | "about" | "contact" | "products" | "services" | "testimonials">("home");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [bgUrl, setBgUrl] = useState("");
   const [phone, setPhone] = useState("");
   const [emailVal, setEmailVal] = useState("");
   const [address, setAddress] = useState("");
@@ -31,6 +32,7 @@ function PagesTab() {
       .then((p) => {
         setTitle(p.title || "");
         setBody(p.body || "");
+        setBgUrl(p.meta?.backgroundUrl || "");
         setPhone(p.meta?.phone || "");
         setEmailVal(p.meta?.email || "");
         setAddress(p.meta?.address || "");
@@ -40,6 +42,7 @@ function PagesTab() {
       .catch(() => {
         setTitle("");
         setBody("");
+        setBgUrl("");
         setPhone("");
         setEmailVal("");
         setAddress("");
@@ -54,7 +57,7 @@ function PagesTab() {
     const res = await fetch(`/api/pages/${slug}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug, title, body, meta: { phone, email: emailVal, address, whatsapp, mapQuery } }),
+      body: JSON.stringify({ slug, title, body, meta: { backgroundUrl: bgUrl, phone, email: emailVal, address, whatsapp, mapQuery } }),
     });
     setLoading(false);
     if (!res.ok) return;
@@ -64,22 +67,29 @@ function PagesTab() {
     <form onSubmit={onSave} className="md:col-span-2 rounded-2xl border border-slate-200 p-4 bg-white grid gap-3">
       <div className="grid sm:grid-cols-3 gap-3">
         <select className="rounded-lg border px-3 py-2" value={slug} onChange={(e) => setSlug(e.target.value as any)}>
+          <option value="home">Home</option>
           <option value="about">About</option>
+          <option value="products">Products</option>
+          <option value="services">Services</option>
+          <option value="testimonials">Testimonials</option>
           <option value="contact">Contact</option>
         </select>
         <input className="sm:col-span-2 rounded-lg border px-3 py-2" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
       </div>
       <textarea className="rounded-lg border px-3 py-2" rows={6} placeholder="Body" value={body} onChange={(e) => setBody(e.target.value)} />
 
-      {slug === "contact" && (
-        <div className="grid sm:grid-cols-2 gap-3">
-          <input className="rounded-lg border px-3 py-2" placeholder="Phone (+91 ...)" value={phone} onChange={(e) => setPhone(e.target.value)} />
-          <input className="rounded-lg border px-3 py-2" placeholder="Email" value={emailVal} onChange={(e) => setEmailVal(e.target.value)} />
-          <input className="rounded-lg border px-3 py-2 sm:col-span-2" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
-          <input className="rounded-lg border px-3 py-2" placeholder="WhatsApp number (digits only)" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} />
-          <input className="rounded-lg border px-3 py-2" placeholder="Google Maps query" value={mapQuery} onChange={(e) => setMapQuery(e.target.value)} />
-        </div>
-      )}
+      <div className="grid sm:grid-cols-2 gap-3">
+        <input className="rounded-lg border px-3 py-2 sm:col-span-2" placeholder="Background image URL (optional)" value={bgUrl} onChange={(e) => setBgUrl(e.target.value)} />
+        {slug === "contact" && (
+          <>
+            <input className="rounded-lg border px-3 py-2" placeholder="Phone (+91 ...)" value={phone} onChange={(e) => setPhone(e.target.value)} />
+            <input className="rounded-lg border px-3 py-2" placeholder="Email" value={emailVal} onChange={(e) => setEmailVal(e.target.value)} />
+            <input className="rounded-lg border px-3 py-2 sm:col-span-2" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} />
+            <input className="rounded-lg border px-3 py-2" placeholder="WhatsApp number (digits only)" value={whatsapp} onChange={(e) => setWhatsapp(e.target.value)} />
+            <input className="rounded-lg border px-3 py-2" placeholder="Google Maps query" value={mapQuery} onChange={(e) => setMapQuery(e.target.value)} />
+          </>
+        )}
+      </div>
 
       <div className="flex gap-2">
         <button className="btn-primary" type="submit" disabled={loading}>{loading ? "Saving..." : "Save"}</button>
