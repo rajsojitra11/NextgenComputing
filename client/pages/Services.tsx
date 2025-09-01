@@ -106,7 +106,7 @@ export default function Services() {
             {videoUrl && (
               <div>
                 {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
-                  <div className="relative w-full -mx-6 md:mx-0 overflow-hidden rounded-xl border border-slate-200/70 shadow-sm">
+                  <div className="relative w-[100vw] left-1/2 -ml-[50vw] md:static md:w-full md:ml-0 overflow-hidden rounded-none border-0 md:rounded-xl md:border border-slate-200/70 shadow-sm">
                     <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
                       <iframe
                         className="absolute inset-0 h-full w-full"
@@ -118,7 +118,7 @@ export default function Services() {
                     </div>
                   </div>
                 ) : (
-                  <div className="relative w-full -mx-6 md:mx-0 overflow-hidden rounded-xl border border-slate-200/70 shadow-sm" style={{ aspectRatio: "16 / 9" }}>
+                  <div className="relative w-[100vw] left-1/2 -ml-[50vw] md:static md:w-full md:ml-0 overflow-hidden rounded-none border-0 md:rounded-xl md:border border-slate-200/70 shadow-sm" style={{ aspectRatio: "16 / 9" }}>
                     <video className="h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} controls />
                   </div>
                 )}
