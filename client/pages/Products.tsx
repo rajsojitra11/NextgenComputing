@@ -46,7 +46,14 @@ export default function Products() {
       try {
         await safeFetchJson("/api/ping", 2500);
       } catch {
-        return; // API not available; skip without errors
+        try {
+          const r = await fetch("/products.json");
+          if (r.ok) {
+            const p = await r.json();
+            if (!cancelled) setItems(Array.isArray(p) ? p : []);
+          }
+        } catch {}
+        return;
       }
       try {
         const [p, c] = await Promise.all([
