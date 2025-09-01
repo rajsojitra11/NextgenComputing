@@ -23,6 +23,7 @@ export default function Products() {
   const [items, setItems] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [query, setQuery] = useState("");
+  const [bg, setBg] = useState<string | null>(null);
 
   useEffect(() => {
     if (!ENABLE_API) return;
