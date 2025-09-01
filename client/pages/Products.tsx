@@ -137,7 +137,7 @@ export default function Products() {
               <h2 id={slugify(c.name)} className="mt-6 mb-4 text-2xl font-bold">{c.name}</h2>
               <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
                 {list.map((p) => (
-                  <ProductCard key={p.id || `${c.id}-${p.name}`} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
+                  <ProductCard key={p.id || `${c.id}-${p.name}`} id={p.id} name={p.name} brand={p.brand} price={p.price} image={p.image} features={p.features} buyLink={p.buyLink} />
                 ))}
                 {!hasQuery && ENABLE_API && list.length === 0 && (
                   <div className="col-span-full text-slate-500">No products in {c.name} yet. Add products in Admin.</div>
