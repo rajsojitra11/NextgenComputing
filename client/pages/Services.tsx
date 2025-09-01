@@ -54,21 +54,23 @@ export default function Services() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
       </div>
       <div className="container">
-        <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 md:p-10">
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 md:p-10 min-h-[260px] md:min-h-[360px]">
           {videoUrl && (
-            <div className="pointer-events-none absolute inset-0 -z-10">
+            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
               {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
-                <iframe
-                  className="h-full w-full"
-                  src={toEmbed(videoUrl)}
-                  title="Service video background"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] md:w-full md:h-full">
+                  <iframe
+                    className="h-full w-full"
+                    src={toEmbed(videoUrl)}
+                    title="Service video background"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                </div>
               ) : (
-                <video className="h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} />
+                <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} />
               )}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/60 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/70 to-white/40" />
             </div>
           )}
           <header className="relative z-10 max-w-3xl">
