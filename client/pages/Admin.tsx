@@ -26,28 +26,71 @@ function PagesTab() {
   const [mapQuery, setMapQuery] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const defaultsFor = (s: typeof slug) => {
+    switch (s) {
+      case "home":
+        return {
+          title: "Nextgen Computing — Your Trusted Partner in Technology",
+          body: "Premium laptops, monitors and pro repairs. Smooth, reliable and performance‑ready for work or play.",
+          backgroundUrl: "https://i.pinimg.com/1200x/ba/07/07/ba070712b889d1dc569f189e59294511.jpg",
+        };
+      case "about":
+        return {
+          title: "About Nextgen Computing",
+          body: "We are a team of technology enthusiasts dedicated to providing cutting-edge computers and laptops, backed by expert repair and maintenance services. Our mission is to keep you productive and secure with fast turnaround and honest pricing.",
+          backgroundUrl: "https://i.pinimg.com/736x/7a/36/49/7a36493b5b4273c69d0d05f05b077c2d.jpg",
+        };
+      case "products":
+        return { title: "Shop Products", body: "", backgroundUrl: "" };
+      case "services":
+        return {
+          title: "Professional Computer Services",
+          body: "From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.",
+          backgroundUrl: "",
+        };
+      case "testimonials":
+        return {
+          title: "What our customers say",
+          body: "Real reviews from happy clients who bought devices or booked repairs with Nextgen Computing.",
+          backgroundUrl: "",
+        };
+      case "contact":
+        return {
+          title: "Contact Nextgen Computing",
+          body: "Questions, repairs or custom builds — we’re here to help. Reach us by phone, email, WhatsApp, or the form below.",
+          backgroundUrl: "https://images.pexels.com/photos/2136243/pexels-photo-2136243.jpeg?auto=compress&cs=tinysrgb&w=1800",
+          phone: "+91 8469283448",
+          email: "nextgencomputing01@gmail.com",
+          address: "Bopal, Ahmedabad, Gujarat",
+          whatsapp: "918469283448",
+          mapQuery: "Bopal, Ahmedabad, Gujarat",
+        };
+    }
+  };
+
   useEffect(() => {
+    const d = defaultsFor(slug)!;
     fetch(`/api/pages/${slug}`)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((p) => {
-        setTitle(p.title || "");
-        setBody(p.body || "");
-        setBgUrl(p.meta?.backgroundUrl || "");
-        setPhone(p.meta?.phone || "");
-        setEmailVal(p.meta?.email || "");
-        setAddress(p.meta?.address || "");
-        setWhatsapp(p.meta?.whatsapp || "");
-        setMapQuery(p.meta?.mapQuery || "");
+        setTitle(p.title || d.title || "");
+        setBody(p.body || d.body || "");
+        setBgUrl(p.meta?.backgroundUrl || d.backgroundUrl || "");
+        setPhone(p.meta?.phone || d.phone || "");
+        setEmailVal(p.meta?.email || d.email || "");
+        setAddress(p.meta?.address || d.address || "");
+        setWhatsapp(p.meta?.whatsapp || d.whatsapp || "");
+        setMapQuery(p.meta?.mapQuery || d.mapQuery || "");
       })
       .catch(() => {
-        setTitle("");
-        setBody("");
-        setBgUrl("");
-        setPhone("");
-        setEmailVal("");
-        setAddress("");
-        setWhatsapp("");
-        setMapQuery("");
+        setTitle(d.title || "");
+        setBody(d.body || "");
+        setBgUrl(d.backgroundUrl || "");
+        setPhone(d.phone || "");
+        setEmailVal(d.email || "");
+        setAddress(d.address || "");
+        setWhatsapp(d.whatsapp || "");
+        setMapQuery(d.mapQuery || "");
       });
   }, [slug]);
 
