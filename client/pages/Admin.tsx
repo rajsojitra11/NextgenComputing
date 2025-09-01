@@ -108,6 +108,7 @@ function PagesTab() {
 
   const onSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!ENABLE_API) return; // avoid fetch when API disabled
     setLoading(true);
     const res = await fetch(`/api/pages/${slug}`, {
       method: "PUT",
