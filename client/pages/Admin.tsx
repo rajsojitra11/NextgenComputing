@@ -118,7 +118,7 @@ function PagesTab() {
     const res = await fetch(`/api/pages/${slug}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slug, title, body, meta: { backgroundUrl: bgUrl, phone, email: emailVal, address, whatsapp, mapQuery } }),
+      body: JSON.stringify({ slug, title, body, meta: { backgroundUrl: bgUrl, videoUrl, phone, email: emailVal, address, whatsapp, mapQuery } }),
     });
     setLoading(false);
     if (!res.ok) return;
