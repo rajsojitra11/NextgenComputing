@@ -141,6 +141,7 @@ function PagesTab() {
 
       <div className="grid sm:grid-cols-2 gap-3">
         <input className="rounded-lg border px-3 py-2 sm:col-span-2" placeholder="Background image URL (optional)" value={bgUrl} onChange={(e) => setBgUrl(e.target.value)} />
+        <input className="rounded-lg border px-3 py-2 sm:col-span-2" placeholder={slug === "services" ? "Service video URL (YouTube or MP4)" : "Page video URL (optional)"} value={videoUrl} onChange={(e) => setVideoUrl(e.target.value)} />
         {slug === "contact" && (
           <>
             <input className="rounded-lg border px-3 py-2" placeholder="Phone (+91 ...)" value={phone} onChange={(e) => setPhone(e.target.value)} />
