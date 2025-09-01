@@ -1,0 +1,436 @@
+[
+  {
+    "id": "1",
+    "category": "Laptops",
+    "name": "Apple MacBook Air (M4, 2025)",
+    "brand": "Apple",
+    "price": 114900,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=1200&q=80",
+    "features": [
+      "Apple M4 chip",
+      "16GB Unified Memory",
+      "256GB SSD",
+      "13.6″ Liquid Retina",
+      "Wi-Fi 6E",
+      "macOS",
+      "Backlit Magic Keyboard",
+      "Touch ID",
+      "Up to 18-hour battery",
+      "Ultra-thin design"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-08-30 13:31:33",
+    "updatedAt": "2025-08-30 13:31:33"
+  },
+  {
+    "id": "2",
+    "category": "Laptops",
+    "name": "Dell XPS 13 Plus (2024)",
+    "brand": "Dell",
+    "price": 139900,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.tdhOC0Zr2j3jDQ75TdimKgHaGH?pid=Api&P=0&h=220",
+    "features": [
+      "Intel Core Ultra 7",
+      "16GB LPDDR5X",
+      "512GB SSD",
+      "13.4″ OLED InfinityEdge",
+      "Windows 11",
+      "Backlit Keyboard",
+      "Touch Display",
+      "Wi-Fi 6E",
+      "Dolby Vision",
+      "Fingerprint Reader"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-08-30 13:32:23",
+    "updatedAt": "2025-08-30 13:43:54"
+  },
+  {
+    "id": "3",
+    "category": "Laptops",
+    "name": "HP Spectre x360 14 (2024)",
+    "brand": "HP",
+    "price": 129900,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.oXD-whsYaHf7F9jTfvv5owHaHa?pid=Api&P=0&h=220",
+    "features": [
+      "Intel Evo i7 13th Gen",
+      "16GB LPDDR5",
+      "1TB SSD",
+      "14″ 3K2K OLED Touch",
+      "Windows 11",
+      "2-in-1 Convertible",
+      "HP Rechargeable Pen",
+      "Wi-Fi 6E",
+      "Bang & Olufsen Audio",
+      "Long battery life"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-08-30 13:33:58",
+    "updatedAt": "2025-08-30 13:45:43"
+  },
+  {
+    "id": "4",
+    "category": "Laptops",
+    "name": "Lenovo Legion 5 Pro (2024)",
+    "brand": "Lenovo",
+    "price": 144900,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.Yqojc1KSFkzvoFzFXJwxuwHaF7?pid=Api&P=0&h=220",
+    "features": [
+      "AMD Ryzen 7 7745HX",
+      "16GB DDR5 RAM",
+      "1TB SSD",
+      "16″ WQXGA 240Hz",
+      "NVIDIA RTX 4070",
+      "Windows 11",
+      "Legion Coldfront 5.0",
+      "RGB Keyboard",
+      "Nahimic Audio",
+      "Wi-Fi 6E"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-08-30 13:39:37",
+    "updatedAt": "2025-08-30 13:45:06"
+  },
+  {
+    "id": "42200b42-3fc1-447f-8cad-90c85e6f7f60",
+    "category": "Mouse",
+    "name": "Logitech G102 Lightsync Gaming Mouse",
+    "brand": "Logitech",
+    "price": 1499,
+    "image": "https://img.aztekc.com/product_images/2025/03/28/07/CZIE44ANSA-0.webp?w=300&h=300",
+    "features": [
+      "Lightweight design",
+      "RGB Lightsync lighting",
+      "8000 DPI gaming-grade sensor",
+      "Mechanical button tensioning",
+      "Durable build"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 16:29:15",
+    "updatedAt": "2025-09-01 16:29:15"
+  },
+  {
+    "id": "5",
+    "category": "Keyboards",
+    "name": "K380 Multi-Device Bluetooth Keyboard",
+    "brand": "Logitech",
+    "price": 2995,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.PiJQyeJK4ACbdh_aLB4JsAHaDz?pid=Api&P=0&h=220",
+    "features": [
+      "Compact design",
+      "Multi-device support",
+      "Bluetooth connectivity",
+      "Long battery life",
+      "Lightweight"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-08-30 13:49:49",
+    "updatedAt": "2025-08-30 13:49:49"
+  },
+  {
+    "id": "53300b42-3fc1-447f-8cad-90c85e6f7f61",
+    "category": "Mouse",
+    "name": "Razer DeathAdder Essential",
+    "brand": "Razer",
+    "price": 1999,
+    "image": "https://img.aztekc.com/prod_images/2018/03/9/10574094.webp?w=300&h=300",
+    "features": [
+      "Ergonomic design",
+      "6400 DPI optical sensor",
+      "Durable mechanical switches",
+      "Classic gaming shape",
+      "High-precision tracking"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:07:06",
+    "updatedAt": "2025-09-01 22:07:06"
+  },
+  {
+    "id": "64400b42-3fc1-447f-8cad-90c85e6f7f62",
+    "category": "Mouse",
+    "name": "Redragon Cobra M711",
+    "brand": "Redragon",
+    "price": 1699,
+    "image": "https://vipih.com/cdn/shop/products/f32be385b6172a6bdd723f680d8e521d_800x.jpg?v=1662023290",
+    "features": [
+      "10000 DPI sensor",
+      "RGB customizable lighting",
+      "Ergonomic grip",
+      "6 programmable buttons",
+      "Durable braided cable"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:07:06",
+    "updatedAt": "2025-09-01 22:07:06"
+  },
+  {
+    "id": "cpu001-aaaa-1111-bbbb-0001",
+    "category": "CPU",
+    "name": "Intel Core i3-12100F 12th Gen Processor",
+    "brand": "Intel",
+    "price": 8999,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.bne4BpGwjMuCt_NgwlWqyQHaHa?pid=Api&P=0&h=220",
+    "features": [
+      "4 cores / 8 threads",
+      "Base Clock 3.3GHz, Turbo up to 4.3GHz",
+      "Intel UHD Graphics 730",
+      "LGA1700 socket",
+      "65W TDP"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:40:16",
+    "updatedAt": "2025-09-01 22:40:16"
+  },
+  {
+    "id": "cpu002-bbbb-2222-cccc-0002",
+    "category": "CPU",
+    "name": "Intel Core i5-12400F 12th Gen Processor",
+    "brand": "Intel",
+    "price": 15999,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.Nrs0wzgGUvS3ZAPYabFw9AHaHa?pid=Api&P=0&h=220",
+    "features": [
+      "6 cores / 12 threads",
+      "Base Clock 2.5GHz, Turbo up to 4.4GHz",
+      "No integrated graphics",
+      "LGA1700 socket",
+      "65W TDP"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:40:16",
+    "updatedAt": "2025-09-01 22:40:16"
+  },
+  {
+    "id": "cpu003-cccc-3333-dddd-0003",
+    "category": "CPU",
+    "name": "Intel Core i7-12700K 12th Gen Processor",
+    "brand": "Intel",
+    "price": 32999,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.0pL5_u8MLFtWu2ed_hY0-QHaHa?pid=Api&P=0&h=220",
+    "features": [
+      "12 cores (8P+4E) / 20 threads",
+      "Base Clock 3.6GHz, Turbo up to 5.0GHz",
+      "Unlocked for overclocking",
+      "Intel UHD 770 graphics",
+      "125W TDP"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:40:16",
+    "updatedAt": "2025-09-01 22:40:16"
+  },
+  {
+    "id": "cpu004-dddd-4444-eeee-0004",
+    "category": "CPU",
+    "name": "AMD Ryzen 5 5600X Processor",
+    "brand": "AMD",
+    "price": 17999,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.8i-EWwl6kf2fxmQsvVSdaAHaHa?pid=Api&P=0&h=220",
+    "features": [
+      "6 cores / 12 threads",
+      "Base Clock 3.7GHz, Boost up to 4.6GHz",
+      "65W TDP",
+      "AM4 socket",
+      "7nm architecture"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:40:16",
+    "updatedAt": "2025-09-01 22:40:16"
+  },
+  {
+    "id": "cpu005-eeee-5555-ffff-0005",
+    "category": "CPU",
+    "name": "AMD Ryzen 7 5800X Processor",
+    "brand": "AMD",
+    "price": 28999,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.bNR5V-5DBM4U5xYWrl03_gHaHa?pid=Api&P=0&h=220",
+    "features": [
+      "8 cores / 16 threads",
+      "Base Clock 3.8GHz, Boost up to 4.7GHz",
+      "105W TDP",
+      "AM4 socket",
+      "Precision Boost 2 & PCIe 4.0 support"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:40:16",
+    "updatedAt": "2025-09-01 22:40:16"
+  },
+  {
+    "id": "kb001-1111-aaaa-bbbb-0001",
+    "category": "Keyboards",
+    "name": "Logitech K380 Multi-Device Bluetooth Keyboard",
+    "brand": "Logitech",
+    "price": 2999,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.iFiTGh5w8JDakzAygq09UQHaCJ?pid=Api&P=0&h=220",
+    "features": [
+      "Compact design",
+      "Multi-device pairing",
+      "Bluetooth connectivity",
+      "Quiet typing",
+      "Long battery life"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:30:42",
+    "updatedAt": "2025-09-01 22:30:42"
+  },
+  {
+    "id": "kb002-2222-bbbb-cccc-0002",
+    "category": "Keyboards",
+    "name": "Razer Huntsman Mini 60% Gaming Keyboard",
+    "brand": "Razer",
+    "price": 8999,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.z02_17jV1usQEQ17kzL9YwHaD5?pid=Api&P=0&h=220",
+    "features": [
+      "Optical switches",
+      "60% compact layout",
+      "RGB Chroma lighting",
+      "Detachable USB-C cable",
+      "Durable build"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:30:42",
+    "updatedAt": "2025-09-01 22:30:42"
+  },
+  {
+    "id": "kb003-3333-cccc-dddd-0003",
+    "category": "Keyboards",
+    "name": "Redragon K552 Kumara Mechanical Gaming Keyboard",
+    "brand": "Redragon",
+    "price": 2499,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.eDDYgS66O8xAQdJkXlPwIAHaFC?pid=Api&P=0&h=220",
+    "features": [
+      "Mechanical switches",
+      "LED backlight",
+      "87-key tenkeyless",
+      "Durable metal frame",
+      "Anti-ghosting keys"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:30:42",
+    "updatedAt": "2025-09-01 22:30:42"
+  },
+  {
+    "id": "kb004-4444-dddd-eeee-0004",
+    "category": "Keyboards",
+    "name": "Corsair K95 RGB Platinum XT Mechanical Keyboard",
+    "brand": "Corsair",
+    "price": 15999,
+    "image": "https://tse3.mm.bing.net/th/id/OIP.DxGZZrAkD8VdrmXoJZ9ZFQHaEK?pid=Api&P=0&h=220",
+    "features": [
+      "Cherry MX switches",
+      "Dedicated macro keys",
+      "Per-key RGB lighting",
+      "Detachable wrist rest",
+      "Aluminum frame"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:30:42",
+    "updatedAt": "2025-09-01 22:30:42"
+  },
+  {
+    "id": "kb005-5555-eeee-ffff-0005",
+    "category": "Keyboards",
+    "name": "HyperX Alloy Origins Core Mechanical Keyboard",
+    "brand": "HyperX",
+    "price": 7499,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.z1mJYa_niok22UwFvatgMgHaDb?pid=Api&P=0&h=220",
+    "features": [
+      "HyperX mechanical switches",
+      "Compact tenkeyless design",
+      "RGB backlighting",
+      "Aircraft-grade aluminum body",
+      "Detachable USB-C cable"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:30:42",
+    "updatedAt": "2025-09-01 22:30:42"
+  },
+  {
+    "id": "mn001-aaaa-1111-bbbb-0001",
+    "category": "Monitors",
+    "name": "Dell 24-inch Full HD Monitor (SE2422H)",
+    "brand": "Dell",
+    "price": 11999,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.eC3v45AfMF9EzSe5Dgm4HwHaFY?pid=Api",
+    "features": [
+      "24-inch Full HD display",
+      "IPS panel",
+      "75Hz refresh rate",
+      "AMD FreeSync",
+      "HDMI & VGA ports"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:36:09",
+    "updatedAt": "2025-09-01 22:36:09"
+  },
+  {
+    "id": "mn002-bbbb-2222-cccc-0002",
+    "category": "Monitors",
+    "name": "LG 27-inch 4K UHD Monitor (27UL500)",
+    "brand": "LG",
+    "price": 24999,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.tVZNxibblHAVqEwrrVbX4QHaE7?pid=Api&P=0&h=220",
+    "features": [
+      "27-inch 4K UHD display",
+      "HDR10 support",
+      "IPS panel",
+      "sRGB 98% color gamut",
+      "HDMI & DisplayPort"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:36:09",
+    "updatedAt": "2025-09-01 22:36:09"
+  },
+  {
+    "id": "mn003-cccc-3333-dddd-0003",
+    "category": "Monitors",
+    "name": "Samsung 24-inch Curved Gaming Monitor (LC24F390)",
+    "brand": "Samsung",
+    "price": 13999,
+    "image": "https://tse2.mm.bing.net/th/id/OIP.KAbEJfSjbCQrUkIomYJB9gHaEK?pid=Api&P=0&h=220",
+    "features": [
+      "24-inch curved screen",
+      "1800R curvature",
+      "75Hz refresh rate",
+      "AMD FreeSync",
+      "Slim design"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:36:09",
+    "updatedAt": "2025-09-01 22:36:09"
+  },
+  {
+    "id": "mn004-dddd-4444-eeee-0004",
+    "category": "Monitors",
+    "name": "Acer Nitro 27-inch QHD Gaming Monitor (VG271U)",
+    "brand": "Acer",
+    "price": 22999,
+    "image": "https://tse1.mm.bing.net/th/id/OIP.qWPq7NxNxGlEoxYdNjURuwHaFJ?pid=Api&P=0&h=220",
+    "features": [
+      "27-inch QHD resolution",
+      "144Hz refresh rate",
+      "1ms response time",
+      "HDR-ready",
+      "AMD FreeSync Premium"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:36:09",
+    "updatedAt": "2025-09-01 22:36:09"
+  },
+  {
+    "id": "mn005-eeee-5555-ffff-0005",
+    "category": "Monitors",
+    "name": "ASUS ProArt 32-inch 4K Professional Monitor (PA32UCX)",
+    "brand": "ASUS",
+    "price": 89999,
+    "image": "https://tse4.mm.bing.net/th/id/OIP.aekSkyLtAMUPPtasJ2iSmAHaGD?pid=Api&P=0&h=220",
+    "features": [
+      "32-inch 4K HDR display",
+      "Mini LED backlight",
+      "Dolby Vision & HDR10",
+      "100% Adobe RGB",
+      "Thunderbolt 3 ports"
+    ],
+    "buyLink": null,
+    "createdAt": "2025-09-01 22:36:09",
+    "updatedAt": "2025-09-01 22:36:09"
+  }
+]
