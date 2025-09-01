@@ -22,10 +22,24 @@ const services: Service[] = [
 export default function Services() {
   const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
   const [bg, setBg] = useState<string | null>(null);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
   useEffect(() => {
     if (!ENABLE_API) return;
-    fetch("/api/pages/services").then(r=>r.ok?r.json():Promise.reject()).then(pg=>setBg(pg?.meta?.backgroundUrl || null)).catch(()=>{});
+    fetch("/api/pages/services").then(r=>r.ok?r.json():Promise.reject()).then(pg=>{ setBg(pg?.meta?.backgroundUrl || null); setVideoUrl(pg?.meta?.videoUrl || null); }).catch(()=>{});
   }, [ENABLE_API]);
+
+  const toEmbed = (url: string) => {
+    if (/youtube\.com\/.+v=/.test(url)) {
+      const v = new URL(url).searchParams.get("v");
+      return v ? `https://www.youtube.com/embed/${v}` : url;
+    }
+    if (/youtu\.be\//.test(url)) {
+      const id = url.split(/youtu\.be\//)[1]?.split(/[?&#]/)[0];
+      return id ? `https://www.youtube.com/embed/${id}` : url;
+    }
+    return url;
+  };
+
   return (
     <section className="relative py-16 md:py-24">
       <div className="absolute inset-0 -z-10">
