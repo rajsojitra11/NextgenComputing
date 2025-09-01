@@ -25,6 +25,7 @@ function PagesTab() {
   const [whatsapp, setWhatsapp] = useState("");
   const [mapQuery, setMapQuery] = useState("");
   const [loading, setLoading] = useState(false);
+  const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
 
   const defaultsFor = (s: typeof slug) => {
     switch (s) {
