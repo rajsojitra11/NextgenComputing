@@ -15,6 +15,9 @@ export default function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const menuRef = useRef<HTMLDetailsElement>(null);
+  const wishlistRef = useRef<HTMLDetailsElement>(null);
+  const [wishOpen, setWishOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { items, remove, clear } = useWishlist();
   const count = items.length;
   const formatINR = (n: number) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
