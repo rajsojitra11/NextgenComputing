@@ -21,10 +21,11 @@ const services: Service[] = [
 
 export default function Services() {
   const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+  const HOST_OK = typeof window !== "undefined" && (location.hostname === "localhost" || location.hostname.endsWith(".netlify.app"));
   const [bg, setBg] = useState<string | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   useEffect(() => {
-    if (!ENABLE_API) return;
+    if (!ENABLE_API || !HOST_OK) return;
     let cancelled = false;
     const timeout = (ms: number) => new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms));
     const safeFetchJson = async (url: string, ms = 4000) => {
