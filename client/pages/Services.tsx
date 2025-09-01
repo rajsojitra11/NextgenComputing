@@ -54,33 +54,38 @@ export default function Services() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
       </div>
       <div className="container">
-        <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-transparent p-6 md:p-10 min-h-[260px] md:min-h-[360px]">
-          {videoUrl && (
-            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-              {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] md:w-full md:h-full">
-                  <iframe
-                    className="h-full w-full"
-                    src={toEmbed(videoUrl)}
-                    title="Service video background"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
+        <div className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 md:p-10">
+          <div className="grid md:grid-cols-2 gap-6 items-center">
+            <header className="max-w-2xl">
+              <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Professional Computer Services</h1>
+              <p className="mt-4 text-slate-700">From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.</p>
+            </header>
+            {videoUrl && (
+              <div>
+                {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
+                  <div className="relative w-full overflow-hidden rounded-xl border border-slate-200/70 shadow-sm">
+                    <div className="relative w-full" style={{ aspectRatio: "16 / 9" }}>
+                      <iframe
+                        className="absolute inset-0 h-full w-full"
+                        src={toEmbed(videoUrl)}
+                        title="Service video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="relative w-full overflow-hidden rounded-xl border border-slate-200/70 shadow-sm" style={{ aspectRatio: "16 / 9" }}>
+                    <video className="h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} controls />
+                  </div>
+                )}
+                <div className="mt-4 flex gap-4">
+                  <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
+                  <Link to="/products" className="btn-outline">Shop Devices</Link>
                 </div>
-              ) : (
-                <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} />
-              )}
-            </div>
-          )}
-          <header className="relative z-10 max-w-3xl">
-            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">Professional Computer Services</h1>
-            <p className="mt-4 text-white/90">From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.</p>
-          </header>
-        </div>
-
-        <div className="mt-6 flex gap-4">
-          <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
-          <Link to="/products" className="btn-outline">Shop Devices</Link>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
