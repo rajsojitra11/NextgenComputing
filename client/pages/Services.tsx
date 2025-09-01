@@ -19,9 +19,18 @@ const services: Service[] = [
 ];
 
 export default function Services() {
+  const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+  const [bg, setBg] = useState<string | null>(null);
+  useEffect(() => {
+    if (!ENABLE_API) return;
+    fetch("/api/pages/services").then(r=>r.ok?r.json():Promise.reject()).then(pg=>setBg(pg?.meta?.backgroundUrl || null)).catch(()=>{});
+  }, [ENABLE_API]);
   return (
     <section className="relative py-16 md:py-24">
-      <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
+      <div className="absolute inset-0 -z-10">
+        {bg && <img src={bg} alt="Services background" className="h-full w-full object-cover opacity-20" referrerPolicy="no-referrer" />}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
+      </div>
       <div className="container">
         <header className="max-w-3xl">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Professional Computer Services</h1>
