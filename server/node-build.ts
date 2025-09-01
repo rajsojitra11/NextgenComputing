@@ -1,6 +1,8 @@
 import path from "path";
+import "dotenv/config";
 import { createServer } from "./index";
 import * as express from "express";
+import path from "path";
 
 const app = createServer();
 const port = process.env.PORT || 3000;
