@@ -15,7 +15,7 @@ interface Product {
 
 export default function Index() {
   const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
-  const FEATURED_ON_HOME = import.meta.env.VITE_FEATURED_ON_HOME === "true";
+  const FEATURED_ON_HOME = (import.meta.env.VITE_FEATURED_ON_HOME ?? "true") !== "false";
   const [items, setItems] = useState<Product[]>([]);
 
   useEffect(() => {
