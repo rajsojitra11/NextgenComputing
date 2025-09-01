@@ -13,11 +13,13 @@ const file = "pages.json";
 
 const list: RequestHandler = async (_req, res) => {
   if (process.env.USE_MYSQL === "true") {
-    const { getPool } = await import("../utils/mysql");
-    const pool = await getPool();
-    const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages");
-    const items = (rows as any[]).map((r) => ({ ...r, meta: r.meta ? JSON.parse(r.meta) : {} }));
-    return res.json(items);
+    try {
+      const { getPool } = await import("../utils/mysql");
+      const pool = await getPool();
+      const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages");
+      const items = (rows as any[]).map((r) => ({ ...r, meta: r.meta ? JSON.parse(r.meta) : {} }));
+      if ((items?.length ?? 0) > 0) return res.json(items);
+    } catch (_) {}
   }
   const items = readJson<Page[]>(file, []);
   res.json(items);
@@ -26,12 +28,15 @@ const list: RequestHandler = async (_req, res) => {
 const getBySlug: RequestHandler = async (req, res) => {
   const { slug } = req.params;
   if (process.env.USE_MYSQL === "true") {
-    const { getPool } = await import("../utils/mysql");
-    const pool = await getPool();
-    const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages WHERE slug=?", [slug]);
-    if ((rows as any[]).length === 0) return res.status(404).json({ error: "Not found" });
-    const r = (rows as any[])[0];
-    return res.json({ ...r, meta: r.meta ? JSON.parse(r.meta) : {} });
+    try {
+      const { getPool } = await import("../utils/mysql");
+      const pool = await getPool();
+      const [rows] = await pool.query<any[]>("SELECT slug, title, body, meta, updatedAt FROM pages WHERE slug=?", [slug]);
+      if ((rows as any[]).length > 0) {
+        const r = (rows as any[])[0];
+        return res.json({ ...r, meta: r.meta ? JSON.parse(r.meta) : {} });
+      }
+    } catch (_) {}
   }
   const items = readJson<Page[]>(file, []);
   const page = items.find((p) => p.slug === slug);
