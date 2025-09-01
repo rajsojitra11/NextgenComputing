@@ -25,8 +25,11 @@ export default function Services() {
   const [bg, setBg] = useState<string | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   useEffect(() => {
-    if (!ENABLE_API || !HOST_OK) return;
     let cancelled = false;
+    const DEFAULTS = {
+      bg: null as string | null,
+      video: "https://youtu.be/ntDq2VeJr9Q?si=pI0xbW26OrPs3LjO",
+    };
     const timeout = (ms: number) => new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms));
     const safeFetchJson = async (url: string, ms = 4000) => {
       const res: Response = await Promise.race([
@@ -36,21 +39,33 @@ export default function Services() {
       if (!res || !res.ok) throw new Error("bad_status");
       return res.json();
     };
+
     (async () => {
+      // If API isn't enabled or host isn't supported, use defaults
+      if (!ENABLE_API || !HOST_OK) {
+        if (!cancelled) {
+          setBg(DEFAULTS.bg);
+          setVideoUrl(DEFAULTS.video);
+        }
+        return;
+      }
       try {
-        // Health check first to avoid noisy errors when API isn’t available in this environment
         await safeFetchJson("/api/ping", 2500);
         const pg = await safeFetchJson("/api/pages/services", 4000);
         if (!cancelled) {
-          setBg(pg?.meta?.backgroundUrl || null);
-          setVideoUrl(pg?.meta?.videoUrl || null);
+          setBg(pg?.meta?.backgroundUrl || DEFAULTS.bg);
+          setVideoUrl(pg?.meta?.videoUrl || DEFAULTS.video);
         }
       } catch {
-        // Silently fall back to defaults (no background/video)
+        if (!cancelled) {
+          setBg(DEFAULTS.bg);
+          setVideoUrl(DEFAULTS.video);
+        }
       }
     })();
+
     return () => { cancelled = true; };
-  }, [ENABLE_API]);
+  }, [ENABLE_API, HOST_OK]);
 
   const toEmbed = (url: string) => {
     // Build an embeddable URL with autoplay+mute to satisfy browser policies
