@@ -167,7 +167,10 @@ export default function Testimonials() {
 
   return (
     <section className="relative py-16 md:py-24">
-      <div className="absolute inset-0 -z-10 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
+      <div className="absolute inset-0 -z-10">
+        {bg && <img src={bg} alt="Testimonials background" className="h-full w-full object-cover opacity-20" referrerPolicy="no-referrer" />}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
+      </div>
       <div className="container">
         <header className="text-center max-w-3xl mx-auto">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">What our customers say</h1>
