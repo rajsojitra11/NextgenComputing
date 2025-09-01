@@ -19,6 +19,7 @@ function PagesTab() {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [bgUrl, setBgUrl] = useState("");
+  const [videoUrl, setVideoUrl] = useState("");
   const [phone, setPhone] = useState("");
   const [emailVal, setEmailVal] = useState("");
   const [address, setAddress] = useState("");
