@@ -1,5 +1,6 @@
 import { Wrench, Laptop, Monitor, HardDrive, Database, ShieldCheck, Cpu, RefreshCcw } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const wa = "https://wa.me/918469283448?text=Hello%20Nextgen%20Computing%20%E2%80%94%20I%20want%20to%20book%20a%20repair%20or%20service";
 
