@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 type Page = { slug: string; title: string; body?: string };
 
@@ -51,6 +52,49 @@ export default function About() {
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent" />
+          </div>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className="container pb-10">
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {[{k:"Devices Repaired",v:"5,000+"},{k:"Happy Customers",v:"3,500+"},{k:"Avg. Rating",v:"4.9/5"},{k:"Years in Business",v:"10+"}].map((s)=> (
+            <div key={s.k} className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-5 text-center shadow-sm">
+              <div className="text-2xl font-extrabold tracking-tight text-slate-900">{s.v}</div>
+              <div className="mt-1 text-xs uppercase tracking-wide text-slate-500">{s.k}</div>
+            </div>
+          ))}
+        </div>
+
+        {/* Our Process */}
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {[
+            { title: "1. Free Consultation", desc: "Tell us your issue or need. We advise the best solution upfront.", emoji: "💬" },
+            { title: "2. Diagnosis & Quote", desc: "Transparent pricing with no surprises. We only proceed with your approval.", emoji: "🔎" },
+            { title: "3. Fix & Deliver", desc: "Certified repairs and quality checks. Pickup or doorstep delivery available.", emoji: "🚚" },
+          ].map((p) => (
+            <div key={p.title} className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 shadow-sm hover:-translate-y-0.5 hover:shadow-lg transition-all">
+              <div className="h-11 w-11 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center text-xl">{p.emoji}</div>
+              <h3 className="mt-4 text-lg font-semibold tracking-tight">{p.title}</h3>
+              <p className="mt-2 text-slate-600 text-sm">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Brands & CTA */}
+        <div className="mt-12 rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 md:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-bold">Trusted by leading brands</h2>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {["Apple","Dell","HP","Lenovo","Asus","Acer","Logitech","Samsung"].map((b)=> (
+                <span key={b} className="rounded-full border border-blue-200/60 bg-white px-3 py-1 text-sm text-blue-900">{b}</span>
+              ))}
+            </div>
+          </div>
+          <div className="flex gap-3">
+            <Link to="/contact" className="btn-primary">Contact Us</Link>
+            <Link to="/products" className="btn-outline">Shop Products</Link>
           </div>
         </div>
       </div>
