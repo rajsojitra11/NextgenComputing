@@ -75,11 +75,12 @@ export default function Services() {
           <header className="relative z-10 max-w-3xl">
             <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white">Professional Computer Services</h1>
             <p className="mt-4 text-white/90">From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.</p>
-            <div className="mt-6 flex gap-4">
-              <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
-              <Link to="/products" className="btn-outline">Shop Devices</Link>
-            </div>
           </header>
+        </div>
+
+        <div className="mt-6 flex gap-4">
+          <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
+          <Link to="/products" className="btn-outline">Shop Devices</Link>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
