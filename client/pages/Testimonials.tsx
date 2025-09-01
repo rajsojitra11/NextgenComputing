@@ -113,6 +113,12 @@ function StarInput({ value, onChange }: { value: number; onChange: (n: number) =
 export default function Testimonials() {
   const options: EmblaOptionsType = { loop: true, align: "start", skipSnaps: false };
   const [viewportRef, embla] = useEmblaCarousel(options);
+  const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+  const [bg, setBg] = useState<string | null>(null);
+  useEffect(() => {
+    if (!ENABLE_API) return;
+    fetch("/api/pages/testimonials").then(r=>r.ok?r.json():Promise.reject()).then(pg=>setBg(pg?.meta?.backgroundUrl || null)).catch(()=>{});
+  }, [ENABLE_API]);
 
   const [items, setItems] = useState<Testimonial[]>(() => {
     const stored = localStorage.getItem("user_testimonials");
