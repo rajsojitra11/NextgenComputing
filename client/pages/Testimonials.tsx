@@ -198,21 +198,21 @@ export default function Testimonials() {
         </div>
 
         {/* Review form */}
-        <div className="mt-12 max-w-2xl mx-auto">
-          <form onSubmit={onSubmit} className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6">
+        <div className="mt-12 max-w-2xl mx-auto px-3 sm:px-0">
+          <form onSubmit={onSubmit} className="rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-4 sm:p-6 overflow-hidden">
             <h2 className="text-xl font-bold">Share your review</h2>
             <p className="text-sm text-slate-600">Your feedback helps others choose with confidence.</p>
             <div className="mt-4 grid gap-3">
               <div className="grid sm:grid-cols-2 gap-3">
-                <input className="rounded-lg border px-3 py-2" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required />
-                <input className="rounded-lg border px-3 py-2" placeholder="Service (e.g. Laptop Purchase, Repair)" value={role} onChange={(e) => setRole(e.target.value)} />
+                <input className="w-full rounded-lg border px-3 py-2" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} required />
+                <input className="w-full rounded-lg border px-3 py-2" placeholder="Service (e.g. Laptop Purchase, Repair)" value={role} onChange={(e) => setRole(e.target.value)} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700">Rating</label>
                 <StarInput value={rating} onChange={setRating} />
               </div>
-              <textarea className="rounded-lg border px-3 py-2" rows={4} placeholder="Write your review..." value={quote} onChange={(e) => setQuote(e.target.value)} required />
-              <button type="submit" className="btn-primary" disabled={saving}>{saving ? "Submitting..." : "Submit Review"}</button>
+              <textarea className="w-full rounded-lg border px-3 py-2" rows={4} placeholder="Write your review..." value={quote} onChange={(e) => setQuote(e.target.value)} required />
+              <button type="submit" className="btn-primary w-full sm:w-auto" disabled={saving}>{saving ? "Submitting..." : "Submit Review"}</button>
             </div>
           </form>
         </div>
