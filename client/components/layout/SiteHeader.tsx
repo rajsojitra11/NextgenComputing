@@ -141,6 +141,12 @@ export default function SiteHeader() {
             </div>
           </details>
         </div>
+        {wishOpen && (
+          <div className="fixed inset-0 z-40 md:hidden" onClick={() => { if (wishlistRef.current) wishlistRef.current.open = false; setWishOpen(false); }} />
+        )}
+        {menuOpen && (
+          <div className="fixed inset-0 z-40 md:hidden" onClick={() => { if (menuRef.current) menuRef.current.open = false; setMenuOpen(false); }} />
+        )}
       </nav>
     </header>
   );
