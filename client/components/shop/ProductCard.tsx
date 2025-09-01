@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
-import { useEffect, useMemo, useState } from "react";
+import * as React from "react";
 import { useWishlist } from "@/hooks/use-wishlist";
 
 type Props = {
@@ -20,10 +20,10 @@ export default function ProductCard({ id, name, brand, price, image, features, b
     `Hi Nextgen Computing, I'm interested in buying ${name} by ${brand} for ${formatINR(price)}.`
   )}`;
   const link = buyLink || wa;
-  const [open, setOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [mounted, setMounted] = React.useState(false);
   const { has, toggle } = useWishlist();
-  const idKey = useMemo(() => id || `${brand}:${name}`.toLowerCase(), [id, brand, name]);
+  const idKey = React.useMemo(() => id || `${brand}:${name}`.toLowerCase(), [id, brand, name]);
   const isWished = has(idKey);
 
   const computeSrc = (val?: string) => {
@@ -34,13 +34,13 @@ export default function ProductCard({ id, name, brand, price, image, features, b
     const ok = next.startsWith("http://") || next.startsWith("https://") || next.startsWith("/");
     return ok && next ? next : "/placeholder.svg";
   };
-  const [src, setSrc] = useState<string>(computeSrc(image));
+  const [src, setSrc] = React.useState<string>(computeSrc(image));
 
-  useEffect(() => setMounted(true), []);
+  React.useEffect(() => setMounted(true), []);
 
-  useEffect(() => setSrc(computeSrc(image)), [image]);
+  React.useEffect(() => setSrc(computeSrc(image)), [image]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
     };
