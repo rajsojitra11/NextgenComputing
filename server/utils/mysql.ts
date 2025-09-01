@@ -18,6 +18,7 @@ export async function getPool() {
         port: MYSQL_PORT ? Number(MYSQL_PORT) : 3306,
         connectionLimit: 10,
         namedPlaceholders: true,
+        multipleStatements: true,
       });
     }
   }
