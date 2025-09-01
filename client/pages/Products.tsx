@@ -28,7 +28,11 @@ export default function Products() {
 
   useEffect(() => {
     let cancelled = false;
-    if (!ENABLE_API || !HOST_OK) return;
+    if (!ENABLE_API || !HOST_OK) {
+      // Load static fallback bundled with the app
+      fetch("/products.json").then(r=>r.ok?r.json():Promise.reject()).then((p: Product[])=>{ if(!cancelled) setItems(Array.isArray(p)?p:[]); }).catch(()=>{});
+      return;
+    }
     const timeout = (ms: number) => new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms));
     const safeFetchJson = async (url: string, ms = 4000) => {
       const res: Response = await Promise.race([
