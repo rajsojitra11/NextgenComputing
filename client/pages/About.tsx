@@ -45,7 +45,7 @@ export default function About() {
         <div className="order-1 md:order-2">
           <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
             <img
-              src="https://i.pinimg.com/736x/7a/36/49/7a36493b5b4273c69d0d05f05b077c2d.jpg"
+              src={(page?.meta as any)?.backgroundUrl || "https://i.pinimg.com/736x/7a/36/49/7a36493b5b4273c69d0d05f05b077c2d.jpg"}
               alt="Technicians repairing laptops in a professional workshop"
               className="h-full w-full object-cover"
               referrerPolicy="no-referrer"
