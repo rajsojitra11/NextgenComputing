@@ -32,6 +32,12 @@ export default function Index() {
     })();
   }, [ENABLE_API, FEATURED_ON_HOME]);
 
+  const [homeBg, setHomeBg] = useState<string | null>(null);
+  useEffect(() => {
+    if (!ENABLE_API) return;
+    fetch("/api/pages/home").then(r=>r.ok?r.json():Promise.reject()).then((pg)=>setHomeBg(pg?.meta?.backgroundUrl || null)).catch(()=>{});
+  }, [ENABLE_API]);
+
   const normalize = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();
   const featured = FEATURED_ON_HOME ? (() => {
     const seen = new Set<string>();
