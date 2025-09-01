@@ -25,7 +25,30 @@ export default function Services() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   useEffect(() => {
     if (!ENABLE_API) return;
-    fetch("/api/pages/services").then(r=>r.ok?r.json():Promise.reject()).then(pg=>{ setBg(pg?.meta?.backgroundUrl || null); setVideoUrl(pg?.meta?.videoUrl || null); }).catch(()=>{});
+    let cancelled = false;
+    const timeout = (ms: number) => new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms));
+    const safeFetchJson = async (url: string, ms = 4000) => {
+      const res: Response = await Promise.race([
+        fetch(url, { cache: "no-store" }),
+        timeout(ms),
+      ]) as Response;
+      if (!res || !res.ok) throw new Error("bad_status");
+      return res.json();
+    };
+    (async () => {
+      try {
+        // Health check first to avoid noisy errors when API isn’t available in this environment
+        await safeFetchJson("/api/ping", 2500);
+        const pg = await safeFetchJson("/api/pages/services", 4000);
+        if (!cancelled) {
+          setBg(pg?.meta?.backgroundUrl || null);
+          setVideoUrl(pg?.meta?.videoUrl || null);
+        }
+      } catch {
+        // Silently fall back to defaults (no background/video)
+      }
+    })();
+    return () => { cancelled = true; };
   }, [ENABLE_API]);
 
   const toEmbed = (url: string) => {
