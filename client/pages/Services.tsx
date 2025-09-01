@@ -54,32 +54,32 @@ export default function Services() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
       </div>
       <div className="container">
-        <header className="max-w-3xl">
-          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Professional Computer Services</h1>
-          <p className="mt-4 text-slate-600">From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.</p>
-          <div className="mt-6 flex gap-4">
-            <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
-            <Link to="/products" className="btn-outline">Shop Devices</Link>
-          </div>
-        </header>
-
-        {videoUrl && (
-          <div className="mt-10 overflow-hidden p-0 -mx-4 sm:mx-0 rounded-none border-0 bg-transparent sm:rounded-2xl sm:border sm:border-slate-200/70 sm:bg-white/70 sm:backdrop-blur sm:p-2">
-            {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
-              <div className="aspect-video w-full">
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 md:p-10">
+          {videoUrl && (
+            <div className="pointer-events-none absolute inset-0 -z-10">
+              {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
                 <iframe
                   className="h-full w-full"
                   src={toEmbed(videoUrl)}
-                  title="Service video"
+                  title="Service video background"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
-              </div>
-            ) : (
-              <video className="w-full rounded-none sm:rounded-lg" controls autoPlay muted playsInline src={videoUrl} />
-            )}
-          </div>
-        )}
+              ) : (
+                <video className="h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} />
+              )}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/60 to-transparent" />
+            </div>
+          )}
+          <header className="relative z-10 max-w-3xl">
+            <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Professional Computer Services</h1>
+            <p className="mt-4 text-slate-700">From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.</p>
+            <div className="mt-6 flex gap-4">
+              <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
+              <Link to="/products" className="btn-outline">Shop Devices</Link>
+            </div>
+          </header>
+        </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
