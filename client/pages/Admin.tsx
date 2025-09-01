@@ -77,6 +77,7 @@ function PagesTab() {
       setTitle(d.title || "");
       setBody(d.body || "");
       setBgUrl(d.backgroundUrl || "");
+      setVideoUrl(d.videoUrl || "");
       setPhone(d.phone || "");
       setEmailVal(d.email || "");
       setAddress(d.address || "");
