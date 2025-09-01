@@ -19,11 +19,15 @@ const file = "products.json";
 
 const list: RequestHandler = async (_req, res) => {
   if (process.env.USE_MYSQL === "true") {
-    const { getPool } = await import("../utils/mysql");
-    const pool = await getPool();
-    const [rows] = await pool.query<any[]>("SELECT id, category, name, brand, price, image, buyLink, features, createdAt, updatedAt FROM products ORDER BY createdAt DESC");
-    const items = (rows as any[]).map((r) => ({ ...r, features: r.features ? JSON.parse(r.features) : [] }));
-    return res.json(items);
+    try {
+      const { getPool } = await import("../utils/mysql");
+      const pool = await getPool();
+      const [rows] = await pool.query<any[]>("SELECT id, category, name, brand, price, image, buyLink, features, createdAt, updatedAt FROM products ORDER BY createdAt DESC");
+      const items = (rows as any[]).map((r) => ({ ...r, features: r.features ? JSON.parse(r.features) : [] }));
+      if ((items?.length ?? 0) > 0) return res.json(items);
+    } catch (_) {
+      // fall through to JSON seed
+    }
   }
   const items = readJson<Product[]>(file, []);
   res.json(items);
