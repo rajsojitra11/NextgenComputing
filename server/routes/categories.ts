@@ -13,10 +13,12 @@ const file = "categories.json";
 
 const list: RequestHandler = async (_req, res) => {
   if (process.env.USE_MYSQL === "true") {
-    const { getPool } = await import("../utils/mysql");
-    const pool = await getPool();
-    const [rows] = await pool.query<any[]>("SELECT id, name, createdAt, updatedAt FROM categories ORDER BY name ASC");
-    return res.json(rows);
+    try {
+      const { getPool } = await import("../utils/mysql");
+      const pool = await getPool();
+      const [rows] = await pool.query<any[]>("SELECT id, name, createdAt, updatedAt FROM categories ORDER BY name ASC");
+      if ((rows as any[]).length > 0) return res.json(rows);
+    } catch (_) {}
   }
   const items = readJson<Category[]>(file, []);
   res.json(items);
