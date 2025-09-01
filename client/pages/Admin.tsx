@@ -49,6 +49,7 @@ function PagesTab() {
           title: "Professional Computer Services",
           body: "From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.",
           backgroundUrl: "",
+          videoUrl: "",
         };
       case "testimonials":
         return {
