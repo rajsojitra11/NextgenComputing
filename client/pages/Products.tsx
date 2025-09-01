@@ -20,17 +20,47 @@ function slugify(name: string) {
 
 export default function Products() {
   const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
+  const HOST_OK = typeof window !== "undefined" && (location.hostname === "localhost" || location.hostname.endsWith(".netlify.app"));
   const [items, setItems] = useState<Product[]>([]);
   const [categories, setCategories] = useState<Category[]>([]);
   const [query, setQuery] = useState("");
   const [bg, setBg] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!ENABLE_API) return;
-    fetch("/api/products").then(r => r.ok ? r.json() : Promise.reject()).then((p: Product[]) => setItems(Array.isArray(p) ? p : [])).catch(() => setItems([]));
-    fetch("/api/categories").then(r => r.ok ? r.json() : Promise.reject()).then((c: Category[]) => setCategories(Array.isArray(c) ? c : [])).catch(() => setCategories([]));
-    fetch("/api/pages/products").then(r=>r.ok?r.json():Promise.reject()).then(pg=>setBg(pg?.meta?.backgroundUrl || null)).catch(()=>{});
-  }, [ENABLE_API]);
+    let cancelled = false;
+    if (!ENABLE_API || !HOST_OK) return;
+    const timeout = (ms: number) => new Promise((_, rej) => setTimeout(() => rej(new Error("timeout")), ms));
+    const safeFetchJson = async (url: string, ms = 4000) => {
+      const res: Response = await Promise.race([
+        fetch(url, { cache: "no-store" }),
+        timeout(ms),
+      ]) as Response;
+      if (!res || !res.ok) throw new Error("bad_status");
+      return res.json();
+    };
+    (async () => {
+      try {
+        await safeFetchJson("/api/ping", 2500);
+      } catch {
+        return; // API not available; skip without errors
+      }
+      try {
+        const [p, c] = await Promise.all([
+          safeFetchJson("/api/products", 5000).catch(() => []),
+          safeFetchJson("/api/categories", 5000).catch(() => []),
+        ]);
+        if (!cancelled) {
+          setItems(Array.isArray(p) ? p as Product[] : []);
+          setCategories(Array.isArray(c) ? c as Category[] : []);
+        }
+      } catch {}
+      try {
+        const pg = await safeFetchJson("/api/pages/products", 4000);
+        if (!cancelled) setBg(pg?.meta?.backgroundUrl || null);
+      } catch {}
+    })();
+    return () => { cancelled = true; };
+  }, [ENABLE_API, HOST_OK]);
 
   const normalize = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim().replace(/s\b/, "");
 
