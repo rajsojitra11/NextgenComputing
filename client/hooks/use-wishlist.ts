@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 
+import * as React from "react";
+
 export type WishItem = {
   id: string;
   name: string;
@@ -27,50 +29,56 @@ function writeStorage(items: WishItem[]) {
   } catch {}
 }
 
+// Simple global store so all components share the same state in real-time
+let storeItems: WishItem[] = readStorage();
+const subscribers = new Set<() => void>();
+
+function emit() {
+  subscribers.forEach((cb) => cb());
+}
+
+function setStore(next: WishItem[]) {
+  storeItems = next;
+  writeStorage(storeItems);
+  emit();
+}
+
+// sync with other tabs
+if (typeof window !== "undefined") {
+  window.addEventListener("storage", (e) => {
+    if (e.key === STORAGE_KEY) {
+      storeItems = readStorage();
+      emit();
+    }
+  });
+}
+
 export function useWishlist() {
-  const [items, setItems] = useState<WishItem[]>(() => readStorage());
+  const items = React.useSyncExternalStore(
+    (cb) => {
+      subscribers.add(cb);
+      return () => subscribers.delete(cb);
+    },
+    () => storeItems,
+    () => storeItems
+  );
 
-  // Sync across tabs
-  useEffect(() => {
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === STORAGE_KEY) setItems(readStorage());
-    };
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
+  const has = React.useCallback((id: string) => items.some((x) => x.id === id), [items]);
+
+  const add = React.useCallback((item: WishItem) => {
+    setStore(storeItems.some((x) => x.id === item.id) ? storeItems : [item, ...storeItems]);
   }, []);
 
-  const has = useCallback((id: string) => items.some((x) => x.id === id), [items]);
-
-  const add = useCallback((item: WishItem) => {
-    setItems((prev) => {
-      if (prev.some((x) => x.id === item.id)) return prev;
-      const next = [item, ...prev];
-      writeStorage(next);
-      return next;
-    });
+  const remove = React.useCallback((id: string) => {
+    setStore(storeItems.filter((x) => x.id !== id));
   }, []);
 
-  const remove = useCallback((id: string) => {
-    setItems((prev) => {
-      const next = prev.filter((x) => x.id !== id);
-      writeStorage(next);
-      return next;
-    });
+  const toggle = React.useCallback((item: WishItem) => {
+    const exists = storeItems.some((x) => x.id === item.id);
+    setStore(exists ? storeItems.filter((x) => x.id !== item.id) : [item, ...storeItems]);
   }, []);
 
-  const toggle = useCallback((item: WishItem) => {
-    setItems((prev) => {
-      const exists = prev.some((x) => x.id === item.id);
-      const next = exists ? prev.filter((x) => x.id !== item.id) : [item, ...prev];
-      writeStorage(next);
-      return next;
-    });
-  }, []);
+  const clear = React.useCallback(() => setStore([]), []);
 
-  const clear = useCallback(() => {
-    writeStorage([]);
-    setItems([]);
-  }, []);
-
-  return useMemo(() => ({ items, has, add, remove, toggle, clear }), [items, has, add, remove, toggle, clear]);
+  return React.useMemo(() => ({ items, has, add, remove, toggle, clear }), [items, has, add, remove, toggle, clear]);
 }
