@@ -76,7 +76,7 @@ export default function Services() {
                 />
               </div>
             ) : (
-              <video className="w-full rounded-lg" controls playsInline src={videoUrl} />
+              <video className="w-full rounded-lg" controls autoPlay muted playsInline src={videoUrl} />
             )}
           </div>
         )}
