@@ -29,6 +29,7 @@ export default function Products() {
     if (!ENABLE_API) return;
     fetch("/api/products").then(r => r.ok ? r.json() : Promise.reject()).then((p: Product[]) => setItems(Array.isArray(p) ? p : [])).catch(() => setItems([]));
     fetch("/api/categories").then(r => r.ok ? r.json() : Promise.reject()).then((c: Category[]) => setCategories(Array.isArray(c) ? c : [])).catch(() => setCategories([]));
+    fetch("/api/pages/products").then(r=>r.ok?r.json():Promise.reject()).then(pg=>setBg(pg?.meta?.backgroundUrl || null)).catch(()=>{});
   }, [ENABLE_API]);
 
   const normalize = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim().replace(/s\b/, "");
