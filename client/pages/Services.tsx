@@ -54,7 +54,7 @@ export default function Services() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.25)_0%,transparent_50%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_40%)]" />
       </div>
       <div className="container">
-        <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/70 backdrop-blur p-6 md:p-10 min-h-[260px] md:min-h-[360px]">
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-transparent p-6 md:p-10 min-h-[260px] md:min-h-[360px]">
           {videoUrl && (
             <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
               {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
@@ -70,7 +70,6 @@ export default function Services() {
               ) : (
                 <video className="absolute inset-0 h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} />
               )}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/85 via-white/70 to-white/40" />
             </div>
           )}
           <header className="relative z-10 max-w-3xl">
