@@ -82,6 +82,10 @@ export default function Services() {
             <header className="max-w-2xl">
               <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">Professional Computer Services</h1>
               <p className="mt-4 text-slate-700">From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.</p>
+              <div className="mt-6 flex gap-4">
+                <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
+                <Link to="/products" className="btn-outline">Shop Devices</Link>
+              </div>
             </header>
             {videoUrl && (
               <div>
@@ -102,10 +106,6 @@ export default function Services() {
                     <video className="h-full w-full object-cover" autoPlay muted loop playsInline src={videoUrl} controls />
                   </div>
                 )}
-                <div className="mt-4 flex gap-4">
-                  <a href={wa} target="_blank" rel="noreferrer" className="btn-primary">Book Service</a>
-                  <Link to="/products" className="btn-outline">Shop Devices</Link>
-                </div>
               </div>
             )}
           </div>
