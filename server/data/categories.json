@@ -22,5 +22,11 @@
     "name": "Keyboards",
     "createdAt": "2025-08-30T13:22:16.176Z",
     "updatedAt": "2025-08-30T13:22:16.176Z"
+  },
+  {
+    "id": "e2fd3fe6-5db5-4156-86cd-b47400afce3a",
+    "name": "Mouse",
+    "createdAt": "2025-09-01T18:26:20.661Z",
+    "updatedAt": "2025-09-01T18:26:20.661Z"
   }
 ]
