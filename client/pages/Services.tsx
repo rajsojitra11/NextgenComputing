@@ -56,6 +56,24 @@ export default function Services() {
           </div>
         </header>
 
+        {videoUrl && (
+          <div className="mt-10 rounded-2xl overflow-hidden border border-slate-200/70 bg-white/70 backdrop-blur p-2">
+            {/(youtube\.com|youtu\.be)/.test(videoUrl) ? (
+              <div className="aspect-video w-full">
+                <iframe
+                  className="h-full w-full"
+                  src={toEmbed(videoUrl)}
+                  title="Service video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              </div>
+            ) : (
+              <video className="w-full rounded-lg" controls playsInline src={videoUrl} />
+            )}
+          </div>
+        )}
+
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
             <div
