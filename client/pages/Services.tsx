@@ -29,13 +29,20 @@ export default function Services() {
   }, [ENABLE_API]);
 
   const toEmbed = (url: string) => {
+    // Build an embeddable URL with autoplay+mute to satisfy browser policies
+    const addParams = (base: string) => `${base}?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1`;
     if (/youtube\.com\/.+v=/.test(url)) {
       const v = new URL(url).searchParams.get("v");
-      return v ? `https://www.youtube.com/embed/${v}` : url;
+      return v ? addParams(`https://www.youtube.com/embed/${v}`) : url;
     }
     if (/youtu\.be\//.test(url)) {
       const id = url.split(/youtu\.be\//)[1]?.split(/[?&#]/)[0];
-      return id ? `https://www.youtube.com/embed/${id}` : url;
+      return id ? addParams(`https://www.youtube.com/embed/${id}`) : url;
+    }
+    if (/youtube\.com\/embed\//.test(url)) {
+      // Provided as embed already
+      const [base] = url.split("?");
+      return addParams(base);
     }
     return url;
   };

@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "slug": "services",
+    "title": "Professional Computer Services",
+    "body": "From quick fixes to complex repairs and performance upgrades — our certified technicians keep your devices running like new.",
+    "meta": {
+      "backgroundUrl": "",
+      "videoUrl": "https://youtu.be/ntDq2VeJr9Q?si=pI0xbW26OrPs3LjO",
+      "phone": "",
+      "email": "",
+      "address": "",
+      "whatsapp": "",
+      "mapQuery": ""
+    },
+    "updatedAt": "2025-09-01T14:35:18.801Z"
+  }
+]
