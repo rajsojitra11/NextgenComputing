@@ -1,0 +1,13 @@
+Copy these into a .env file at project root for local MySQL:
+
+VITE_ENABLE_API=true
+PORT=3000
+PING_MESSAGE=ping
+USE_MYSQL=true
+# MYSQL_URL can be used instead of the discrete fields below
+# MYSQL_URL=mysql://root:@localhost:3306/nextgen_computing
+MYSQL_HOST=localhost
+MYSQL_PORT=3306
+MYSQL_USER=root
+MYSQL_PASSWORD=
+MYSQL_DB=nextgen_computing
