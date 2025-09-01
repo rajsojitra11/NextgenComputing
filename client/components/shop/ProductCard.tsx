@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { useEffect, useMemo, useState } from "react";
+import { useWishlist } from "@/hooks/use-wishlist";
 
 type Props = {
+  id?: string;
   name: string;
   brand: string;
   price: number;
@@ -12,13 +15,16 @@ type Props = {
 
 const formatINR = (n: number) => new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 }).format(n);
 
-export default function ProductCard({ name, brand, price, image, features, buyLink }: Props) {
+export default function ProductCard({ id, name, brand, price, image, features, buyLink }: Props) {
   const wa = `https://wa.me/918469283448?text=${encodeURIComponent(
     `Hi Nextgen Computing, I'm interested in buying ${name} by ${brand} for ${formatINR(price)}.`
   )}`;
   const link = buyLink || wa;
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const { has, toggle } = useWishlist();
+  const idKey = useMemo(() => id || `${brand}:${name}`.toLowerCase(), [id, brand, name]);
+  const isWished = has(idKey);
 
   const computeSrc = (val?: string) => {
     let next = (val || "").trim();
@@ -71,6 +77,16 @@ export default function ProductCard({ name, brand, price, image, features, buyLi
           referrerPolicy="no-referrer"
         />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <button
+          type="button"
+          onClick={(e) => { e.stopPropagation(); toggle({ id: idKey, name, brand, price, image }); }}
+          className={`absolute left-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-pink-600 shadow hover:bg-white ${isWished ? 'ring-2 ring-pink-500/40' : ''}`}
+          aria-pressed={isWished}
+          aria-label={isWished ? `Remove ${name} from wishlist` : `Add ${name} to wishlist`}
+          title={isWished ? 'Remove from wishlist' : 'Add to wishlist'}
+        >
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill={isWished ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
