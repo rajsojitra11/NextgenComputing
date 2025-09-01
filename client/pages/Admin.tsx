@@ -71,6 +71,17 @@ function PagesTab() {
 
   useEffect(() => {
     const d = defaultsFor(slug)!;
+    if (!ENABLE_API) {
+      setTitle(d.title || "");
+      setBody(d.body || "");
+      setBgUrl(d.backgroundUrl || "");
+      setPhone(d.phone || "");
+      setEmailVal(d.email || "");
+      setAddress(d.address || "");
+      setWhatsapp(d.whatsapp || "");
+      setMapQuery(d.mapQuery || "");
+      return;
+    }
     fetch(`/api/pages/${slug}`)
       .then((r) => (r.ok ? r.json() : Promise.reject()))
       .then((p) => {
@@ -93,7 +104,7 @@ function PagesTab() {
         setWhatsapp(d.whatsapp || "");
         setMapQuery(d.mapQuery || "");
       });
-  }, [slug]);
+  }, [slug, ENABLE_API]);
 
   const onSave = async (e: React.FormEvent) => {
     e.preventDefault();
