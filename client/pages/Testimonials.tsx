@@ -86,7 +86,7 @@ function Stars({ n }: { n: number }) {
 
 function StarInput({ value, onChange }: { value: number; onChange: (n: number) => void }) {
   return (
-    <div className="flex items-center gap-1" role="radiogroup" aria-label="Select rating">
+    <div className="flex flex-wrap items-center gap-1" role="radiogroup" aria-label="Select rating">
       {Array.from({ length: 5 }).map((_, i) => {
         const n = i + 1;
         const active = n <= value;
@@ -100,7 +100,7 @@ function StarInput({ value, onChange }: { value: number; onChange: (n: number) =
             className="p-1"
             aria-label={`${n} star`}
           >
-            <svg viewBox="0 0 24 24" className={`h-5 w-5 ${active ? "text-yellow-400" : "text-slate-300"}`} fill="currentColor" aria-hidden="true">
+            <svg viewBox="0 0 24 24" className={`h-6 w-6 sm:h-5 sm:w-5 ${active ? "text-yellow-400" : "text-slate-300"}`} fill="currentColor" aria-hidden="true">
               <path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.787 1.401 8.168L12 18.896l-7.335 3.87 1.401-8.168L.132 9.211l8.2-1.193z" />
             </svg>
           </button>
