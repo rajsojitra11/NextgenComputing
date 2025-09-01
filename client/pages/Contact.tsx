@@ -14,6 +14,7 @@ export default function Contact() {
   const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
 
   const meta = page?.meta || {};
+  const bg = (meta as any).backgroundUrl as string | undefined;
   const WHATSAPP = (meta.whatsapp || "918469283448").replace(/\D/g, "");
 
   useEffect(() => {
@@ -34,9 +35,10 @@ export default function Contact() {
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img
-            src="https://images.pexels.com/photos/2136243/pexels-photo-2136243.jpeg?auto=compress&cs=tinysrgb&w=1800"
+            src={bg || "https://images.pexels.com/photos/2136243/pexels-photo-2136243.jpeg?auto=compress&cs=tinysrgb&w=1800"}
             alt="Laptop repair tools on desk"
             className="absolute inset-0 h-full w-full object-cover opacity-30"
+            referrerPolicy="no-referrer"
           />
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.2)_0%,transparent_40%),radial-gradient(ellipse_at_bottom,hsl(var(--primary)/0.15)_0%,transparent_50%)]" />
         </div>
