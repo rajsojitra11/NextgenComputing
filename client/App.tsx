@@ -1,4 +1,5 @@
 import "./global.css";
+import { useEffect } from "react";
 
 import { Toaster } from "@/components/ui/toaster";
 import { createRoot } from "react-dom/client";
@@ -24,6 +25,18 @@ const queryClient = new QueryClient();
 
 const AppShell = () => {
   const location = useLocation();
+  useEffect(() => {
+    const path = location.pathname;
+    let title = "Nextgen Computing";
+    if (path === "/") title = "Nextgen Computing – Home";
+    else if (path.startsWith("/products")) title = "Products – Nextgen Computing";
+    else if (path.startsWith("/services")) title = "Services – Nextgen Computing";
+    else if (path.startsWith("/about")) title = "About – Nextgen Computing";
+    else if (path.startsWith("/contact")) title = "Contact – Nextgen Computing";
+    else if (path.startsWith("/testimonials")) title = "Testimonials – Nextgen Computing";
+    else if (path.startsWith("/admin")) title = "Admin – Nextgen Computing";
+    document.title = title;
+  }, [location.pathname]);
   const isAdmin = location.pathname.startsWith("/admin");
   return (
     <div className="min-h-dvh flex flex-col">
