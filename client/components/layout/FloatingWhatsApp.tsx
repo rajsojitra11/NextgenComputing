@@ -92,12 +92,25 @@ export default function FloatingWhatsApp() {
     if (flow.mode === "booking") {
       if (flow.step === 1) return ["Laptop", "Desktop", "Other", "Start over"];
       if (flow.step === 2) return issueOptionsForDevice(flow.data.device);
-      if (flow.step === 3) return ["Pickup", "In-store", "Remote support", "Start over"];
-      if (flow.step === 4) return ["Today evening", "Tomorrow morning", "This weekend", "Start over"];
+      if (flow.step === 3)
+        return ["Pickup", "In-store", "Remote support", "Start over"];
+      if (flow.step === 4)
+        return [
+          "Today evening",
+          "Tomorrow morning",
+          "This weekend",
+          "Start over",
+        ];
       if (flow.step === 5) return ["Skip", "Start over"];
       return ["Start over"];
     }
-    return ["Start booking", "Services", "Shop products", "Contact", "Location"];
+    return [
+      "Start booking",
+      "Services",
+      "Shop products",
+      "Contact",
+      "Location",
+    ];
   };
 
   const quickReplies = getQuickReplies();
@@ -400,8 +413,8 @@ export default function FloatingWhatsApp() {
               {flow.mode === "booking"
                 ? `Booking • Step ${flow.step} of 5`
                 : flow.mode === "confirm"
-                ? "Review & Confirm"
-                : "Repairs, upgrades, products and directions"}
+                  ? "Review & Confirm"
+                  : "Repairs, upgrades, products and directions"}
             </p>
           </header>
           <div className="flex-1 overflow-y-auto px-3 py-3 space-y-2">
