@@ -22,6 +22,7 @@ export default function FloatingWhatsApp() {
     issue?: string;
     method?: "pickup" | "instore" | "remote" | string;
     time?: string;
+    address?: string;
     name?: string;
     phone?: string;
   };
