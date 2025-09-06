@@ -7,25 +7,31 @@ export default function FloatingWhatsApp() {
   const [messages, setMessages] = useState<{ role: "bot" | "user"; text: string }[]>([]);
   const endRef = useRef<HTMLDivElement | null>(null);
 
-  const PHONE = "+918469283448";
+  // Business details
+  const PHONE = "+91 8469283448";
+  const PHONE_E164 = PHONE.replace(/\D/g, "");
   const EMAIL = "nextgencomputing01@gmail.com";
   const ADDRESS = "Bopal, Ahmedabad, Gujarat";
-  const WHATSAPP = `https://wa.me/${PHONE.replace(/\D/g, "")}`;
+  const WHATSAPP = `https://wa.me/${PHONE_E164}`;
   const MAPS = `https://www.google.com/maps?q=${encodeURIComponent(ADDRESS)}`;
 
-  const quickReplies = useMemo(
-    () => [
-      "Services",
-      "Book a repair",
-      "Shop products",
-      "Contact",
-      "Location",
-      "Email",
-      "Call",
-      "Warranty",
-    ],
-    []
-  );
+  type BookingData = {
+    device?: string;
+    issue?: string;
+    method?: "pickup" | "instore" | "remote";
+    time?: string;
+    name?: string;
+    phone?: string;
+  };
+  type Flow = { mode: "idle" | "booking"; step: number; data: BookingData };
+  const [flow, setFlow] = useState<Flow>({ mode: "idle", step: 0, data: {} });
+
+  const baseQuick = ["Services", "Shop products", "Contact", "Location", "Start booking"] as const;
+  const bookingQuick = ["Laptop", "Desktop", "Pickup", "In-store", "Remote support", "Start over"] as const;
+  const quickReplies = useMemo(() => (flow.mode === "booking" ? bookingQuick : baseQuick), [flow.mode]);
+
+  const addBot = (text: string) => setMessages((m) => [...m, { role: "bot", text }]);
+  const addUser = (text: string) => setMessages((m) => [...m, { role: "user", text }]);
 
   useEffect(() => {
     if (!open) return;
@@ -34,75 +40,168 @@ export default function FloatingWhatsApp() {
         {
           role: "bot",
           text:
-            "Hi! I’m the Nextgen Computing assistant. I can help with repairs, upgrades, product queries and directions. How can I help you today?",
+            "Welcome to Nextgen Computing! We repair laptops/desktops, do upgrades, and sell devices & accessories. I’ll guide you step‑by‑step. Choose an option or type your question.",
+        },
+        {
+          role: "bot",
+          text:
+            "Popular: Start booking, Services, Shop products, Contact, Location",
         },
       ]);
     }
-  }, [open]);
+  }, [open, messages.length]);
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
 
-  const reply = (text: string) => {
-    const add = (t: string) => setMessages((m) => [...m, { role: "bot", text: t }]);
-    const q = text.toLowerCase();
+  const startBooking = () => {
+    setFlow({ mode: "booking", step: 1, data: {} });
+    addBot("Let’s book a repair/service. I’ll ask a few quick questions.");
+    addBot("Step 1/4 — What device do you need help with? (e.g., Laptop, Desktop, Other)");
+  };
 
-    if (/^services?$/.test(text) || q.includes("service") || q.includes("repair")) {
-      add(
-        "We offer: Laptop & Desktop Repair, Data Recovery, OS Install & Tune‑up, Hardware Upgrades (SSD/RAM/GPU/CPU), and Maintenance & Cleaning."
-      );
-      add(
-        `Book now on WhatsApp: ${WHATSAPP}?text=${encodeURIComponent(
-          "Hello Nextgen Computing — I want to book a repair or service"
-        )}`
-      );
+  const summarizeAndConfirm = (data: BookingData) => {
+    const summary = [
+      `Device: ${data.device || "-"}`,
+      `Issue: ${data.issue || "-"}`,
+      `Method: ${data.method || "-"}`,
+      `Preferred time: ${data.time || "-"}`,
+      data.name ? `Name: ${data.name}` : null,
+      data.phone ? `Phone: ${data.phone}` : null,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    addBot("Thanks! Here’s your booking summary:");
+    addBot(summary);
+    const text = `Booking Request%0A${encodeURIComponent(summary)}`;
+    addBot(
+      `To confirm now, tap: ${WHATSAPP}?text=${text}\nOr I can help with anything else — type \"Start over\" to reset.`
+    );
+    setFlow({ mode: "idle", step: 0, data: {} });
+  };
+
+  const handleBookingStep = (text: string) => {
+    const q = text.trim();
+    if (/^start over$/i.test(q)) {
+      setFlow({ mode: "idle", step: 0, data: {} });
+      addBot("Reset. You can Start booking, view Services, or ask a question.");
       return;
     }
 
-    if (q.includes("book")) {
-      add(
-        `Great! Tap to book on WhatsApp: ${WHATSAPP}?text=${encodeURIComponent(
-          "Hello Nextgen Computing — I want to book a repair or service"
-        )}`
+    if (flow.step === 1) {
+      const device = /laptop/i.test(q)
+        ? "Laptop"
+        : /desktop|pc/i.test(q)
+        ? "Desktop"
+        : q;
+      const data = { ...flow.data, device };
+      setFlow({ mode: "booking", step: 2, data });
+      addBot("Step 2/4 — Briefly describe the issue (e.g., won’t boot, screen broken, battery drains, upgrade needed)");
+      return;
+    }
+
+    if (flow.step === 2) {
+      const data = { ...flow.data, issue: q };
+      setFlow({ mode: "booking", step: 3, data });
+      addBot("Step 3/4 — Choose service method: Pickup, In‑store, or Remote support");
+      return;
+    }
+
+    if (flow.step === 3) {
+      let method: BookingData["method"] | undefined;
+      if (/pickup/i.test(q)) method = "pickup";
+      else if (/store|instore|in-store/i.test(q)) method = "instore";
+      else if (/remote/i.test(q)) method = "remote";
+      const data = { ...flow.data, method: method || (q as any) };
+      setFlow({ mode: "booking", step: 4, data });
+      addBot("Step 4/4 — What’s your preferred date/time window? (e.g., tomorrow 3‑5pm)");
+      return;
+    }
+
+    if (flow.step === 4) {
+      const data = { ...flow.data, time: q };
+      setFlow({ mode: "booking", step: 5, data });
+      addBot("Optional — Share your name and phone (e.g., Rahul, 98XXXXXX10). Or type Skip.");
+      return;
+    }
+
+    if (flow.step === 5) {
+      let name: string | undefined;
+      let phone: string | undefined;
+      if (!/^skip$/i.test(q)) {
+        const m = q.match(/([^,]+),\s*(\+?\d[\d\s-]{6,})/);
+        if (m) {
+          name = m[1].trim();
+          phone = m[2].replace(/\D/g, "");
+        } else {
+          name = q.trim();
+        }
+      }
+      const data = { ...flow.data, name, phone };
+      summarizeAndConfirm(data);
+      return;
+    }
+  };
+
+  const reply = (text: string) => {
+    const q = text.toLowerCase();
+
+    if (flow.mode === "booking") {
+      handleBookingStep(text);
+      return;
+    }
+
+    if (q.includes("start booking") || q.includes("book a repair") || q.includes("book")) {
+      startBooking();
+      return;
+    }
+
+    if (/^services?$/.test(text) || q.includes("service") || q.includes("repair")) {
+      addBot(
+        "We offer: Laptop/Desktop Repair, Data Recovery, OS Install & Tune‑up, Hardware Upgrades (SSD/RAM/GPU/CPU), Maintenance & Cleaning."
       );
+      addBot("Type ‘Start booking’ to schedule a service, or ask about pricing/warranty.");
       return;
     }
 
     if (q.includes("shop") || q.includes("product")) {
-      add("You can browse featured products and peripherals on our Products page.");
-      add("Open Products: /products");
+      addBot("You can browse products, laptops and accessories on our Products page.");
+      addBot("Open Products: /products");
+      addBot("Need help choosing? Tell me your budget and use-case (office, gaming, study). I’ll suggest options.");
       return;
     }
 
     if (q.includes("contact") || q.includes("phone") || q.includes("call")) {
-      add(`Phone: +91 8469283448 (tap to call: tel:${PHONE})`);
-      add(`WhatsApp: ${WHATSAPP}`);
-      add(`Email: ${EMAIL}`);
+      addBot(`Phone: ${PHONE}`);
+      addBot(`Email: ${EMAIL}`);
+      addBot("For instant chat, say ‘Start booking’ or ask a question.");
       return;
     }
 
     if (q.includes("email")) {
-      add(`Email us at ${EMAIL}`);
+      addBot(`Email us at ${EMAIL}. For urgent issues, calling is faster.`);
       return;
     }
 
     if (q.includes("location") || q.includes("address") || q.includes("map")) {
-      add(`Address: ${ADDRESS}`);
-      add(`Directions: ${MAPS}`);
+      addBot(`Address: ${ADDRESS}`);
+      addBot(`Directions: ${MAPS}`);
+      addBot("We offer pickup in nearby areas — say ‘Start booking’ to arrange.");
       return;
     }
 
-    if (q.includes("warranty") || q.includes("guarantee")) {
-      add(
-        "Repairs include warranty as stated on your invoice (varies by service and parts). We use genuine parts where available."
+    if (q.includes("warranty") || q.includes("guarantee") || q.includes("price") || q.includes("pricing")) {
+      addBot(
+        "Diagnostics are quick; pricing depends on parts and labor. Repairs include warranty as mentioned on your invoice (varies by service/parts)."
       );
-      add(`Have a specific job in mind? Message us: ${WHATSAPP}`);
+      addBot("Tell me the device and issue, or say ‘Start booking’. I’ll guide you.");
       return;
     }
 
-    add(
-      "I can help with Services, Booking, Products, Contact, and Location. Try one of the quick suggestions below."
+    addBot(
+      "I can help with Services, Start booking, Products, Contact, and Location. Try the quick buttons below."
     );
   };
 
@@ -110,9 +209,9 @@ export default function FloatingWhatsApp() {
     if (e) e.preventDefault();
     const text = input.trim();
     if (!text) return;
-    setMessages((m) => [...m, { role: "user", text }]);
+    addUser(text);
     setInput("");
-    setTimeout(() => reply(text), 200);
+    setTimeout(() => reply(text), 150);
   };
 
   return (
@@ -155,7 +254,7 @@ export default function FloatingWhatsApp() {
                   </div>
                 )}
                 <div className={
-                  "rounded-2xl px-3 py-2 max-w-[80%] text-sm " +
+                  "rounded-2xl px-3 py-2 max-w-[80%] text-sm whitespace-pre-wrap " +
                   (m.role === "bot" ? "bg-slate-100 text-slate-900" : "bg-blue-600 text-white")
                 }>
                   {m.text}
@@ -171,8 +270,8 @@ export default function FloatingWhatsApp() {
                 <button
                   key={t}
                   onClick={() => {
-                    setMessages((m) => [...m, { role: "user", text: t }]);
-                    setTimeout(() => reply(t), 150);
+                    addUser(t);
+                    setTimeout(() => reply(t), 120);
                   }}
                   className="rounded-full border border-blue-200/60 bg-white/70 px-3 py-1 text-xs text-blue-900 hover:bg-blue-50"
                 >
@@ -195,7 +294,7 @@ export default function FloatingWhatsApp() {
           </form>
 
           <div className="px-3 py-2 text-[11px] text-slate-500 bg-slate-50 border-t border-slate-200/70">
-            Need a human? Chat on WhatsApp: <a className="text-blue-700 font-medium" href={`${WHATSAPP}?text=${encodeURIComponent("Hello Nextgen Computing — I need help with...")}`} target="_blank" rel="noreferrer">Open WhatsApp</a>
+            Need a human? Call {PHONE} or email {EMAIL}. For WhatsApp confirmation we’ll share a link after booking.
           </div>
         </div>
       )}
