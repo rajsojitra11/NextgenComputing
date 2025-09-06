@@ -150,7 +150,7 @@ export default function FloatingWhatsApp() {
     setFlow({ mode: "booking", step: 1, data: {} });
     addBot("Let’s book a repair/service. I’ll ask a few quick questions.");
     addBot(
-      "Step 1/5 — What device do you need help with? (e.g., Laptop, Desktop, Other)",
+      "Step 1/6 — What device do you need help with? (e.g., Laptop, Desktop, Other)",
     );
   };
 
