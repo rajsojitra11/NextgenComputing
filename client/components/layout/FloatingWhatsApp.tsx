@@ -201,7 +201,7 @@ export default function FloatingWhatsApp() {
       const data = { ...flow.data, issue };
       setFlow({ mode: "booking", step: 3, data });
       addBot(
-        "Step 3/5 — Choose service method: Pickup, In‑store, or Remote support",
+        "Step 3/6 — Choose service method: Pickup, In‑store, or Remote support",
       );
       return;
     }
@@ -221,7 +221,7 @@ export default function FloatingWhatsApp() {
       const data = { ...flow.data, time };
       setFlow({ mode: "booking", step: 5, data });
       addBot(
-        "Step 5/5 — Optional: Share your name and phone (e.g., Rahul, 98XXXXXX10). Or type Skip.",
+        "Step 5/5 ��� Optional: Share your name and phone (e.g., Rahul, 98XXXXXX10). Or type Skip.",
       );
       return;
     }
