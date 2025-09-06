@@ -6,7 +6,13 @@ import { createRoot } from "react-dom/client";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import SiteHeader from "./components/layout/SiteHeader";
@@ -29,11 +35,14 @@ const AppShell = () => {
     const path = location.pathname;
     let title = "Nextgen Computing";
     if (path === "/") title = "Nextgen Computing – Home";
-    else if (path.startsWith("/products")) title = "Products – Nextgen Computing";
-    else if (path.startsWith("/services")) title = "Services – Nextgen Computing";
+    else if (path.startsWith("/products"))
+      title = "Products – Nextgen Computing";
+    else if (path.startsWith("/services"))
+      title = "Services – Nextgen Computing";
     else if (path.startsWith("/about")) title = "About – Nextgen Computing";
     else if (path.startsWith("/contact")) title = "Contact – Nextgen Computing";
-    else if (path.startsWith("/testimonials")) title = "Testimonials – Nextgen Computing";
+    else if (path.startsWith("/testimonials"))
+      title = "Testimonials – Nextgen Computing";
     else if (path.startsWith("/admin")) title = "Admin – Nextgen Computing";
     document.title = title;
   }, [location.pathname]);
