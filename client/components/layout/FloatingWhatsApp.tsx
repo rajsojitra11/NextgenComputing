@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Floating Chatbot for Nextgen Computing
 export default function FloatingWhatsApp() {
@@ -54,12 +54,53 @@ export default function FloatingWhatsApp() {
   };
   const confirmQuick = ["Confirm", "Start over"] as const;
 
-  const quickReplies = useMemo(() => {
-    if (flow.mode === "confirm") return confirmQuick as unknown as string[];
-    if (flow.mode === "booking")
-      return bookingQuickByStep[flow.step] || ["Start over"];
-    return baseQuick as unknown as string[];
-  }, [flow.mode, flow.step]);
+  const issueOptionsForDevice = (device?: string): string[] => {
+    const d = (device || "").toLowerCase();
+    if (d.includes("laptop")) {
+      return [
+        "Screen broken",
+        "Battery issue",
+        "Keyboard/Touchpad",
+        "Won’t boot",
+        "Overheating",
+        "SSD/RAM upgrade",
+        "Start over",
+      ];
+    }
+    if (d.includes("desktop") || d.includes("pc") || d.includes("computer")) {
+      return [
+        "No display",
+        "Won’t boot",
+        "Power supply issue",
+        "Overheating",
+        "SSD/RAM upgrade",
+        "Start over",
+      ];
+    }
+    return [
+      "Won’t boot",
+      "Slow performance",
+      "Data recovery",
+      "Virus/OS issue",
+      "SSD/RAM upgrade",
+      "Start over",
+    ];
+  };
+
+  const getQuickReplies = (): string[] => {
+    if (flow.mode === "confirm") return ["Confirm", "Start over"];
+    if (flow.mode === "booking") {
+      if (flow.step === 1) return ["Laptop", "Desktop", "Other", "Start over"];
+      if (flow.step === 2) return issueOptionsForDevice(flow.data.device);
+      if (flow.step === 3) return ["Pickup", "In-store", "Remote support", "Start over"];
+      if (flow.step === 4) return ["Today evening", "Tomorrow morning", "This weekend", "Start over"];
+      if (flow.step === 5) return ["Skip", "Start over"];
+      return ["Start over"];
+    }
+    return ["Start booking", "Services", "Shop products", "Contact", "Location"];
+  };
+
+  const quickReplies = getQuickReplies();
 
   const addBot = (text: string) =>
     setMessages((m) => [...m, { role: "bot", text }]);
@@ -356,7 +397,11 @@ export default function FloatingWhatsApp() {
               Nextgen Computing — Chat Assistant
             </h3>
             <p className="text-xs text-slate-600">
-              Repairs, upgrades, products and directions
+              {flow.mode === "booking"
+                ? `Booking • Step ${flow.step} of 5`
+                : flow.mode === "confirm"
+                ? "Review & Confirm"
+                : "Repairs, upgrades, products and directions"}
             </p>
           </header>
           <div className="flex-1 overflow-y-auto px-3 py-3 space-y-2">
