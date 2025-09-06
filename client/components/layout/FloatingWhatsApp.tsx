@@ -222,9 +222,7 @@ export default function FloatingWhatsApp() {
       const time = q;
       const data = { ...flow.data, time };
       setFlow({ mode: "booking", step: 5, data });
-      addBot(
-        "Step 5/6 — Enter your address (pickup/service location).",
-      );
+      addBot("Step 5/6 — Enter your address (pickup/service location).");
       return;
     }
 
