@@ -121,21 +121,22 @@ export default function FloatingWhatsApp() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center justify-center rounded-full bg-blue-600 text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5 h-14 w-14 md:h-14 md:w-14"
+        className="group relative inline-flex items-center justify-center rounded-full bg-blue-600 text-white shadow-2xl hover:shadow-glow transition-all duration-300 hover:-translate-y-0.5 h-14 w-14 md:h-14 md:w-14 overflow-visible"
         aria-label={open ? "Close chat" : "Open chat"}
       >
-        {open ? (
-          // Close icon
-          <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        ) : (
-          // Chat bubble icon
-          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
-            <path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 5v-5H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
-          </svg>
-        )}
+        <span className="absolute inset-0 rounded-full bg-blue-500/40 animate-ping" aria-hidden="true" />
+        <span className="relative z-10 flex items-center justify-center">
+          {open ? (
+            <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor" aria-hidden="true">
+              <path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 5v-5H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
+            </svg>
+          )}
+        </span>
       </button>
 
       {/* Panel */}
