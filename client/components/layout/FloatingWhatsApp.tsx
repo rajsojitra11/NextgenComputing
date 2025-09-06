@@ -172,6 +172,7 @@ export default function FloatingWhatsApp() {
       `Device: ${d.device || "-"}`,
       `Issue: ${d.issue || "-"}`,
       `Method: ${d.method || "-"}`,
+      d.address ? `Address: ${d.address}` : null,
       `Preferred time: ${d.time || "-"}`,
       d.name ? `Name: ${d.name}` : null,
       d.phone ? `Phone: ${d.phone}` : null,
