@@ -102,7 +102,8 @@ export default function FloatingWhatsApp() {
           "This weekend",
           "Start over",
         ];
-      if (flow.step === 5) return ["Skip", "Start over"];
+      if (flow.step === 5) return ["Skip", "Start over"]; // address step
+      if (flow.step === 6) return ["Skip", "Start over"]; // contact step
       return ["Start over"];
     }
     return [
