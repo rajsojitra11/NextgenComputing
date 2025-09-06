@@ -211,7 +211,7 @@ export default function FloatingWhatsApp() {
       const data = { ...flow.data, method };
       setFlow({ mode: "booking", step: 4, data });
       addBot(
-        "Step 4/5 — What’s your preferred date/time window? (e.g., tomorrow 3‑5pm)",
+        "Step 4/6 — What’s your preferred date/time window? (e.g., tomorrow 3‑5pm)",
       );
       return;
     }
@@ -221,7 +221,7 @@ export default function FloatingWhatsApp() {
       const data = { ...flow.data, time };
       setFlow({ mode: "booking", step: 5, data });
       addBot(
-        "Step 5/5 ��� Optional: Share your name and phone (e.g., Rahul, 98XXXXXX10). Or type Skip.",
+        "Step 5/5 — Optional: Share your name and phone (e.g., Rahul, 98XXXXXX10). Or type Skip.",
       );
       return;
     }
