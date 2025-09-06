@@ -191,7 +191,7 @@ export default function FloatingWhatsApp() {
       const data = { ...flow.data, device };
       setFlow({ mode: "booking", step: 2, data });
       addBot(
-        "Step 2/5 — Briefly describe the issue (e.g., won’t boot, screen broken, battery drains, upgrade needed)",
+        "Step 2/6 — Briefly describe the issue (e.g., won’t boot, screen broken, battery drains, upgrade needed)",
       );
       return;
     }
