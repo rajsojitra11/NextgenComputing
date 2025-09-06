@@ -426,7 +426,7 @@ export default function FloatingWhatsApp() {
             </h3>
             <p className="text-xs text-slate-600">
               {flow.mode === "booking"
-                ? `Booking • Step ${flow.step} of 5`
+                ? `Booking • Step ${flow.step} of 6`
                 : flow.mode === "confirm"
                   ? "Review & Confirm"
                   : "Repairs, upgrades, products and directions"}
