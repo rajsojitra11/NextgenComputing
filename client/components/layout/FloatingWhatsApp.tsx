@@ -102,8 +102,8 @@ export default function FloatingWhatsApp() {
           "This weekend",
           "Start over",
         ];
-      if (flow.step === 5) return ["Skip", "Start over"]; // address step
-      if (flow.step === 6) return ["Skip", "Start over"]; // contact step
+      if (flow.step === 5) return ["Start over"]; // address step
+      if (flow.step === 6) return ["Start over"]; // contact step
       return ["Start over"];
     }
     return [
@@ -223,7 +223,7 @@ export default function FloatingWhatsApp() {
       const data = { ...flow.data, time };
       setFlow({ mode: "booking", step: 5, data });
       addBot(
-        "Step 5/6 — Enter your address (pickup/service location). You can type Skip.",
+        "Step 5/6 — Enter your address (pickup/service location).",
       );
       return;
     }
@@ -236,7 +236,7 @@ export default function FloatingWhatsApp() {
       const data = { ...flow.data, address };
       setFlow({ mode: "booking", step: 6, data });
       addBot(
-        "Step 6/6 — Optional: Share your name and phone (e.g., Rahul, 98XXXXXX10). Or type Skip.",
+        "Step 6/6 — Optional: Share your name and phone (e.g., Rahul, 98XXXXXX10).",
       );
       return;
     }
