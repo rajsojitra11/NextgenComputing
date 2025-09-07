@@ -488,19 +488,24 @@ export default function FloatingWhatsApp() {
 
           <form
             onSubmit={onSend}
-            className="border-t border-slate-200/70 p-2 flex gap-2"
+            className="border-t border-slate-200/70 p-2 flex gap-2 shrink-0 bg-white/95 backdrop-blur"
+            style={{ paddingBottom: "max(env(safe-area-inset-bottom, 0px), 8px)" }}
           >
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Type your message…"
-              className="flex-1 rounded-lg border border-slate-200 px-3 py-2 outline-none focus:ring-2 focus:ring-blue-500"
+              className="min-w-0 flex-1 rounded-lg border border-slate-200 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
             />
             <button
               type="submit"
-              className="rounded-lg bg-blue-600 text-white px-3 py-2 text-sm font-medium hover:bg-blue-700"
+              className="flex-none inline-flex items-center gap-2 rounded-lg bg-blue-600 text-white px-3 sm:px-4 py-2 h-10 text-sm font-medium hover:bg-blue-700 whitespace-nowrap"
             >
-              Send
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <span className="hidden xs:inline sm:inline">Send</span>
             </button>
           </form>
 
