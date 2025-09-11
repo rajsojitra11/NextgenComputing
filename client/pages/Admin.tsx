@@ -185,9 +185,61 @@ export default function Admin() {
   useEffect(() => {
     if (!authed) return;
     const ENABLE_API = import.meta.env.VITE_ENABLE_API === "true";
-    if (!ENABLE_API) return;
-    fetch("/api/products").then(r => r.ok ? r.json() : Promise.reject()).then(setItems).catch(() => {});
-        fetch("/api/categories").then(r => r.ok ? r.json() : Promise.reject()).then(setCategories).catch(() => {});
+    let cancelled = false;
+
+    const normalize = (s: string) => s.toLowerCase().replace(/\s+/g, " ").trim();
+
+    const setFromStatic = async () => {
+      try {
+        const r = await fetch("/products.json", { cache: "no-store" });
+        if (r.ok) {
+          const p: Product[] = await r.json();
+          if (!cancelled) {
+            setItems(Array.isArray(p) ? p : []);
+            const unique = Array.from(new Set(p.map((x) => normalize(x.category || "")).filter(Boolean)));
+            const cats = unique.map((name, i) => ({ id: `drv-${i}-${name}`, name }));
+            setCategories(cats);
+          }
+        }
+      } catch {}
+    };
+
+    const load = async () => {
+      if (!ENABLE_API) {
+        await setFromStatic();
+        return;
+      }
+      try {
+        const ping = await fetch("/api/ping", { cache: "no-store" });
+        if (!ping.ok) throw new Error("no_api");
+      } catch {
+        await setFromStatic();
+        return;
+      }
+      try {
+        const [p, c] = await Promise.all([
+          fetch("/api/products", { cache: "no-store" }).then((r) => (r.ok ? r.json() : Promise.reject())).catch(() => []),
+          fetch("/api/categories", { cache: "no-store" }).then((r) => (r.ok ? r.json() : Promise.reject())).catch(() => []),
+        ]);
+        if (!cancelled) {
+          setItems(Array.isArray(p) ? (p as Product[]) : []);
+          const catsArr = Array.isArray(c) ? (c as { id?: string; name: string }[]) : [];
+          if (catsArr.length > 0) setCategories(catsArr);
+          else {
+            const unique = Array.from(new Set((Array.isArray(p) ? (p as Product[]) : []).map((x) => normalize(x.category || "")).filter(Boolean)));
+            const cats = unique.map((name, i) => ({ id: `drv-${i}-${name}`, name }));
+            setCategories(cats);
+          }
+        }
+      } catch {
+        await setFromStatic();
+      }
+    };
+
+    load();
+    return () => {
+      cancelled = true;
+    };
   }, [authed]);
 
   const submitProduct = async (e: React.FormEvent) => {
