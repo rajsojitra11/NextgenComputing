@@ -134,7 +134,7 @@ export default function FloatingWhatsApp() {
         {
           role: "bot",
           text: "Welcome to Nextgen Computing! I’ll guide you step‑by‑step to book a repair, find products, or get our contact/location.",
-        }
+        },
       ]);
     }
   }, [open, messages.length]);
