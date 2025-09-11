@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SiteFooter() {
   return (
     <footer className="bg-slate-950 text-slate-300">
@@ -11,10 +13,10 @@ export default function SiteFooter() {
         <div>
           <h4 className="text-white font-semibold">Quick Links</h4>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><a className="hover:text-white transition-colors" href="/products">Shop Products</a></li>
-            <li><a className="hover:text-white transition-colors" href="/services">Services</a></li>
-            <li><a className="hover:text-white transition-colors" href="/about">About Us</a></li>
-            <li><a className="hover:text-white transition-colors" href="/contact">Contact</a></li>
+            <li><Link className="hover:text-white transition-colors" to="/products">Shop Products</Link></li>
+            <li><Link className="hover:text-white transition-colors" to="/services">Services</Link></li>
+            <li><Link className="hover:text-white transition-colors" to="/about">About Us</Link></li>
+            <li><Link className="hover:text-white transition-colors" to="/contact">Contact</Link></li>
           </ul>
         </div>
         <div>
